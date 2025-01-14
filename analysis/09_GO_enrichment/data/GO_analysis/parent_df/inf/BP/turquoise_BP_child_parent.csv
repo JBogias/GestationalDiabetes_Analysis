@@ -1,0 +1,214 @@
+childTerm,parentTerm,FDR,frequencyParent
+multicellular organismal process,multicellular organismal process,7.240497551014954e-13,23
+response to stimulus,response to stimulus,3.8367657665827074e-12,46
+cell adhesion,cell adhesion,1.0446708431183512e-11,6
+external encapsulating structure organization,external encapsulating structure organization,5.786328581207996e-10,6
+extracellular matrix organization,external encapsulating structure organization,1.568660131799086e-9,6
+extracellular structure organization,external encapsulating structure organization,1.568660131799086e-9,6
+immune response,immune response,3.237650885015383e-9,8
+cell migration,cell migration,5.0335236294967e-9,3
+anatomical structure development,anatomical structure development,5.8088279318950734e-9,43
+anatomical structure morphogenesis,anatomical structure development,7.2984432515687225e-9,43
+regulation of multicellular organismal process,multicellular organismal process,7.758488769360593e-9,23
+immune system process,immune response,2.0375324348362204e-8,8
+defense response,response to stimulus,2.1535707178219128e-8,46
+cell surface receptor signaling pathway,cell surface receptor signaling pathway,2.8089053900432185e-8,8
+developmental process,anatomical structure development,3.7379885710585026e-8,43
+response to external stimulus,response to stimulus,4.1114716241128055e-8,46
+locomotion,locomotion,4.6503446198571376e-8,7
+cell motility,cell migration,1.2604263488300446e-7,3
+response to wounding,response to stimulus,1.7774387951695045e-7,46
+wound healing,response to stimulus,1.7774387951695045e-7,46
+signal transduction,cell surface receptor signaling pathway,4.057912269347062e-7,8
+tissue development,anatomical structure development,5.861983818147701e-7,43
+positive regulation of multicellular organismal process,multicellular organismal process,7.860683031283936e-7,23
+anatomical structure formation involved in morphogenesis,anatomical structure development,1.37933339489643e-6,43
+ossification,multicellular organismal process,1.4107873584470985e-6,23
+multicellular organism development,anatomical structure development,3.2895894362420223e-6,43
+response to chemical,response to stimulus,3.2895894362420223e-6,46
+signaling,cell surface receptor signaling pathway,4.301739899465673e-6,8
+cellular response to stimulus,response to stimulus,5.143057065675696e-6,46
+regulation of cell migration,locomotion,6.063447398579735e-6,7
+cell communication,cell communication,7.651008118831172e-6,10
+cell activation,multicellular organismal process,8.232296002052442e-6,23
+response to other organism,response to stimulus,9.283014571235752e-6,46
+skeletal system development,anatomical structure development,9.666677081391176e-6,43
+response to external biotic stimulus,response to stimulus,9.938814809381628e-6,46
+inflammatory response,response to stimulus,1.1097699985135845e-5,46
+system development,anatomical structure development,1.6005576886426843e-5,43
+negative regulation of wound healing,response to stimulus,1.7907232252620845e-5,46
+collagen fibril organization,external encapsulating structure organization,1.9448104411091244e-5,6
+regulation of multicellular organismal development,anatomical structure development,1.967610244776461e-5,43
+regulation of cell motility,locomotion,2.306461238076565e-5,7
+regulation of locomotion,locomotion,2.365787126825595e-5,7
+response to biotic stimulus,response to stimulus,3.7046947736153496e-5,46
+osteoblast differentiation,multicellular organismal process,4.149037575289984e-5,23
+regulation of cell adhesion,cell adhesion,4.296991945492014e-5,6
+response to organic substance,response to stimulus,6.004896091687212e-5,46
+animal organ development,anatomical structure development,6.342154852336237e-5,43
+response to endogenous stimulus,response to stimulus,6.428907060807368e-5,46
+negative regulation of response to wounding,response to stimulus,6.562351574047862e-5,46
+collagen metabolic process,collagen metabolic process,8.727009211199636e-5,15
+positive regulation of cytokine production,collagen metabolic process,1.5355185143707892e-4,15
+circulatory system development,anatomical structure development,1.6049446940964555e-4,43
+negative regulation of multicellular organismal process,multicellular organismal process,1.719516216964501e-4,23
+blood coagulation,multicellular organismal process,1.7392956404620882e-4,23
+coagulation,multicellular organismal process,1.7392956404620882e-4,23
+blood vessel development,anatomical structure development,1.8019404018183272e-4,43
+cell population proliferation,cell population proliferation,2.0473509281420657e-4,4
+cellular response to endogenous stimulus,response to stimulus,2.0866304183264308e-4,46
+biological process involved in interspecies interaction between organisms,biological process involved in interspecies interaction between organisms,2.1115493705597087e-4,2
+bone mineralization,anatomical structure development,2.253617809725462e-4,43
+regulation of wound healing,response to stimulus,2.261613087936393e-4,46
+regulation of immune system process,immune response,2.320285208589883e-4,8
+cell-cell adhesion,cell adhesion,2.326775886820827e-4,6
+positive regulation of gene expression,collagen metabolic process,2.401138813591264e-4,15
+biomineral tissue development,anatomical structure development,2.5418252290897224e-4,43
+cellular response to chemical stimulus,response to stimulus,2.5546860008095716e-4,46
+supramolecular fiber organization,external encapsulating structure organization,3.0342750666960335e-4,6
+regulation of cell population proliferation,cell population proliferation,3.0466057472155697e-4,4
+immune effector process,immune response,3.3048468768267277e-4,8
+hemostasis,hemostasis,3.5294733381132607e-4,9
+regulation of biological quality,hemostasis,3.728484881789305e-4,9
+leukocyte activation,multicellular organismal process,3.97938423820607e-4,23
+regulation of developmental process,anatomical structure development,4.964198959720524e-4,43
+response to stress,response to stimulus,5.069069071987293e-4,46
+regulation of response to stimulus,response to stimulus,5.407430496704478e-4,46
+defense response to other organism,response to stimulus,6.975037456510992e-4,46
+actin filament-based process,actin filament-based process,7.108776771595251e-4,4
+vasculature development,anatomical structure development,7.392642649762505e-4,43
+cellular response to transforming growth factor beta stimulus,response to stimulus,7.565324754461142e-4,46
+cytokine production,collagen metabolic process,8.254862727893539e-4,15
+regulation of response to wounding,response to stimulus,8.514372331085831e-4,46
+regulation of cytokine production,collagen metabolic process,8.583052975451663e-4,15
+cellular response to growth factor stimulus,response to stimulus,8.629367593433583e-4,46
+tube development,anatomical structure development,9.647409366372192e-4,43
+regulation of catalytic activity,regulation of catalytic activity,0.00104801415760774,9
+enzyme-linked receptor protein signaling pathway,cell communication,0.00110218016057039,10
+regulation of signal transduction,cell surface receptor signaling pathway,0.00111026809824163,8
+regulation of protein phosphorylation,collagen metabolic process,0.0011934695280717,15
+regulation of blood coagulation,hemostasis,0.00119434257240075,9
+regulation of hemostasis,hemostasis,0.00119434257240075,9
+animal organ morphogenesis,anatomical structure development,0.00123527671498252,43
+response to oxygen-containing compound,response to stimulus,0.0012597437977249,46
+platelet activation,multicellular organismal process,0.00131019155638646,23
+response to transforming growth factor beta,response to stimulus,0.00138523121292142,46
+regulation of protein metabolic process,collagen metabolic process,0.00141752769055636,15
+regulation of cellular response to growth factor stimulus,response to stimulus,0.0015619805490541,46
+smooth muscle contraction,multicellular organismal process,0.00184623847726508,23
+response to growth factor,response to stimulus,0.00197953897909344,46
+regulation of coagulation,multicellular organismal process,0.00203649182808765,23
+chemotaxis,locomotion,0.00288154945347522,7
+taxis,locomotion,0.00288154945347522,7
+response to cytokine,response to stimulus,0.00289310692025801,46
+gastrulation,anatomical structure development,0.00293644307388053,43
+regulation of actin filament-based process,actin filament-based process,0.00295495679054895,4
+regulation of cell communication,cell communication,0.00345068330959885,10
+regulation of cell activation,multicellular organismal process,0.00348032984456302,23
+response to virus,biological process involved in interspecies interaction between organisms,0.00368248704637165,2
+adaptive immune response,immune response,0.00389175245641855,8
+cellular response to organic substance,response to stimulus,0.00389953014730882,46
+actin cytoskeleton organization,actin filament-based process,0.00400431498655809,4
+cell differentiation,anatomical structure development,0.00400567368225151,43
+positive regulation of cell communication,cell communication,0.00403064572584727,10
+cellular developmental process,anatomical structure development,0.00412574190463941,43
+blood vessel morphogenesis,anatomical structure development,0.00431374458495736,43
+defense response to symbiont,response to stimulus,0.00439493994244692,46
+positive regulation of cell population proliferation,cell population proliferation,0.00468913971547718,4
+negative regulation of blood coagulation,hemostasis,0.00490376986167129,9
+negative regulation of hemostasis,hemostasis,0.00490376986167129,9
+regulation of peptidase activity,regulation of catalytic activity,0.0049126108786208,9
+response to bacterium,response to stimulus,0.00522253904204976,46
+regulation of response to external stimulus,response to stimulus,0.00555786712163557,46
+positive regulation of response to stimulus,response to stimulus,0.00560346156898951,46
+regulation of phosphorus metabolic process,collagen metabolic process,0.00586971728340208,15
+positive regulation of signaling,cell surface receptor signaling pathway,0.00634289049233339,8
+positive regulation of signal transduction,cell communication,0.00636151846169457,10
+regulation of phosphorylation,collagen metabolic process,0.0064876446836199,15
+defense response to bacterium,response to stimulus,0.00652069831725322,46
+regulation of bone mineralization,multicellular organismal process,0.00659316412721265,23
+regulation of molecular function,regulation of catalytic activity,0.00704272642053066,9
+negative regulation of molecular function,regulation of catalytic activity,0.00733741816962417,9
+response to mechanical stimulus,response to stimulus,0.00736828003827788,46
+interleukin-27-mediated signaling pathway,response to stimulus,0.00736828003827788,46
+positive regulation of cell adhesion,cell adhesion,0.00764046578284112,6
+muscle contraction,multicellular organismal process,0.00766863141729778,23
+innate immune response,response to stimulus,0.00778486236420996,46
+cartilage development,anatomical structure development,0.00834064664745756,43
+mesenchymal cell differentiation,anatomical structure development,0.00890573612411366,43
+regulation of phosphate metabolic process,collagen metabolic process,0.00898700919916866,15
+negative regulation of coagulation,multicellular organismal process,0.00909369022510949,23
+negative regulation of response to external stimulus,response to stimulus,0.00947707578264414,46
+system process,multicellular organismal process,0.01062637556564876,23
+response to fibroblast growth factor,response to stimulus,0.01125677898665179,46
+cell-substrate adhesion,cell adhesion,0.01127508651210715,6
+connective tissue development,anatomical structure development,0.01131311716962374,43
+bone development,anatomical structure development,0.01145075158386674,43
+positive regulation of phosphatidylinositol 3-kinase/protein kinase B signal transduction,cell surface receptor signaling pathway,0.01165122170431868,8
+regulation of cell junction assembly,external encapsulating structure organization,0.0119791958885034,6
+endodermal cell differentiation,anatomical structure development,0.01216831096224418,43
+regulation of anatomical structure morphogenesis,anatomical structure development,0.01220988826140113,43
+regulation of signaling,cell surface receptor signaling pathway,0.01227746174621003,8
+endoderm development,anatomical structure development,0.0124493040401663,43
+mesenchyme development,anatomical structure development,0.01272956595952455,43
+regulation of endopeptidase activity,regulation of catalytic activity,0.01347032748119746,9
+import into cell,import into cell,0.01347495064115012,6
+protein phosphorylation,collagen metabolic process,0.01360478410793547,15
+endoderm formation,anatomical structure development,0.01408924378928492,43
+angiogenesis,anatomical structure development,0.01471583775883254,43
+negative regulation of catalytic activity,regulation of catalytic activity,0.01501747219916182,9
+cell development,anatomical structure development,0.01504782504843788,43
+G protein-coupled receptor signaling pathway,cell surface receptor signaling pathway,0.01506373722120818,8
+tube morphogenesis,anatomical structure development,0.01512279505071961,43
+transforming growth factor beta receptor superfamily signaling pathway,NA,0.01514133026344195,NA
+leukocyte migration,cell migration,0.0159254407803814,3
+lymphocyte activation,multicellular organismal process,0.01668077804859239,23
+regulation of immune response,immune response,0.01668077804859239,8
+cellular response to fibroblast growth factor stimulus,response to stimulus,0.01689484393227081,46
+fibroblast growth factor receptor signaling pathway,response to stimulus,0.0186836004225473,46
+positive regulation of striated muscle cell apoptotic process,positive regulation of cardiac muscle cell apoptotic process,0.01999440114540559,2
+positive regulation of cardiac muscle cell apoptotic process,positive regulation of cardiac muscle cell apoptotic process,0.01999440114540559,2
+muscle system process,multicellular organismal process,0.02044562034679083,23
+regulation of hydrolase activity,regulation of catalytic activity,0.02107931130920434,9
+phosphorylation,collagen metabolic process,0.02137211336682077,15
+integrin-mediated signaling pathway,cell communication,0.02165147017091838,10
+lung development,anatomical structure development,0.02209430630786442,43
+muscle structure development,anatomical structure development,0.02331412475506117,43
+adaptive immune response based on somatic recombination of immune receptors built from immunoglobulin superfamily domains,immune response,0.0236086572657641,8
+regulation of vasculature development,anatomical structure development,0.02364185591651028,43
+positive regulation of developmental process,anatomical structure development,0.024087602759548032,43
+regulation of inflammatory response,response to stimulus,0.02485691541631658,46
+regulation of anatomical structure size,hemostasis,0.0252755443427499,9
+regulation of body fluid levels,hemostasis,0.02625203296230291,9
+innervation,anatomical structure development,0.02694871227440484,43
+regulation of ossification,multicellular organismal process,0.02918932702303865,23
+positive regulation of immune system process,immune response,0.02933451922458372,8
+regulation of actin cytoskeleton organization,actin filament-based process,0.02997786002695723,4
+respiratory tube development,anatomical structure development,0.03027884984584571,43
+regulation of angiogenesis,anatomical structure development,0.03053871955027805,43
+transmembrane receptor protein tyrosine kinase signaling pathway,cell communication,0.03074159753471866,10
+endocytosis,import into cell,0.03090301793796975,6
+regulation of phagocytosis,import into cell,0.03258329010479128,6
+regulation of protein kinase activity,collagen metabolic process,0.03261936274990419,15
+intracellular signaling cassette,NA,0.03261936274990419,NA
+muscle cell proliferation,cell population proliferation,0.03368204833712899,4
+negative regulation of peptidase activity,regulation of catalytic activity,0.03570458292192007,9
+negative regulation of locomotion,locomotion,0.03652804784613991,7
+regulation of vesicle-mediated transport,import into cell,0.03755308309833916,6
+positive regulation of bone mineralization,multicellular organismal process,0.03859899132810031,23
+negative regulation of endopeptidase activity,regulation of catalytic activity,0.03862667364230098,9
+negative regulation of response to stimulus,response to stimulus,0.03921524922207121,46
+leukocyte differentiation,anatomical structure development,0.03973544860486155,43
+regulation of cell-cell adhesion,cell adhesion,0.03976895432957723,6
+negative regulation of actin filament polymerization,hemostasis,0.04157314127006437,9
+phagocytosis,import into cell,0.04312569745648473,6
+regulation of transmembrane receptor protein serine/threonine kinase signaling pathway,cell communication,0.04312569745648473,10
+transmembrane receptor protein serine/threonine kinase signaling pathway,cell communication,0.0432402996857597,10
+Fc-gamma receptor signaling pathway,response to stimulus,0.04407589689931183,46
+one-carbon compound transport,import into cell,0.04661944469671581,6
+collagen-activated signaling pathway,cell communication,0.04661944469671581,10
+embryonic morphogenesis,anatomical structure development,0.0478184059372542,43
+peptidyl-lysine oxidation,collagen metabolic process,0.04845807092464322,15
+acute inflammatory response,response to stimulus,0.04870457700952107,46
+platelet aggregation,multicellular organismal process,0.04870457700952107,23
+negative regulation of protein metabolic process,collagen metabolic process,0.04871249134629076,15

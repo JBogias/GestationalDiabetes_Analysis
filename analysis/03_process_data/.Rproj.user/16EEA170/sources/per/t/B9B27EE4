@@ -1,0 +1,28 @@
+{
+    "id": "B9B27EE4",
+    "path": "~/Documents/R_Projects/GDM/analysis/03_process_data/03_process_data.Rmd",
+    "project_path": "03_process_data.Rmd",
+    "type": "r_markdown",
+    "hash": "1887354456",
+    "contents": "",
+    "dirty": false,
+    "created": 1723607300515.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "chunk_output_type": "console",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "24,17",
+        "scrollLine": "0",
+        "docOutlineVisible": "1"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1723609130,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1723609130181,
+    "read_only": false,
+    "read_only_alternatives": []
+}

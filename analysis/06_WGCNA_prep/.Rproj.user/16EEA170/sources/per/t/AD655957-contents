@@ -1,0 +1,210 @@
+---
+title: "WGCNA preparation"
+author: "Justin Bogias"
+date: "`r format(Sys.Date(), '%d %b, %Y')`"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# Setup
+```{r}
+library(rmdformats)
+library(rmarkdown)
+library(dplyr)
+library(readr)
+library(tibble)
+library(stringr)
+library(WGCNA)
+library(edgeR)
+library(DESeq2)
+library(AnnotationDbi)
+library(org.Hs.eg.db)
+library(here)
+
+source(here("R/tx_aggregate_gene.R"))
+```
+
+Set filtering function
+```{r}
+filterCounts <- function(x, minCPM = 2, minSamp = 23) {
+  require(edgeR)
+  cpm <- cpm(x)
+  i <- rowSums(cpm > minCPM) > minSamp
+  return(x[i,])
+}
+```
+
+# Load Data
+```{r}
+tx_counts <- read_csv(here("data/tx_counts.csv"))
+gene_txp_anno <- read_csv(here("data/gene_txp_anno.csv.gz"))
+pd <- read_csv(here("data/metadata.csv"))
+```
+
+## Prepare Counts
+```{r}
+gene_counts <- tx_aggregate_gene(counts = tx_counts,
+                                 anno = gene_txp_anno) %>%
+  round(0)
+```
+
+## Prepare Annotations
+```{r}
+gene_anno <- gene_txp_anno %>%
+  dplyr::filter(type == "gene") %>%
+  dplyr::select(-transcript_id, 
+                -transcript_name,
+                -type) %>%
+  mutate(
+    region_key = paste0(
+      chromosome, ":", start, "-", end, ":", strand
+    )
+  )
+```
+
+# Set Models for WGCNA
+## Model for network construction
+This is the statistical models used for WGCNA
+```{r define_models}
+mmformula_design <- formula(
+  ~ Outcome +
+    FetalSex +
+    Cohort
+  )
+```
+
+## Set traits
+This is what we will project onto our network and test for module-trait correlations with
+```{r}
+mmformula_traits <- formula(
+  ~0 +
+    Outcome +
+    BMI +
+    Age +
+    GestationalAge +
+    Birthweight +
+    Treatment +
+    metabolicSyndrome +
+    Ethnicity_Simplified
+)
+
+traits_colnames <- c(
+  "GDM",
+  "Uncomplicated",
+  "BMI",
+  "MaternalAge",
+  "GestationalAge",
+  "Birthweight",
+  "Medicated",
+  "Diet-Exercise",
+  "metabolicSyndrome",
+  "Ethnicity"
+  )
+```
+
+# Prepare for WGCNA
+## Account for Variation
+As the samples come from two different study cohorts, variation within the samples may be technical instead of due to any biological effects, casting uncertainty upon any downstream results. The *DESeq2* package has some nice methods built into it for variance stabilisation and removal of any unwanted variance. Before running *DESeq2*, reorder the counts table to match metadata.
+
+Form a DESeq2 matrix which can then be processed by filtering out genes with low read counts and performing variance stabilisation using `getVarianceStabilizedData` and subsequent batch effect removal using `removeBatchEffect`
+
+```{r DESeq2}
+design <- model.matrix(
+  mmformula_design,
+  data = pd
+  )
+
+ddsMat <- gene_counts %>%
+  DESeqDataSetFromMatrix(
+    pd,
+    design = design
+    ) %>%
+  filterCounts(
+    minCPM = 1,
+    minSamp = 23
+  ) %>%
+  DESeq() %>%
+  getVarianceStabilizedData()
+
+rm(gene_counts)
+```
+
+## Remove Highly Variable Genes
+It is recommended for a co-expression analysis to remove genes with counts lacking in variability since these genes are not important when conducting a co-expression analysis and will take up much needed computational resources. Additionally, this can reduce the **sftPower** to help achieve scale free topology at a lower threshold. Assembling the gene expression counts matrices into a list is good practice as it allows convenient application of functions and for the co-expression analysis to be run in parallel when using multiple datasets. 
+
+```{r FilterVariableGenes, message=FALSE, warning=FALSE}
+FilterVariableGeneFunction <- function(x) {
+  variableGenes <- rowSds(x) > quantile(rowSds(x), 0.3) 
+
+  finalXGenesMatrix <- x[variableGenes, ] 
+  return(finalXGenesMatrix) 
+}
+
+placenta_data <- ddsMat %>%
+  FilterVariableGeneFunction() %>%
+  t()
+
+rm(ddsMat)
+```
+
+## ENTREZID Annotations
+Create annotation set with entrezids. I probably could just use the datasets above tbh
+Can move this a bit below to where its needed actually
+```{r remove_haplotypes}
+gene_entrez_anno <- gene_txp_anno %>%
+  dplyr::filter(type == "gene") %>%
+  as_tibble() %>%
+  dplyr::select("gene_id",
+                "gene_name",
+                "gene_biotype",
+                "chromosome",
+                "length") %>%
+  unique() %>%
+  dplyr::filter(gene_id %in% colnames(placenta_data)) %>%
+  left_join(
+    AnnotationDbi::select(org.Hs.eg.db, 
+                          keys = unique(.$gene_name),
+                          columns = c("ENTREZID", "SYMBOL"),
+                          keytype = "SYMBOL") %>%
+      dplyr::rename("gene_name" = "SYMBOL",
+                    "entrezgene" = "ENTREZID" )
+  ) %>%
+  dplyr::filter(!entrezgene %in% "100124696") %>%
+  dplyr::filter(!str_detect(chromosome, "^H|^G"))
+
+write_csv(gene_entrez_anno, here("data/gene_extrez_anno.csv.gz"))
+```
+
+## Match Scale-Free Assumptions
+WGCNA struggles to deal with non-protein coding genes as it implements thew scale-free model which assumed genes are protein coding, and so they need to be removed prior to any downstream analyses
+First check how many protein coding genes there are
+```{r check_protein_coding}
+gene_entrez_anno %>%
+  dplyr::filter(gene_id %in% colnames(placenta_data)) %>%
+  dplyr::select(gene_biotype) %>%
+  table()
+```
+
+Now filter the `placenta_data` object by protein coding genes
+Although I don't actually do this in the end
+
+```{r remove_protein_coding}
+proteingenes <- gene_anno %>%
+  dplyr::filter(gene_id %in% colnames(placenta_data) &
+                  gene_biotype == "protein_coding") %>%
+  dplyr::select(gene_id) %>%
+  as.matrix() %>%
+  as.character()
+
+placenta_data %>%
+  as.data.frame() %>%
+  rownames_to_column(var = "sample_id") %>%
+  as_tibble() %>%
+  write_csv(here("data/placenta_data_wgcna.csv"))
+```

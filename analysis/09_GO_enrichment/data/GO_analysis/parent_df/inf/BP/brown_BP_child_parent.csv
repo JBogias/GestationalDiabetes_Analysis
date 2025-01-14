@@ -1,0 +1,26 @@
+childTerm,parentTerm,FDR,frequencyParent
+RNA splicing,RNA splicing,2.6423293962835786e-15,23
+RNA processing,RNA splicing,3.464048000173977e-14,23
+mRNA processing,RNA splicing,2.304601090957999e-12,23
+mRNA metabolic process,RNA splicing,2.2706303464469803e-10,23
+"RNA splicing, via transesterification reactions with bulged adenosine as nucleophile",RNA splicing,1.575357636501815e-9,23
+"mRNA splicing, via spliceosome",RNA splicing,1.575357636501815e-9,23
+"RNA splicing, via transesterification reactions",RNA splicing,1.9103116859318096e-9,23
+nucleic acid metabolic process,RNA splicing,5.0997526572510685e-9,23
+RNA metabolic process,RNA splicing,6.341212945269746e-9,23
+nucleobase-containing compound metabolic process,RNA splicing,3.672415303611922e-7,23
+heterocycle metabolic process,RNA splicing,2.0671640819057123e-6,23
+cellular aromatic compound metabolic process,RNA splicing,3.339608269135124e-6,23
+regulation of RNA splicing,RNA splicing,1.0306271151319032e-5,23
+organic cyclic compound metabolic process,RNA splicing,1.575385822125341e-5,23
+cellular nitrogen compound metabolic process,RNA splicing,9.394008815307972e-5,23
+regulation of RNA metabolic process,RNA splicing,0.00118214018866397,23
+spliceosomal complex assembly,RNA splicing,0.0033448247864325,23
+chromosome organization involved in meiotic cell cycle,chromosome organization involved in meiotic cell cycle,0.0044613105110932,2
+regulation of nucleobase-containing compound metabolic process,RNA splicing,0.00497997583637741,23
+regulation of transcription by RNA polymerase II,RNA splicing,0.0105198677825954,23
+gene expression,RNA splicing,0.0203157044290052,23
+transcription by RNA polymerase II,RNA splicing,0.02094237207655754,23
+homologous chromosome segregation,chromosome organization involved in meiotic cell cycle,0.02167419472292563,2
+regulation of mRNA metabolic process,RNA splicing,0.04165801020977183,23
+"regulation of mRNA splicing, via spliceosome",RNA splicing,0.04950621626651329,23

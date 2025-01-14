@@ -1,0 +1,298 @@
+---
+title: "Load Data"
+author: "Justin Bogias"
+date: "2023-11-20"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(rmdformats)
+library(rmarkdown)
+library(dplyr)
+library(readr)
+library(stringr)
+library(tidyr)
+library(tibble)
+library(magrittr)
+library(DT)
+library(here)
+
+source(here("R/create_table_one.R"))
+```
+
+# 2. Load Data
+Through initial PCAs already performed I've managed to identify a sample that has poor sequencing. There are also four other samples which have funky read distribtions on the transcript level, however I will err on the side of keeping them in for now. All five are commented out, only 1173 will be removed.
+1173 is removed as the library size is extremely low compared to the other samples (~4000000) and the mapping rates were also very low (~18%)
+
+STOP sample 0941 failed on two attempts to sequence. No data for that sample.
+Wasn't charged for second attempt at library prep.
+Claire was already notified by Dylan, she said it was okay and happy to leave it out.
+```{r remove _samples}
+poor_sequencing <- c("1173", "0941")
+```
+
+# Load Metadata
+Load in the patient data (pd) and define the model matrix formula here to be
+used in the workflow
+```{r metadata}
+pd <- here("data/GDM_metadata_cleaned.csv") %>%
+  read_csv()
+
+pd <- pd %>% 
+  mutate(
+    Treatment = str_replace(
+      Treatment,
+      "Diet-Exercise",
+      "DietExercise"
+    )
+  )
+
+pd %<>% dplyr::filter(!ID %in% poor_sequencing)
+DT::datatable(pd)
+```
+
+Now we can save the metadata for future use
+```{r}
+write_csv(pd, here("data/metadata.csv"))
+```
+
+# Create Patient metadata table
+This table shows the traits of the patients recorded in the metadata.
+```{r}
+table_one <- create_table_one(pd)
+DT::datatable(table_one)
+```
+
+# Define models
+## Model Matrix
+These are the statistical models used for WGCNA
+Essentially we want to account for important variables in our formulas. For the design of the model matrix in WGCNA we want to include the pregnancy outcome (Uncomplicated vs GDM) which is the primary variable we will test.
+We include Fetal Sex because of the known differences between male and female fetal tissue, especially in the placenta. The discussion of these differences is beyond the scope of this report, but feel free to Google it.
+The Cohort is included as a technical control. Our data comes from either the SCOPE and STOP cohort studies. These were collected at different times and so must be accounted or in a technical control.
+```{r define_models}
+mmformula_design <- formula(
+  ~ Outcome +
+    FetalSex +
+    Cohort
+  )
+```
+
+## WGCNA traits
+We define the traits that will be under scrutiny here. These are the traits that will be projected onto the WGCNA network and tested for module-trait correlations. Basically we will use the network to determine if there are any clusters of genes with similar expression patterns that have any correlation with these traits.
+```{r}
+mmformula_traits <- formula(
+  ~0 +
+    Outcome +
+    BMI +
+    Age +
+    GestationalAge +
+    Birthweight +
+    Treatment +
+    metabolicSyndrome +
+    Ethnicity_Simplified
+)
+
+traits_colnames <- c(
+  "GDM",
+  "Uncomplicated",
+  "BMI",
+  "MaternalAge",
+  "GestationalAge",
+  "Birthweight",
+  "Medicated",
+  "Diet-Exercise",
+  "metabolicSyndrome",
+  "Ethnicity"
+  )
+```
+
+# Prepare transcript counts
+## Import Counts
+Load in transcript counts here, they have been aligned with the GRCh37 transcriptome
+```{r load_counts}
+transCounts <- read_rds(
+  here("data/salmon_object_GDM_grch37.rds")
+)
+
+rownames(transCounts$counts) <- rownames(transCounts$counts) %>%
+  str_replace(
+    pattern = "\\..*",
+    replacement = ""
+  )
+
+rownames(transCounts$annotation) <- rownames(transCounts$annotation) %>%
+  str_replace(
+    pattern = "\\..*",
+    replacement = ""
+  )
+```
+
+## Tidy column names
+Tidy `transCounts` column names
+```{r tidy_colnames}
+colnames(transCounts$counts) <- colnames(transCounts$counts) %>%
+  basename() 
+
+transCounts$counts <- transCounts$counts[
+  , colnames(transCounts$counts) %in% pd$filename
+  ]
+
+colnames(transCounts$counts) <- colnames(transCounts$counts) %>%
+  basename() %>%
+  enframe(name = NULL) %>%
+  inner_join(
+    pd,
+    by = c("value" = "filename")
+  ) %>%
+  .[["ID"]]
+```
+
+Save counts
+```{r}
+tx_counts <- transCounts$counts %>%
+  as.data.frame() %>%
+  rownames_to_column("transcript_id")
+
+write_csv(tx_counts, here("data/tx_counts.csv"))
+```
+
+# Remove "low" library sizes
+If we are concerned with the effect of library size then we can remove the lowest ones to mitigate this technical effect
+There isn't really any reason too, but we can identify any samples with libraries below 15 million reads
+```{r}
+libsizes <- transCounts$counts %>% colSums %>% sort()
+keep <- libsizes[libsizes > 15000000]
+
+libsize_filt_counts <- transCounts$counts[, names(keep)] %>%
+  as.data.frame() %>%
+  rownames_to_column("transcript_id")
+
+write_csv(libsize_filt_counts, here("data/libsize_filt_counts.csv"))
+```
+
+There is a separate workflow created with the "low" library size samples removed
+However, this also reduced the number of samples which will pose statistical power consequences in our correlations
+
+# Functions used in this workflow
+```{r}
+create_table_one <- function(metadata) {
+  require(dplyr)
+  require(readr)
+  require(stringr)
+  require(tidyr)
+  require(tibble)
+  require(magrittr)
+  
+  uncomplicated_table <- reframe(
+    pd %>%
+      dplyr::filter(Outcome == "Uncomplicated") %>%
+      group_by(FetalSex),
+    "FetalSex" = length(FetalSex),
+    "BMI" = c(
+      round(mean(BMI), 1), round(range(BMI), 1)
+    ),
+    "MaternalAge" = c(
+      round(mean(Age), 1), round(range(Age), 1)
+    ),
+    "GestationalAge" = c(
+      round(mean(GestationalAge), 1), round(range(GestationalAge), 1)
+    ),
+    "Ethnicity_percent" = round(
+      divide_by(
+        sum(Ethnicity_Simplified == "Caucasian"),
+        length(Ethnicity_Simplified)
+      )*100, 1
+    ),
+    "Metabolic_Syndrome" = round(
+      divide_by(
+        sum(metabolicSyndrome == "Yes"), 
+        length(metabolicSyndrome)
+      )*100, 1
+    ),
+    "Birthweight" = c(
+      round(mean(Birthweight), 1), round(range(Birthweight), 1))
+  )
+  
+  uncomplicated_table <- uncomplicated_table %>% 
+    as.data.frame() %>%
+    set_rownames(c("F_mean", "F_min", "F_max",
+                   "M_mean", "M_min", "M_max"))
+  
+  uncomp_tbl <- uncomplicated_table %>%
+    t() %>%
+    as.data.frame() %>%
+    mutate(Female = paste0(F_mean, " (", F_min, "-", F_max, ")"),
+           Male = paste0(M_mean, " (", M_min, "-", M_max, ")"))
+  
+  
+  gdm_table <- reframe(
+    pd %>%
+      dplyr::filter(Outcome == "GDM") %>%
+      group_by(FetalSex),
+    "FetalSex" = length(FetalSex),
+    "BMI" = c(
+      round(mean(BMI), 1), round(range(BMI), 1)
+    ),
+    "MaternalAge" = c(
+      round(mean(Age), 1), round(range(Age), 1)
+    ),
+    "GestationalAge" = c(
+      round(mean(GestationalAge), 1), round(range(GestationalAge), 1)
+    ),
+    "Ethnicity_percent" = round(
+      divide_by(
+        sum(Ethnicity_Simplified == "Caucasian"),
+        length(Ethnicity_Simplified)
+      )*100, 1
+    ),
+    "Metabolic_Syndrome" = round(
+      divide_by(
+        sum(metabolicSyndrome == "Yes"), 
+        length(metabolicSyndrome)
+      )*100, 1
+    ),
+    "Birthweight" = c(
+      round(mean(Birthweight), 1), round(range(Birthweight), 1))
+  )
+  
+  gdm_table <- gdm_table %>% 
+    as.data.frame() %>%
+    set_rownames(c("F_mean", "F_min", "F_max",
+                   "M_mean", "M_min", "M_max"))
+  
+  gdm_table <- gdm_table %>%
+    t() %>%
+    as.data.frame() %>%
+    mutate(Female = paste0(F_mean, " (", F_min, "-", F_max, ")"),
+           Male = paste0(M_mean, " (", M_min, "-", M_max, ")"))
+  
+  patient_table <- uncomp_tbl %>%
+    dplyr::select("Female_U" = Female,
+                  "Male_U" = Male) %>%
+    rownames_to_column("id") %>%
+    left_join(gdm_table %>%
+                dplyr::select("Female_G" = Female,
+                              "Male_G" = Male) %>%
+                rownames_to_column("id"),
+              by = "id") %>%
+    dplyr::select("Patient_Characteristics" = id,
+                  "Female_Uncomplicated" = Female_U,
+                  "Female_GDM" = Female_G,
+                  "Male_Uncomplicated" = Male_U,
+                  "Male_GDM" = Male_G)
+  
+  patient_table[1, ] <- patient_table[1, ] %>%
+    lapply(function(x) {
+      str_replace(pattern = " \\s*\\([^\\)]+\\)", replacement = "", string = x)
+    })
+  
+  return(patient_table)
+}
+```

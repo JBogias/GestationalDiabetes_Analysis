@@ -1,0 +1,26 @@
+{
+    "id": "709EE4AC",
+    "path": "~/Documents/R_Projects/GDM/analysis/06_WGCNA_prep/Dockerfile",
+    "project_path": "Dockerfile",
+    "type": "dockerfile",
+    "hash": "478992993",
+    "contents": "",
+    "dirty": false,
+    "created": 1723693348781.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "86,101",
+        "scrollLine": "55"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1723693367,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1723693367467,
+    "read_only": false,
+    "read_only_alternatives": []
+}

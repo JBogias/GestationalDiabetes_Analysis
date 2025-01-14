@@ -1,0 +1,5 @@
+module,GO_ID,term.x,pValue,FDR,ontology,sort(module),cluster,parent,score,size,term.y,parentTerm,termUniqueness,termUniquenessWithinCluster,termDispensability
+salmon,GO:0098687,chromosomal region,4.046165437425141e-6,0.0013404631194383057,CC,salmon,1,GO:0098687,2.8727451303903684,402,chromosomal region,chromosomal region,0.8654999999999999,1,0
+salmon,GO:0031261,DNA replication preinitiation complex,6.528668253091922e-5,0.01483316056978921,CC,salmon,2,GO:0042555,1.8287663019875506,13,DNA replication preinitiation complex,MCM complex,0.69025,0.6076666666666667,0.203
+salmon,GO:0042555,MCM complex,6.528668253091922e-5,0.01483316056978921,CC,salmon,2,GO:0042555,1.8287663019875506,11,MCM complex,MCM complex,0.89975,0.8663333333333333,0
+salmon,GO:0071162,CMG complex,6.528668253091922e-5,0.01483316056978921,CC,salmon,2,GO:0042555,1.8287663019875506,11,CMG complex,MCM complex,0.5880000000000001,0.6093333333333333,0.198

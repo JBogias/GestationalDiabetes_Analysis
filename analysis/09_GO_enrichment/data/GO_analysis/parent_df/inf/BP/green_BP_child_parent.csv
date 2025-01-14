@@ -1,0 +1,333 @@
+childTerm,parentTerm,FDR,frequencyParent
+defense response,defense response,8.361734616886914e-15,46
+immune response,immune response,5.782411906403696e-14,36
+immune effector process,immune response,2.298655201525599e-13,36
+response to external stimulus,defense response,6.556063598347072e-13,46
+leukocyte migration,leukocyte migration,1.3151873877826666e-12,17
+immune system process,immune response,2.9643809856297132e-12,36
+positive regulation of immune system process,immune response,2.2647180100457054e-11,36
+inflammatory response,defense response,3.962308435956327e-11,46
+cell activation,cell activation,1.426863329018719e-10,42
+cell adhesion,cell adhesion,1.426863329018719e-10,15
+regulation of immune system process,immune response,1.426863329018719e-10,36
+biological process involved in interspecies interaction between organisms,biological process involved in interspecies interaction between organisms,1.7724823496590339e-10,4
+response to biotic stimulus,defense response,3.078424548084554e-10,46
+leukocyte mediated immunity,immune response,3.2777001389838667e-10,36
+regulation of immune effector process,immune response,6.558901498530033e-10,36
+regulation of leukocyte migration,leukocyte migration,7.145866764111571e-10,17
+positive regulation of response to external stimulus,defense response,9.190678472917835e-10,46
+response to other organism,defense response,9.46349229829568e-10,46
+response to external biotic stimulus,defense response,9.85391661191163e-10,46
+positive regulation of response to stimulus,defense response,2.5289635136416573e-9,46
+regulation of response to stimulus,defense response,3.015472327321846e-9,46
+leukocyte activation,cell activation,3.127944230022949e-9,42
+defense response to other organism,defense response,4.448792336811482e-9,46
+cell surface receptor signaling pathway,cell surface receptor signaling pathway,5.907430564649654e-9,15
+cell migration,leukocyte migration,8.621284042101997e-9,17
+cell chemotaxis,cell chemotaxis,2.07338887720154e-8,18
+response to stimulus,defense response,2.2606587695316882e-8,46
+cell motility,leukocyte migration,2.6613742667819265e-8,17
+innate immune response,defense response,3.217740115995447e-8,46
+positive regulation of immune response,immune response,3.46048149314311e-8,36
+response to stress,defense response,3.7206442780577824e-8,46
+leukocyte chemotaxis,cell chemotaxis,3.8659747826193256e-8,18
+myeloid leukocyte migration,leukocyte migration,3.8659747826193256e-8,17
+regulation of immune response,immune response,4.1114716241128055e-8,36
+regulation of response to external stimulus,defense response,5.316431651456509e-8,46
+multicellular organismal process,cell activation,6.478790712017901e-8,42
+chemotaxis,cell chemotaxis,6.681794729831389e-8,18
+taxis,cell chemotaxis,6.681794729831389e-8,18
+defense response to symbiont,defense response,7.487803130427439e-8,46
+cell activation involved in immune response,cell activation,1.0189536505640109e-7,42
+positive regulation of leukocyte migration,leukocyte migration,1.037010782238976e-7,17
+signal transduction,cell surface receptor signaling pathway,1.2401284826566536e-7,15
+regulation of leukocyte mediated immunity,immune response,1.241779372705981e-7,36
+myeloid leukocyte activation,cell activation,2.5629706908382725e-7,42
+signaling,cell surface receptor signaling pathway,3.096637809296574e-7,15
+response to chemical,defense response,3.29851219321747e-7,46
+cell communication,cell communication,3.441208038245522e-7,15
+granulocyte migration,leukocyte migration,3.771696608840228e-7,17
+leukocyte activation involved in immune response,cell activation,4.436995911103309e-7,42
+leukocyte degranulation,leukocyte degranulation,1.0008879356259783e-6,18
+response to organic substance,defense response,1.308859045432145e-6,46
+cytokine production,cytokine production,1.4222695610819188e-6,34
+locomotion,cell chemotaxis,2.0294447083168335e-6,18
+granulocyte chemotaxis,leukocyte migration,2.0309037346660937e-6,17
+cell-cell adhesion,cell adhesion,2.1527132788568397e-6,15
+leukocyte cell-cell adhesion,cell adhesion,2.4344009857412902e-6,15
+regulation of cytokine production,cytokine production,2.9098426003592593e-6,34
+T cell activation,cell activation,3.221811014908186e-6,42
+phagocytosis,leukocyte degranulation,4.301739899465673e-6,18
+positive regulation of leukocyte differentiation,positive regulation of hemopoiesis,4.6309596776834255e-6,32
+positive regulation of hemopoiesis,positive regulation of hemopoiesis,4.6309596776834255e-6,32
+lymphocyte activation,cell activation,5.181345480815715e-6,42
+cellular response to chemical stimulus,defense response,5.5528344082317295e-6,46
+lymphocyte mediated immunity,immune response,6.463409480480178e-6,36
+adaptive immune response,immune response,6.619121353184436e-6,36
+tumor necrosis factor superfamily cytokine production,cytokine production,6.977377559146072e-6,34
+regulation of tumor necrosis factor superfamily cytokine production,cytokine production,6.977377559146072e-6,34
+positive regulation of immune effector process,immune response,8.435327450334944e-6,36
+response to bacterium,biological process involved in interspecies interaction between organisms,8.967263670648226e-6,4
+negative regulation of immune system process,immune response,9.25232957160925e-6,36
+leukocyte mediated cytotoxicity,leukocyte mediated cytotoxicity,1.091566135660726e-5,5
+myeloid cell activation involved in immune response,cell activation,1.6051150246434166e-5,42
+regulation of cell-cell adhesion,cell adhesion,1.6361592535152293e-5,15
+intracellular signal transduction,cell communication,1.848772677386505e-5,15
+regulation of leukocyte proliferation,regulation of leukocyte proliferation,1.971055088268009e-5,17
+regulation of cell killing,leukocyte mediated cytotoxicity,2.242670079092858e-5,5
+leukocyte differentiation,positive regulation of hemopoiesis,2.2889295529906347e-5,32
+regulation of myeloid leukocyte mediated immunity,immune response,2.3242236164439352e-5,36
+regulation of mononuclear cell proliferation,regulation of leukocyte proliferation,2.342876684893116e-5,17
+mononuclear cell migration,leukocyte migration,2.3869273581982618e-5,17
+tumor necrosis factor production,cytokine production,2.5758794394002415e-5,34
+regulation of tumor necrosis factor production,cytokine production,2.5758794394002415e-5,34
+regulated exocytosis,leukocyte degranulation,2.5839796778809907e-5,18
+positive regulation of chemotaxis,cell chemotaxis,2.5856966382065643e-5,18
+cellular response to stimulus,defense response,2.6151368507626385e-5,46
+intracellular signaling cassette,NA,2.705004169206136e-5,NA
+positive regulation of myeloid leukocyte mediated immunity,immune response,2.729057318500958e-5,36
+regulation of signal transduction,cell surface receptor signaling pathway,3.131946312038914e-5,15
+immune response-regulating signaling pathway,immune response,3.201716722309144e-5,36
+interleukin-6 production,cytokine production,3.387481916699773e-5,34
+regulation of interleukin-6 production,cytokine production,3.387481916699773e-5,34
+regulation of cell activation,cell activation,3.393755830289247e-5,42
+regulation of leukocyte activation,cell activation,3.4268042127045265e-5,42
+exocytosis,leukocyte degranulation,3.699955596209363e-5,18
+positive regulation of cell development,positive regulation of hemopoiesis,3.916511944062792e-5,32
+negative regulation of cytokine production,cell activation,4.056410612557359e-5,42
+regulation of lymphocyte activation,cell activation,4.18335280330926e-5,42
+positive regulation of cell activation,cell activation,4.55624089699465e-5,42
+activation of immune response,immune response,4.633863339623861e-5,36
+regulation of T cell activation,cell activation,5.357995919115735e-5,42
+regulation of leukocyte cell-cell adhesion,cell adhesion,6.25826935302824e-5,15
+regulation of neutrophil degranulation,cell activation,6.428907060807368e-5,42
+cellular response to organic substance,defense response,6.518718379037117e-5,46
+leukocyte proliferation,regulation of leukocyte proliferation,7.218019879415756e-5,17
+mononuclear cell differentiation,positive regulation of hemopoiesis,7.233159598642953e-5,32
+positive regulation of leukocyte activation,cell activation,7.81941737522111e-5,42
+regulation of leukocyte degranulation,leukocyte degranulation,8.198100148093346e-5,18
+positive regulation of multicellular organismal process,cell activation,8.378412579842477e-5,42
+regulation of lymphocyte proliferation,regulation of leukocyte proliferation,8.72779626384478e-5,17
+adaptive immune response based on somatic recombination of immune receptors built from immunoglobulin superfamily domains,immune response,8.80393952478634e-5,36
+regulation of leukocyte chemotaxis,cell chemotaxis,9.3518292903476e-5,18
+neutrophil chemotaxis,leukocyte migration,9.366631278369674e-5,17
+regulation of chemotaxis,cell chemotaxis,9.43472935390988e-5,18
+positive regulation of cell differentiation,positive regulation of hemopoiesis,1.118124547110486e-4,32
+regulation of signaling,cell surface receptor signaling pathway,1.1578275486955036e-4,15
+regulation of cell communication,cell communication,1.1802550351975384e-4,15
+immune response-regulating cell surface receptor signaling pathway,immune response,1.233739043522697e-4,36
+regulation of mononuclear cell migration,leukocyte migration,1.2437577769651537e-4,17
+cytokine-mediated signaling pathway,defense response,1.4289973132250395e-4,46
+cell killing,leukocyte mediated cytotoxicity,1.6203882523862162e-4,5
+positive regulation of leukocyte chemotaxis,cell chemotaxis,1.621674357364217e-4,18
+immune response-activating signaling pathway,immune response,1.839331186736751e-4,36
+mononuclear cell proliferation,regulation of leukocyte proliferation,1.926511760223097e-4,17
+regulation of cell adhesion,cell adhesion,1.9904885933130775e-4,15
+myeloid leukocyte mediated immunity,immune response,2.022716023440928e-4,36
+positive regulation of biological process,cell surface receptor signaling pathway,2.0795411782004145e-4,15
+glial cell activation,defense response,2.231669999692138e-4,46
+biological regulation,cell surface receptor signaling pathway,2.347924630677328e-4,15
+regulation of defense response,defense response,2.3689272261198264e-4,46
+regulation of leukocyte differentiation,positive regulation of hemopoiesis,2.6070186910905936e-4,32
+import into cell,leukocyte degranulation,2.7214800977023784e-4,18
+regulation of leukocyte mediated cytotoxicity,leukocyte mediated cytotoxicity,2.7669522069640135e-4,5
+regulation of intracellular signal transduction,cell communication,2.893802913869338e-4,15
+positive regulation of tumor necrosis factor superfamily cytokine production,cytokine production,3.0466057472155697e-4,34
+neuroinflammatory response,defense response,3.2342074927894124e-4,46
+response to cytokine,defense response,3.2342074927894124e-4,46
+positive regulation of cytokine production,cytokine production,3.3362267818358687e-4,34
+positive regulation of cell-cell adhesion,cell adhesion,3.840890795592605e-4,15
+positive regulation of lymphocyte activation,cell activation,3.840890795592605e-4,42
+hemopoiesis,positive regulation of hemopoiesis,3.9796890159774526e-4,32
+cellular response to cytokine stimulus,defense response,3.984122918667464e-4,46
+macrophage activation,cell activation,4.0262551686309913e-4,42
+neutrophil degranulation,cell activation,4.3144610711819446e-4,42
+positive regulation of lymphocyte differentiation,positive regulation of hemopoiesis,4.653822049887911e-4,32
+positive regulation of alpha-beta T cell differentiation,cell activation,4.866392163678325e-4,42
+regulation of alpha-beta T cell activation,cell activation,4.982429533342093e-4,42
+lymphocyte proliferation,regulation of leukocyte proliferation,5.216839147153543e-4,17
+neutrophil activation involved in immune response,cell activation,5.662410093630545e-4,42
+neutrophil migration,leukocyte migration,5.771767440072543e-4,17
+positive regulation of leukocyte cell-cell adhesion,cell adhesion,5.907289592682397e-4,15
+regulation of multicellular organismal process,cell activation,6.030818086784392e-4,42
+endocytosis,leukocyte degranulation,6.270971875236336e-4,18
+G protein-coupled receptor signaling pathway,cell surface receptor signaling pathway,6.503385690997071e-4,15
+positive regulation of signaling,cell surface receptor signaling pathway,7.205029503676244e-4,15
+immune response-activating cell surface receptor signaling pathway,immune response,8.309598084730485e-4,36
+positive regulation of signal transduction,cell surface receptor signaling pathway,8.354531542318297e-4,15
+regulation of alpha-beta T cell differentiation,cell activation,9.57941276242152e-4,42
+positive regulation of cellular process,cell surface receptor signaling pathway,0.00100165034035899,15
+regulation of locomotion,cell chemotaxis,0.00101467787993388,18
+negative regulation of immune response,immune response,0.00103707714617238,36
+secretion by cell,leukocyte degranulation,0.00111014914126003,18
+negative regulation of multicellular organismal process,cell activation,0.00112157100211522,42
+multicellular organism development,positive regulation of hemopoiesis,0.00120687542826115,32
+positive regulation of response to biotic stimulus,defense response,0.00122374800344853,46
+regulation of cell motility,cell chemotaxis,0.00122595936812632,18
+negative regulation of leukocyte migration,leukocyte migration,0.00123669222131233,17
+negative regulation of defense response,defense response,0.00127490525999866,46
+positive regulation of defense response,defense response,0.00131019155638646,46
+positive regulation of tumor necrosis factor production,cytokine production,0.00131792969800913,34
+regulation of T cell proliferation,regulation of leukocyte proliferation,0.00136299032957322,17
+regulation of biological process,cell surface receptor signaling pathway,0.00140834415551537,15
+regulation of cell migration,cell chemotaxis,0.00147815088767817,18
+alpha-beta T cell activation,cell activation,0.0015155688382659,42
+regulation of response to biotic stimulus,defense response,0.00155274287224291,46
+system development,positive regulation of hemopoiesis,0.00163060438190787,32
+vesicle-mediated transport,leukocyte degranulation,0.00179882420271052,18
+"phagocytosis, engulfment","phagocytosis, engulfment",0.00187193561145157,7
+leukocyte homeostasis,cell activation,0.00193635663206186,42
+response to molecule of bacterial origin,biological process involved in interspecies interaction between organisms,0.00205733060927687,4
+anatomical structure development,positive regulation of hemopoiesis,0.00215832175798334,32
+alpha-beta T cell differentiation,cell activation,0.00218409808260691,42
+regulation of regulated secretory pathway,leukocyte degranulation,0.00218409808260691,18
+positive regulation of leukocyte mediated immunity,immune response,0.00220527044469636,36
+superoxide anion generation,cytokine production,0.00220527044469636,34
+T cell differentiation,positive regulation of hemopoiesis,0.00234031615500739,32
+secretion,leukocyte degranulation,0.00246561779349648,18
+positive regulation of T cell activation,cell adhesion,0.00255288114635906,15
+myeloid leukocyte differentiation,positive regulation of hemopoiesis,0.00277514001079673,32
+positive regulation of intracellular signal transduction,cell communication,0.00281609727903678,15
+positive regulation of cell adhesion,cell adhesion,0.0028511705605853,15
+positive regulation of cell communication,cell communication,0.00285198550328954,15
+regulation of adaptive immune response,immune response,0.00299227018761831,36
+interleukin-2 production,cytokine production,0.00333213340751788,34
+regulation of interleukin-2 production,cytokine production,0.00333213340751788,34
+positive regulation of alpha-beta T cell activation,cell activation,0.00333213340751788,42
+positive regulation of leukocyte proliferation,regulation of leukocyte proliferation,0.0033448247864325,17
+regulation of lymphocyte mediated immunity,immune response,0.0034817946110055,36
+negative regulation of leukocyte cell-cell adhesion,cell adhesion,0.0034817946110055,15
+neutrophil activation,cell activation,0.00351877456796117,42
+respiratory burst,cytokine production,0.00351877456796117,34
+regulation of granulocyte chemotaxis,cell chemotaxis,0.00351877456796117,18
+lymphocyte differentiation,positive regulation of hemopoiesis,0.00354506003559571,32
+negative regulation of lymphocyte activation,cell activation,0.00368248704637165,42
+cell population proliferation,regulation of leukocyte proliferation,0.0036963123897699,17
+response to lipopolysaccharide,biological process involved in interspecies interaction between organisms,0.00370405907129279,4
+response to oxygen-containing compound,defense response,0.00491205984063329,46
+negative regulation of cell activation,cell activation,0.00500638133970507,42
+export from cell,leukocyte degranulation,0.00505639476403737,18
+regulation of hemopoiesis,positive regulation of hemopoiesis,0.00534237483386372,32
+granulocyte activation,cell activation,0.00538805400637861,42
+negative regulation of leukocyte proliferation,regulation of leukocyte proliferation,0.00548054804574099,17
+regulation of leukocyte apoptotic process,regulation of leukocyte apoptotic process,0.00548054804574099,6
+negative regulation of cell-cell adhesion,cell adhesion,0.00556570475412294,15
+cell differentiation,positive regulation of hemopoiesis,0.00557707482252066,32
+regulation of innate immune response,defense response,0.00562633710208227,46
+cellular developmental process,positive regulation of hemopoiesis,0.00566272809352533,32
+regulation of response to stress,defense response,0.0059052497884483,46
+homeostasis of number of cells within a tissue,cell activation,0.00602328243927672,42
+response to lipid,defense response,0.00634289049233339,46
+microglial cell activation,defense response,0.00654679345092007,46
+positive regulation of cytokine-mediated signaling pathway,defense response,0.00654679345092007,46
+regulation of lymphocyte differentiation,positive regulation of hemopoiesis,0.00654679345092007,32
+positive regulation of neutrophil degranulation,cell activation,0.00654679345092007,42
+positive regulation of microglial cell mediated cytotoxicity,immune response,0.00654679345092007,36
+positive regulation of mononuclear cell proliferation,regulation of leukocyte proliferation,0.00654679345092007,17
+positive regulation of locomotion,cell chemotaxis,0.00658487051791614,18
+regulation of actin cytoskeleton organization,regulation of actin cytoskeleton organization,0.00671831331774111,4
+reactive oxygen species metabolic process,cytokine production,0.00676725623031906,34
+positive regulation of developmental process,positive regulation of hemopoiesis,0.00699085929813309,32
+positive regulation of ERK1 and ERK2 cascade,cell communication,0.00712110511992306,15
+regulation of multicellular organismal development,positive regulation of hemopoiesis,0.00748555953380149,32
+plasma membrane invagination,"phagocytosis, engulfment",0.00756156452981101,7
+negative regulation of leukocyte apoptotic process,regulation of leukocyte apoptotic process,0.00792125936847494,6
+positive regulation of cell migration,cell chemotaxis,0.00836188336904919,18
+negative regulation of T cell activation,cell adhesion,0.00847047195547768,15
+regulation of supramolecular fiber organization,"phagocytosis, engulfment",0.0086848937588985,7
+myeloid cell differentiation,positive regulation of hemopoiesis,0.00917116177486343,32
+negative regulation of tumor necrosis factor production,cytokine production,0.0095478635457253,34
+dendritic cell differentiation,positive regulation of hemopoiesis,0.00989910384939372,32
+ERK1 and ERK2 cascade,cell communication,0.01063313621543309,15
+T cell proliferation,regulation of leukocyte proliferation,0.01065638571880376,17
+negative regulation of response to stimulus,defense response,0.01113828419441476,46
+dendritic cell apoptotic process,regulation of leukocyte apoptotic process,0.01124404916096311,6
+regulation of dendritic cell apoptotic process,regulation of leukocyte apoptotic process,0.01124404916096311,6
+leukocyte activation involved in inflammatory response,defense response,0.01142600057644506,46
+apoptotic cell clearance,leukocyte degranulation,0.01142600057644506,18
+regulation of macrophage migration,leukocyte migration,0.01142600057644506,17
+positive regulation of MAPK cascade,cell communication,0.01145075158386674,15
+positive regulation of cell motility,cell chemotaxis,0.01158621019988174,18
+negative regulation of immune effector process,immune response,0.01165122170431868,36
+cell adhesion mediated by integrin,cell adhesion,0.01171577171205065,15
+regulation of actin filament-based process,regulation of actin cytoskeleton organization,0.01183129090721496,4
+homeostasis of number of cells,cell activation,0.01262886941814442,42
+regulation of cell development,positive regulation of hemopoiesis,0.01263340604760328,32
+positive regulation of response to cytokine stimulus,defense response,0.01347032748119746,46
+negative regulation of tumor necrosis factor superfamily cytokine production,cytokine production,0.01347032748119746,34
+membrane invagination,"phagocytosis, engulfment",0.01347495064115012,7
+regulation of ERK1 and ERK2 cascade,cell communication,0.01378942730926919,15
+regulation of transport,leukocyte degranulation,0.01393459768652001,18
+negative regulation of leukocyte activation,cell activation,0.01393556631707824,42
+developmental process,positive regulation of hemopoiesis,0.01504782504843788,32
+negative regulation of response to external stimulus,defense response,0.01508579662466225,46
+circulatory system development,positive regulation of hemopoiesis,0.01508836167660645,32
+positive regulation of cell killing,leukocyte mediated cytotoxicity,0.0151462965868569,5
+negative regulation of mononuclear cell proliferation,regulation of leukocyte proliferation,0.01524826473775044,17
+negative regulation of lymphocyte proliferation,regulation of leukocyte proliferation,0.01524826473775044,17
+regulation of cellular process,cell surface receptor signaling pathway,0.01543307978956452,15
+regulation of actin filament organization,"phagocytosis, engulfment",0.01547037413820253,7
+cellular response to biotic stimulus,defense response,0.01558016671473543,46
+positive regulation of interleukin-4 production,cytokine production,0.01571053335670955,34
+lymphocyte migration,leukocyte migration,0.01633989103503158,17
+calcium-mediated signaling,cell communication,0.01741732486658099,15
+positive regulation of gene expression,cytokine production,0.01749552460544882,34
+negative regulation of type II interferon production,cytokine production,0.01854485928741403,34
+positive regulation of innate immune response,defense response,0.0186836004225473,46
+innate immune response-activating signaling pathway,defense response,0.01901548367335259,46
+supramolecular fiber organization,"phagocytosis, engulfment",0.01958988582943587,7
+positive regulation of T cell differentiation,positive regulation of hemopoiesis,0.0203493400468549,32
+negative regulation of regulated secretory pathway,leukocyte degranulation,0.02085434184843266,18
+microglial cell mediated cytotoxicity,immune response,0.02092796062648123,36
+regulation of microglial cell mediated cytotoxicity,immune response,0.02092796062648123,36
+regulation of cell population proliferation,regulation of leukocyte proliferation,0.02190181804491721,17
+lymphocyte activation involved in immune response,cell activation,0.02190181804491721,42
+vasculature development,positive regulation of hemopoiesis,0.02211327238200711,32
+positive regulation of lymphocyte proliferation,regulation of leukocyte proliferation,0.0225477939630662,17
+regulation of adaptive immune response based on somatic recombination of immune receptors built from immunoglobulin superfamily domains,immune response,0.02286640549778785,36
+actin cytoskeleton organization,regulation of actin cytoskeleton organization,0.02384149112929482,4
+negative regulation of leukocyte mediated immunity,immune response,0.02469667954646215,36
+blood vessel development,positive regulation of hemopoiesis,0.02485691541631658,32
+T cell activation involved in immune response,cell activation,0.02485691541631658,42
+type II interferon production,cytokine production,0.02485691541631658,34
+regulation of type II interferon production,cytokine production,0.02485691541631658,34
+regulation of calcium-mediated signaling,cell communication,0.02501615071303701,15
+negative regulation of interleukin-2 production,cytokine production,0.02653319695223462,34
+integrin activation,"phagocytosis, engulfment",0.02653319695223462,7
+T cell selection,positive regulation of hemopoiesis,0.02666223815665012,32
+complement receptor mediated signaling pathway,immune response,0.02666223815665012,36
+B cell activation,cell activation,0.027162970277988,42
+small molecule biosynthetic process,cytokine production,0.02781252501713744,34
+regulation of exocytosis,leukocyte degranulation,0.02881383941307346,18
+MAPK cascade,cell communication,0.03002613226392934,15
+cell development,positive regulation of hemopoiesis,0.03145204543399527,32
+icosanoid biosynthetic process,cytokine production,0.03171992944898019,34
+activation of innate immune response,defense response,0.03249190395548559,46
+intrinsic apoptotic signaling pathway in response to DNA damage,cell communication,0.03314952889694501,15
+regulation of cytokine-mediated signaling pathway,defense response,0.03444774529468326,46
+regulation of localization,leukocyte degranulation,0.03570458292192007,18
+peptidyl-tyrosine modification,cytokine production,0.0363076774084797,34
+actin filament-based process,regulation of actin cytoskeleton organization,0.0363076774084797,4
+interleukin-1 production,cytokine production,0.0363076774084797,34
+regulation of interleukin-1 production,cytokine production,0.0363076774084797,34
+negative regulation of interleukin-6 production,cytokine production,0.03736931259224359,34
+negative regulation of leukocyte degranulation,leukocyte degranulation,0.0381297641879267,18
+positive regulation of granulocyte chemotaxis,cell chemotaxis,0.0381297641879267,18
+positive regulation of neutrophil chemotaxis,cell chemotaxis,0.0381297641879267,18
+positive regulation of interleukin-6 production,cytokine production,0.03871461143266144,34
+positive regulation of T cell proliferation,regulation of leukocyte proliferation,0.03871461143266144,17
+regulation of developmental process,positive regulation of hemopoiesis,0.039671223182945393,32
+integrin-mediated signaling pathway,cell surface receptor signaling pathway,0.039671223182945393,15
+leukocyte apoptotic process,regulation of leukocyte apoptotic process,0.039671223182945393,6
+macrophage migration,leukocyte migration,0.04157645894466059,17
+neutrophil mediated immunity,immune response,0.04157645894466059,36
+positive regulation of macrophage migration,leukocyte migration,0.04157645894466059,17
+cell-substrate adhesion,cell adhesion,0.04165801020977183,15
+T cell mediated immunity,immune response,0.04282068723524993,36
+positive regulation of cellular component organization,cell surface receptor signaling pathway,0.04289482523592262,15
+regulation of cytokine production involved in immune response,cytokine production,0.04317439678865054,34
+negative regulation of dendritic cell apoptotic process,regulation of leukocyte apoptotic process,0.04320059159125516,6
+regulation of MAPK cascade,cell communication,0.04365518911301362,15
+toll-like receptor signaling pathway,defense response,0.04682620535312287,46
+superoxide metabolic process,cytokine production,0.04682620535312287,34
+cytokine production involved in immune response,cytokine production,0.04728878504093745,34

@@ -1,0 +1,29 @@
+module,GO_ID,term.x,pValue,FDR,ontology,sort(module),cluster,parent,score,size,term.y,parentTerm,termUniqueness,termUniquenessWithinCluster,termDispensability
+salmon,GO:0007049,cell cycle,9.906992953275399e-6,0.002952597992322936,BP,salmon,1,GO:0007049,2.529795679889248,1816,cell cycle,cell cycle,0.7215,0.3816666666666666,0
+salmon,GO:0051276,chromosome organization,3.489280021085643e-5,0.008688923460895497,BP,salmon,2,GO:0051276,2.0610340283792663,635,chromosome organization,chromosome organization,0.9078888888888889,0.636,0
+salmon,GO:0000278,mitotic cell cycle,3.5276116991675305e-5,0.008765027262656239,BP,salmon,1,GO:0007049,2.0572467287427187,911,mitotic cell cycle,cell cycle,0.7030555555555555,0.3341666666666667,0.87
+salmon,GO:1901992,positive regulation of mitotic cell cycle phase transition,5.58358779050595e-5,0.01302702421319594,BP,salmon,1,GO:0007049,1.8851547796355386,99,positive regulation of mitotic cell cycle phase transition,cell cycle,0.6874444444444445,0.30699999999999994,0.653
+salmon,GO:0000727,double-strand break repair via break-induced replication,8.38645564792608e-5,0.018210474097484147,BP,salmon,3,GO:0000727,1.7396787474922288,12,double-strand break repair via break-induced replication,"double-strand break repair via
+break-induced replication",0.8475555555555556,0.7361,0
+salmon,GO:0030174,regulation of DNA-templated DNA replication initiation,8.38645564792608e-5,0.018210474097484147,BP,salmon,3,GO:0000727,1.7396787474922288,15,regulation of DNA-templated DNA replication initiation,"double-strand break repair via
+break-induced replication",0.7803333333333333,0.6376,0.412
+salmon,GO:1901989,positive regulation of cell cycle phase transition,9.273980542452583e-5,0.01988880941238334,BP,salmon,1,GO:0007049,1.701391213914688,117,positive regulation of cell cycle phase transition,cell cycle,0.7138333333333333,0.37316666666666665,0.666
+salmon,GO:0009163,nucleoside biosynthetic process,1.2789613961162026e-4,0.025832272209290644,BP,salmon,3,GO:0000727,1.587837391559725,19,nucleoside biosynthetic process,"double-strand break repair via
+break-induced replication",0.777,0.6098,0.216
+salmon,GO:0034404,nucleobase-containing small molecule biosynthetic process,1.2789613961162026e-4,0.025832272209290644,BP,salmon,3,GO:0000727,1.587837391559725,19,nucleobase-containing small molecule biosynthetic process,"double-strand break repair via
+break-induced replication",0.8265555555555555,0.6990000000000001,0.216
+salmon,GO:0045931,positive regulation of mitotic cell cycle,1.4279183713778555e-4,0.028283815958433534,BP,salmon,1,GO:0007049,1.548461997354257,130,positive regulation of mitotic cell cycle,cell cycle,0.6971111111111111,0.3285,0.671
+salmon,GO:0006268,DNA unwinding involved in DNA replication,1.5333739848015892e-4,0.029977860026957237,BP,salmon,3,GO:0000727,1.52319937254361,21,DNA unwinding involved in DNA replication,"double-strand break repair via
+break-induced replication",0.7246111111111111,0.6392,0.424
+salmon,GO:0009162,deoxyribonucleoside monophosphate metabolic process,1.5333739848015892e-4,0.029977860026957237,BP,salmon,3,GO:0000727,1.52319937254361,23,deoxyribonucleoside monophosphate metabolic process,"double-strand break repair via
+break-induced replication",0.8531666666666666,0.7473,0.222
+salmon,GO:1902969,mitotic DNA replication,1.5333739848015892e-4,0.029977860026957237,BP,salmon,3,GO:0000727,1.52319937254361,17,mitotic DNA replication,"double-strand break repair via
+break-induced replication",0.584111111111111,0.6482,0.412
+salmon,GO:0051443,positive regulation of ubiquitin-protein transferase activity,1.8105402114768944e-4,0.03441246647946943,BP,salmon,3,GO:0000727,1.4632841986364207,21,positive regulation of ubiquitin-protein transferase activity,"double-strand break repair via
+break-induced replication",0.8824444444444445,0.8513999999999999,0.14
+salmon,GO:0006261,DNA-templated DNA replication,2.0781299547290748e-4,0.03862000816197913,BP,salmon,3,GO:0000727,1.4131876387725195,160,DNA-templated DNA replication,"double-strand break repair via
+break-induced replication",0.7679444444444444,0.596,0.489
+salmon,GO:1903047,mitotic cell cycle process,2.091340222089295e-4,0.038714611432661444,BP,salmon,1,GO:0007049,1.4121250952664668,761,mitotic cell cycle process,cell cycle,0.6975,0.3281666666666667,0.85
+salmon,GO:0007064,mitotic sister chromatid cohesion,2.1103981114267638e-4,0.03899483357239903,BP,salmon,2,GO:0051276,1.4089929288614247,31,mitotic sister chromatid cohesion,chromosome organization,0.7175,0.636,0.728
+salmon,GO:1901659,glycosyl compound biosynthetic process,2.1103981114267638e-4,0.03899483357239903,BP,salmon,3,GO:0000727,1.4089929288614247,25,glycosyl compound biosynthetic process,"double-strand break repair via
+break-induced replication",0.8906666666666667,0.8032,0.108

@@ -1,0 +1,438 @@
+---
+title: "Gene Ontology"
+author: "Justin Bogias"
+date: "`r format(Sys.Date(), '%d %b, %Y')`"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+# Setup
+```{r}
+library(rmdformats)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(stringr)
+library(readr)
+library(magrittr)
+library(ggplot2)
+library(WGCNA)
+library(clusterProfiler)
+library(org.Hs.eg.db)
+library(DESeq2)
+library(pander)
+library(here)
+
+source(here("R/get_parent_terms_inf.R"))
+source(here("R/get_parent_terms.R"))
+source(here("R/get_go_scatterplots.R"))
+source(here("R/get_go_scatterplots_inf.R"))
+source(here("R/scatterplot_better.R"))
+source(here("R/joined_scatterplot.R"))
+source(here("R/joined_scatterplot_inf.R"))
+source(here("R/plot_module_sizes.R"))
+
+placenta_data <- read_csv(here("data/placenta_data_wgcna.csv")) %>%
+  column_to_rownames("sample_id")
+
+gene_entrez_anno <- read_csv(here("data/gene_entrez_anno.csv.gz"))
+
+mergedColours <- read_rds(here("data/mergedColours.rds"))
+
+```
+
+## Install anRichment
+
+This workflow uses the anRichment package that was develop by Peter Langfelder for use with the `WGCNA` package. The packages are introduced in this article [here]("https://peterlangfelder.com/2018/11/25/functional-enrichment-analysis-via-r-package-anrichment/") 
+Because these do not seem to be available on CRAN any more, we need to use a source file instead of `renv` and then load the package.
+
+If you wish to get your hands on the latest version of `anRichment`, you can grab it from the [dropbox folder]("https://www.dropbox.com/scl/fo/oihavhjocks77xw2d4t8u/h?rlkey=z34w2smwk7fuye5ipklumtd9d&e=1&dl=0") shared by Peter Langfelder
+
+All the dependencies for installation here are covered by the `renv` setup
+```{r}
+# Install anRichmentMethods first
+install.packages(here("sourcepkg/anRichmentMethods_0.96-86.tar.gz"),
+                 repos = NULL, type = "source")
+
+# Install anRichment itself
+install.packages(here("sourcepkg/anRichment_1.22.tar.gz"),
+                 repos = NULL, type = "source")
+
+library(anRichment)
+```
+
+# Gene Ontology Enrichment Analysis
+## Preparation
+Knowing which genes are located in each module allows extraction of more in-depth biological information about each module, such as biological pathways that are enriched and what cellular processes are being driven. This can provide insights into the function of the module. By using the annotations from `AnnotationHub` gene databases, gene ontology analyses can be conducted on the modules. 
+We need to perform this step in preparation for gene ontology analysis, as the `mergedColours` will match with the order of gene IDs in `colnames(placenta_data)`. Hence we need to perform this function.
+```{r annotate_modules, warning=FALSE, messasge=FALSE }
+matchGenesToGO <- gene_entrez_anno %>%
+    dplyr::filter(gene_id %in% colnames(placenta_data)) %>%
+    distinct(gene_id, .keep_all = TRUE) %>%
+    tibble::column_to_rownames("gene_id") %>%
+    magrittr::extract(colnames(placenta_data), ) %>% 
+    tibble::rownames_to_column("gene_id")
+```
+
+## GO Enrichment
+Create a collection with Gene Ontology (GO) terms for the Homo sapiens. Within this collection, four groups of GOs are defined: `GO` for all terms, `GO.BP` for terms that are biological processes, `GO.MF` for molecular function terms, and for `GO.CC` terms which are cellular component terms.
+
+:  Biological processes refer to the larger overall processes which are made up of a series of molecular activities.
+
+:  Molecular functions can be broadly defined as activities performed by gene products at the molecular level. It is important to note that the molecular function terms refer to the *activities* of entities or molecules rather than the *physical* definition of these.
+
+:  Cellular Components refer to the locations relative to a cellular component in which a gene product executes a function. These terms differ from the other two classes as they refer to cellular anatomy rather than an action or process.
+
+Perform the enrichment analysis on the genes and their respecitve modules. The module colour list is provided as `classLabels` and importantly entrez gene IDs as identifiers. As there are `r length(matchGenesToGO$entrezgene)` IDs, the list can be considered representative of a fairly complete gene set for the organism, hence the background is set to `"intersection"`
+
+```{r GO_enrichment, echo=FALSE, warning=FALSE, message=FALSE, results="hide"}
+GOcollection <- suppressMessages(buildGOcollection(organism = "Hs"))
+
+GOenrList <- enrichmentAnalysis(
+  classLabels = mergedColours,
+  identifiers = matchGenesToGO$entrezgene,
+  useBackground = "intersection",
+  removeMissing = TRUE,
+  threshold = 0.01,
+  getFDR = TRUE,
+  refCollection = GOcollection,
+  nBestDataSets = Inf,
+  maxReportedOverlapGenes = Inf
+  )
+
+goSummaries <- url(
+  "https://uofabioinformaticshub.github.io/summaries2GO/data/goSummaries.RDS"
+  ) %>% readRDS()
+```
+
+## Enriched Genes Table
+The `GOenrList` object that was just created may seem rather large and difficult to work with. A neat little function is defined to extract the relevant information from the output of the `enrichmentAnalysis()` by first filtering by false discovery rate, selecting relevant columns, setting more meaningful names. White spaces are also replaced with underscores.
+
+```{r enrichment_tables_list}
+enrichedTable <- GOenrList %>%
+  use_series("enrichmentTable") %>%
+  dplyr::select("module" = "class",
+                "GO_ID" = "dataSetID",
+                "term" = "dataSetName",
+                "pValue",
+                "FDR",
+                "ontology" = "inGroups") %>%
+  dplyr::filter(FDR < 0.05) %>%
+  mutate(ontology = str_remove_all(string = ontology,
+                                   pattern = "GO|\\||\\.")) %>%
+  as_tibble()
+```
+
+The `enrichedTable` now contains information about the GO pathway for each gene, which module the genes related to, the statistical significance resulting from the enrichment analysis, and the corresponding entrez gene IDs for each gene. The gene symbols are missing from this set and so a function is defined which can join these symbols into the dataset. The `gene_anno` dataset contains gene annotations that can be used to join the gene symbols to the enriched table list. Once the gene symbols are retrieved from the Entrez IDs, paste over them in `enrichedTable`
+
+```{r enr_table_accessible}
+enrichedTable_GOsums <- enrichedTable %>%
+  left_join(goSummaries,
+            by = c("GO_ID" = "id"))
+
+top_go_terms <- enrichedTable_GOsums %>%
+  arrange(FDR) %>%
+  dplyr::select("module",
+                "GO_ID",
+                "term",
+                "longest_path",
+                "terminal_node",
+                "pValue",
+                "FDR",
+                "shortest_path") %>%
+  group_by(module) %>%
+  top_n(5)
+
+go_list_modules <- enrichedTable_GOsums %>%
+  arrange(FDR) %>%
+  dplyr::select("module",
+                "GO_ID",
+                "term",
+                "longest_path",
+                "terminal_node",
+                "pValue",
+                "FDR",
+                "shortest_path") %>%
+  group_by(module) %>%
+  top_n(5) %>%
+  dplyr::select("module",
+                "GO_ID",
+                "term",
+                "shortest_path",
+                "longest_path",
+                "terminal_node",
+                "pValue",
+                "FDR") %>%
+  top_n(-1) %>%
+  arrange(module)
+
+go_list_modules %<>%
+  arrange(FDR) %>%
+  dplyr::select("module",
+      "GO_ID",
+      "term",
+      "longest_path",
+      "terminal_node",
+      "pValue",
+      "FDR",
+      "shortest_path") %>%
+  group_by(module) %>%
+  top_n(1) %>%
+  arrange(module)
+
+pander(head(enrichedTable, n = 10), split.table = Inf)
+```
+
+# Semantic similarity analysis
+Summarizes long, unintelligible lists of GO terms by finding a representative subset of the terms using a simple clustering algorithm that relies on semantic similarity measures.
+
+```{r rrvgo}
+moduleList <- enrichedTable %>%
+  group_split(sort(module)) %>%
+  set_names(sort(unique(enrichedTable$module)))
+```
+
+## Semantic Similarity Biplots
+The results of the semantic similarity analysis using `rrvgo` are visualised on a biplot similar to a PCA. It is essentially trying to determine which GO terms identified are under the same parent term or which are increasingly different. This allows us to view our GO terms at difference resolutions. We can see what over-arching GO terms are representative of larger gene clusters. GO terms themselves may also be redundant, with multiple GO terms reported on different levels of the GO tree hierarchy. So one group may be reported as representative of a high-level term while others are enriched for a lower-level term that is under the same high-level term, but is treated as separate. The semantic similarity analysis allows us to effectively reduce the detail and view overarching trends.
+The function will create and save the scatterplots automatically
+```{r}
+get_go_scatterplots(moduleList)
+```
+
+Salmon Module
+```{r}
+reduced_terms_BP_salmon <- read_rds(here(
+  "data/GO_analysis/BP/salmon_BP_reducedTerms.rds"
+  ))
+
+reduced_terms_BP_salmon$parentTerm <- str_replace(
+  string = reduced_terms_BP_salmon$parentTerm,
+  pattern = "via break",
+  replacement = "via\nbreak"
+  )
+
+write_rds(reduced_terms_BP_salmon,
+          here("data/GO_analysis/BP/salmon_BP_reducedTerms.rds"))
+```
+
+Pink Module
+```{r}
+reduced_terms_BP_pink <- read_rds(here(
+  "data/GO_analysis/BP/pink_BP_reducedTerms.rds"
+  ))
+
+reduced_terms_BP_pink$parentTerm <- str_replace(
+  string = reduced_terms_BP_pink$parentTerm,
+  pattern = "cell cycle",
+  replacement = "cell\ncycle"
+  )
+
+reduced_terms_BP_pink$parentTerm <- str_replace(
+  string = reduced_terms_BP_pink$parentTerm,
+  pattern = "metabolic process",
+  replacement = "metabolic\nprocess"
+  )
+
+write_rds(reduced_terms_BP_pink,
+          here("data/GO_analysis/BP/pink_BP_reducedTerms.rds"))
+```
+
+In the Black Module, there is one parent term that has a size of zero and therefore has no representation among the similar terms. However, it has slipped through the similarity test despite having no genes in it. I have removed it here
+```{r}
+reduced_terms_BP_black <- read_rds(here(
+  "data/GO_analysis/BP/black_BP_reducedTerms.rds"
+  ))
+
+reduced_terms_BP_black <- reduced_terms_BP_black %>%
+  dplyr::filter(!parent %in% "GO:0071826")
+
+write_rds(reduced_terms_BP_black,
+          here("data/GO_analysis/BP/black_BP_reducedTerms.rds"))
+```
+
+## Get Parent Terms
+```{r}
+get_parent_terms(moduleList, ont = "BP")
+get_parent_terms(moduleList, ont = "MF")
+get_parent_terms(moduleList, ont = "CC")
+```
+
+## GO scatter plot
+Now use the better scatter plot function
+
+```{r}
+modules <- names(moduleList)
+bp_scatter <- joined_scatterplot(modules[!modules == "grey"], "BP")
+
+ggsave(filename = "figure4_scatterplot.png",
+       plot = bp_scatter,
+       device = "png",
+       path = here("figures/"),
+       width = 9801,
+       height = 9084,
+       units = "px",
+       dpi = 600)
+
+mf_scatter <- joined_scatterplot(modules[!modules == "grey"], "MF")
+
+ggsave(filename = "figureS4_scatter_MF.png",
+       plot = mf_scatter,
+       device = "png",
+       path = here("figures/"),
+       width = 9801,
+       height = 9084,
+       units = "px",
+       dpi = 600)
+
+cc_scatter <- joined_scatterplot(modules[!modules == "grey"], "CC")
+
+ggsave(filename = "figureS5_scatter_CC.png",
+       plot = cc_scatter,
+       device = "png",
+       path = here("figures/"),
+       width = 9801,
+       height = 9084,
+       units = "px",
+       dpi = 600)
+```
+
+## Module Sizes
+Plot modules by size
+This function has the GO list as an input because I used to plot the top GO term in this figure, but now I do not.
+```{r module_sizes}
+module_sizes <- plot_module_sizes(mergedColours = mergedColours,
+                                  go_list_module = go_list_modules)
+
+ggsave(plot = module_sizes,
+       filename = "figure_s3_module_size.png",
+       path = here("figures/"),
+       device = "png",
+       height = 20,
+       width = 20,
+       units = "cm",
+       dpi = 400)
+```
+
+# Parent Term Analysis
+
+## No size restrictions
+This will help us get a wider picture ofr parent terms
+```{r}
+get_go_scatterplots_inf(moduleList)
+```
+
+```{r}
+modules <- names(moduleList)
+bp_scatter <- joined_scatterplot_inf(modules[!modules == "grey"], "BP")
+
+ggsave(filename = "figure4_scatterplot_inf.png",
+       plot = bp_scatter,
+       device = "png",
+       path = here("figures/"),
+       width = 8821,
+       height = 8176,
+       units = "px",
+       dpi = 600)
+
+mf_scatter <- joined_scatterplot_inf(modules[!modules == "grey"], "MF")
+
+ggsave(filename = "figureS4_scatter_inf_MF.png",
+       plot = mf_scatter,
+       device = "png",
+       path = here("figures/"),
+       width = 9801,
+       height = 9084,
+       units = "px",
+       dpi = 600)
+
+cc_scatter <- joined_scatterplot_inf(modules[!modules == "grey"], "CC")
+
+ggsave(filename = "figureS5_scatter_inf_CC.png",
+       plot = cc_scatter,
+       device = "png",
+       path = here("figures/"),
+       width = 9801,
+       height = 9084,
+       units = "px",
+       dpi = 600)
+```
+
+## Get Parent Terms
+```{r}
+get_parent_terms_inf(moduleList, ont = "BP")
+get_parent_terms_inf(moduleList, ont = "MF")
+get_parent_terms_inf(moduleList, ont = "CC")
+```
+
+Looking at the ones with all GO terms here
+```{r}
+turq_parents <- read_csv(
+  here("data/GO_analysis/parent_df/inf/BP/turquoise_BP_parent_df.csv")
+  )
+
+turq_parents %>% head(50) %>% dplyr::select(parentTerm) %>% table() %>% sort()
+turq_parents %>% dplyr::select(parentTerm, FDR)
+
+
+for(i in modules[!modules == "grey"]) {
+  parents <- read_csv(
+    here(paste0("data/GO_analysis/parent_df/inf/BP/", i, "_BP_parent_df.csv"))
+  )
+  
+  parents_freq <- parents$parentTerm %>%
+    table() %>%
+    as.data.frame() %>% 
+    set_colnames(c("parentTerm", "Frequency")) %>%
+    dplyr::arrange(desc(Frequency))
+  
+  parents_df <- parents %>%
+    dplyr::select(term.x, parentTerm, FDR)
+  
+  child_parent_df <- left_join(parents_df,
+                               parents_freq,
+                               by = "parentTerm") %>%
+    dplyr::rename("childTerm" = term.x,
+                  "frequencyParent" = Frequency)
+  
+  write_csv(child_parent_df,
+            here(paste0("data/GO_analysis/parent_df/inf/BP/",
+                        i,
+                        "_BP_child_parent.csv")))
+}
+```
+
+## Turquoise module split GO rrvgo
+```{r left_and_right_group}
+left_group <- c("IL2RB", "HN1", "CRABP2", "RASGRF2", "TAC3",
+                "GLIPR1", "PLA2G7", "PIPOX", "SERPINE2", "IL1R2",
+                "REPS2", "KDELR3", "XCR1", "PTK2B", "EXTL3", "EGLN3",
+                "CLDN19", "FAT2", "ASCL2", "NOG", "PRG2", "SFRP1", "NOTUM",
+                "FN1", "PCSK6", "ASAP3")
+left_g_class <- rep("left_group", 26)
+
+left_group_df <- tibble(left_group, left_g_class)
+
+write_csv(left_group_df,
+          here("data/turquoise_left_group.csv.gz"))
+
+right_group <- c("HEMGN", "EPB42", "EPB41", "SLC25A37", "SLC4A1", "FAM46C",
+                 "SNCA", "DMTN", "HBA1", "ALAS2")
+right_g_class <- rep("right_group", 10)
+
+right_group_df <- tibble(right_group, right_g_class)
+
+write_csv(right_group_df,
+          here("data/turquoise_right_group.csv.gz"))
+
+colnames(right_group_df) <- c("gene_name", "group")
+colnames(left_group_df) <- c("gene_name", "group")
+
+turqouise_network <- rbind(left_group_df, right_group_df)
+```
+

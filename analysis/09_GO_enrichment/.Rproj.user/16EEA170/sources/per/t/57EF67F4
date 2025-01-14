@@ -1,0 +1,28 @@
+{
+    "id": "57EF67F4",
+    "path": "~/Documents/R_Projects/GDM/analysis/09_GO_enrichment/09_GO_enrichment.Rmd",
+    "project_path": "09_GO_enrichment.Rmd",
+    "type": "r_markdown",
+    "hash": "3041717377",
+    "contents": "",
+    "dirty": false,
+    "created": 1723699092209.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "chunk_output_type": "console",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "26,0",
+        "scrollLine": "5",
+        "docOutlineVisible": "1"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1723767241,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1723767241509,
+    "read_only": false,
+    "read_only_alternatives": []
+}

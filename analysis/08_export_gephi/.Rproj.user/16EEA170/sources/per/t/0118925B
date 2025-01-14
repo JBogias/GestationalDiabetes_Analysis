@@ -1,0 +1,28 @@
+{
+    "id": "0118925B",
+    "path": "~/Documents/R_Projects/GDM/analysis/08_export_gephi/08_export_gephi.Rmd",
+    "project_path": "08_export_gephi.Rmd",
+    "type": "r_markdown",
+    "hash": "2110906520",
+    "contents": "",
+    "dirty": false,
+    "created": 1723698009088.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "chunk_output_type": "console",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "47,6",
+        "scrollLine": "17",
+        "docOutlineVisible": "1"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1723699001,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1723699001964,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,26 @@
+{
+    "id": "6D5FE60A",
+    "path": "~/Documents/R_Projects/GDM/analysis/05_DE/app.R",
+    "project_path": null,
+    "type": "r_source",
+    "hash": "1703353764",
+    "contents": "",
+    "dirty": false,
+    "created": 1723807192135.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "5,31",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1723807174,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1723807174,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,26 @@
+{
+    "id": "10508A48",
+    "path": "~/Documents/R_Projects/GDM/analysis/02_data_import/Dockerfile",
+    "project_path": "Dockerfile",
+    "type": "dockerfile",
+    "hash": "2240279252",
+    "contents": "",
+    "dirty": false,
+    "created": 1723607210391.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "0,0",
+        "scrollLine": "55"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1723607221,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1723607221,
+    "read_only": false,
+    "read_only_alternatives": []
+}

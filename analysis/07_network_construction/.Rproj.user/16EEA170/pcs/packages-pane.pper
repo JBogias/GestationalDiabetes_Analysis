@@ -1,0 +1,7 @@
+{
+    "installOptions": {
+        "installFromRepository": false,
+        "libraryPath": "/home/justin/Documents/R_Projects/GDM/analysis/07_network_construction/renv/library/R-4.4/x86_64-pc-linux-gnu",
+        "installDependencies": true
+    }
+}

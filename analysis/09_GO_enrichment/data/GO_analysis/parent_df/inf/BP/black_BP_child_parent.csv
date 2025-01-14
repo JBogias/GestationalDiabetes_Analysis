@@ -1,0 +1,121 @@
+childTerm,parentTerm,FDR,frequencyParent
+cytoplasmic translation,cytoplasmic translation,1.4894241873719769e-18,61
+organonitrogen compound biosynthetic process,cytoplasmic translation,6.559741972474623e-15,61
+translation,cytoplasmic translation,6.472990182249759e-11,61
+peptide biosynthetic process,cytoplasmic translation,1.1512179049717944e-10,61
+Golgi vesicle transport,Golgi vesicle transport,2.617176985051984e-10,32
+aerobic respiration,cytoplasmic translation,4.155025199193296e-10,61
+amide biosynthetic process,cytoplasmic translation,5.786328581207996e-10,61
+oxidative phosphorylation,cytoplasmic translation,1.568660131799086e-9,61
+peptide metabolic process,cytoplasmic translation,2.78058301823188e-9,61
+endoplasmic reticulum to Golgi vesicle-mediated transport,Golgi vesicle transport,3.435311118272703e-9,32
+organonitrogen compound metabolic process,cytoplasmic translation,3.7493339469105895e-9,61
+protein metabolic process,cytoplasmic translation,4.123784292676566e-9,61
+cellular respiration,cytoplasmic translation,7.503185944682332e-9,61
+amide metabolic process,cytoplasmic translation,1.411842838408964e-8,61
+intracellular transport,Golgi vesicle transport,2.1470854166300646e-8,32
+modification-dependent protein catabolic process,cytoplasmic translation,5.3317449107752326e-8,61
+modification-dependent macromolecule catabolic process,cytoplasmic translation,7.123270821865745e-8,61
+ATP synthesis coupled electron transport,cytoplasmic translation,3.808021219446945e-7,61
+mitochondrial ATP synthesis coupled electron transport,cytoplasmic translation,3.808021219446945e-7,61
+aerobic electron transport chain,cytoplasmic translation,4.188439483392913e-7,61
+ubiquitin-dependent protein catabolic process,cytoplasmic translation,7.017947815102543e-7,61
+catabolic process,cytoplasmic translation,7.473239658708857e-7,61
+proton motive force-driven mitochondrial ATP synthesis,cytoplasmic translation,8.620153288579203e-7,61
+establishment of protein localization,Golgi vesicle transport,1.0472362370333783e-6,32
+protein catabolic process,cytoplasmic translation,1.0957823387169535e-6,61
+protein transport,Golgi vesicle transport,1.673882763447062e-6,32
+autophagy,process utilizing autophagic mechanism,2.0895379099102286e-6,4
+process utilizing autophagic mechanism,process utilizing autophagic mechanism,2.0895379099102286e-6,4
+proteolysis involved in protein catabolic process,cytoplasmic translation,2.4270883106977127e-6,61
+proton motive force-driven ATP synthesis,cytoplasmic translation,2.986855387377469e-6,61
+energy derivation by oxidation of organic compounds,cytoplasmic translation,3.5420993222110033e-6,61
+respiratory electron transport chain,cytoplasmic translation,7.182809629567917e-6,61
+organic substance transport,Golgi vesicle transport,8.341875210271573e-6,32
+intracellular protein transport,Golgi vesicle transport,8.60773072797703e-6,32
+generation of precursor metabolites and energy,cytoplasmic translation,9.861690334803954e-6,61
+proteasomal protein catabolic process,cytoplasmic translation,1.93077822527445e-5,61
+nitrogen compound transport,Golgi vesicle transport,2.5758794394002415e-5,32
+ribonucleoprotein complex biogenesis,ribonucleoprotein complex biogenesis,2.5966092944385527e-5,22
+ATP biosynthetic process,cytoplasmic translation,3.37876999296074e-5,61
+vesicle organization,ribonucleoprotein complex biogenesis,4.828690128117442e-5,22
+electron transport chain,cytoplasmic translation,4.858879778294423e-5,61
+protein-RNA complex organization,ribonucleoprotein complex biogenesis,5.350669395643493e-5,22
+purine nucleoside triphosphate biosynthetic process,cytoplasmic translation,6.172475549799757e-5,61
+purine ribonucleoside triphosphate biosynthetic process,cytoplasmic translation,6.172475549799757e-5,61
+ribonucleoside triphosphate biosynthetic process,cytoplasmic translation,7.218019879415756e-5,61
+proteolysis,cytoplasmic translation,7.970925403795905e-5,61
+macroautophagy,process utilizing autophagic mechanism,8.754149755366744e-5,4
+protein localization,Golgi vesicle transport,1.0226791794624673e-4,32
+organonitrogen compound catabolic process,cytoplasmic translation,1.1409429336147768e-4,61
+NADH dehydrogenase complex assembly,ribonucleoprotein complex biogenesis,1.233739043522697e-4,22
+mitochondrial respiratory chain complex I assembly,ribonucleoprotein complex biogenesis,1.233739043522697e-4,22
+cellular macromolecule localization,Golgi vesicle transport,1.327361804004253e-4,32
+carbohydrate derivative biosynthetic process,cytoplasmic translation,1.5185015319993294e-4,61
+macromolecule catabolic process,cytoplasmic translation,1.9270541212972113e-4,61
+macromolecule localization,Golgi vesicle transport,2.0715848242279207e-4,32
+ATP metabolic process,cytoplasmic translation,2.0866304183264308e-4,61
+establishment of localization,Golgi vesicle transport,2.778552856269408e-4,32
+protein-RNA complex assembly,ribonucleoprotein complex biogenesis,2.821092130552017e-4,22
+purine ribonucleoside triphosphate metabolic process,cytoplasmic translation,2.893802913869338e-4,61
+ribonucleoside triphosphate metabolic process,cytoplasmic translation,3.0466057472155697e-4,61
+nucleoside triphosphate biosynthetic process,cytoplasmic translation,3.0527175276674995e-4,61
+"mitochondrial electron transport, NADH to ubiquinone",cytoplasmic translation,4.749601798229233e-4,61
+ribosomal small subunit biogenesis,ribonucleoprotein complex biogenesis,5.168041529249693e-4,22
+establishment of localization in cell,Golgi vesicle transport,5.289740618223706e-4,32
+localization,Golgi vesicle transport,5.771767440072543e-4,32
+transport,Golgi vesicle transport,5.771767440072543e-4,32
+purine nucleoside triphosphate metabolic process,cytoplasmic translation,5.854827311645922e-4,61
+ribosome biogenesis,ribonucleoprotein complex biogenesis,6.952444339530817e-4,22
+proteasome-mediated ubiquitin-dependent protein catabolic process,cytoplasmic translation,0.00100165034035899,61
+"retrograde vesicle-mediated transport, Golgi to endoplasmic reticulum",Golgi vesicle transport,0.0011391669077422,32
+membrane lipid metabolic process,cytoplasmic translation,0.00126466958689329,61
+organic substance catabolic process,cytoplasmic translation,0.00152078495903773,61
+nucleoside triphosphate metabolic process,cytoplasmic translation,0.00155000837210617,61
+protein N-linked glycosylation,cytoplasmic translation,0.00160005908973146,61
+protein lipidation,cytoplasmic translation,0.00160005908973146,61
+metabolic process,cytoplasmic translation,0.0016154166189517,61
+ribosome assembly,ribonucleoprotein complex biogenesis,0.00177052586589169,22
+localization within membrane,Golgi vesicle transport,0.0020391502371283,32
+mitochondrion organization,ribonucleoprotein complex biogenesis,0.0021810902301872,22
+protein localization to membrane,Golgi vesicle transport,0.0022723591513275,32
+vesicle-mediated transport,Golgi vesicle transport,0.00258019979723001,32
+GPI anchor metabolic process,cytoplasmic translation,0.00328843733917753,61
+GPI anchor biosynthetic process,cytoplasmic translation,0.00328843733917753,61
+endomembrane system organization,ribonucleoprotein complex biogenesis,0.00346379684277151,22
+vesicle targeting,Golgi vesicle transport,0.00403074887194338,32
+ribosomal small subunit assembly,ribonucleoprotein complex biogenesis,0.00430592308547113,22
+cellular localization,Golgi vesicle transport,0.00491205984063329,32
+lipoprotein biosynthetic process,cytoplasmic translation,0.00503595363164797,61
+regulation of catabolic process,cytoplasmic translation,0.00616105917478502,61
+autophagosome maturation,process utilizing autophagic mechanism,0.00827756580271083,4
+establishment of protein localization to membrane,Golgi vesicle transport,0.00866041411166052,32
+carbohydrate derivative metabolic process,cytoplasmic translation,0.00908530362651516,61
+mitochondrial respiratory chain complex assembly,ribonucleoprotein complex biogenesis,0.01083158326950624,22
+organelle disassembly,ribonucleoprotein complex biogenesis,0.01101583922715458,22
+cellular catabolic process,cytoplasmic translation,0.01158621019988174,61
+glycolipid metabolic process,cytoplasmic translation,0.0119791958885034,61
+protein targeting,Golgi vesicle transport,0.01319845943588283,32
+synaptic vesicle maturation,ribonucleoprotein complex biogenesis,0.01360478410793547,22
+liposaccharide metabolic process,cytoplasmic translation,0.01467648330052331,61
+lipoprotein metabolic process,cytoplasmic translation,0.01938731109328732,61
+regulation of lysosomal lumen pH,ribonucleoprotein complex biogenesis,0.02126319001570863,22
+vesicle budding from membrane,ribonucleoprotein complex biogenesis,0.02224321910092405,22
+glycolipid biosynthetic process,cytoplasmic translation,0.02224321910092405,61
+"vesicle targeting, to, from or within Golgi",Golgi vesicle transport,0.02224717328799679,32
+membrane lipid biosynthetic process,cytoplasmic translation,0.0250797631649553,61
+vacuole organization,ribonucleoprotein complex biogenesis,0.02616293471503028,22
+vacuolar transport,Golgi vesicle transport,0.02918932702303865,32
+intra-Golgi vesicle-mediated transport,Golgi vesicle transport,0.0316374926648644,32
+lysosomal lumen acidification,ribonucleoprotein complex biogenesis,0.03331891604309336,22
+establishment of vesicle localization,Golgi vesicle transport,0.03416425716329079,32
+primary metabolic process,cytoplasmic translation,0.03428753260141207,61
+establishment of protein localization to organelle,Golgi vesicle transport,0.03429241572196949,32
+vesicle coating,ribonucleoprotein complex biogenesis,0.03465983916718405,22
+protein localization to organelle,Golgi vesicle transport,0.03652804784613991,32
+"vesicle targeting, rough ER to cis-Golgi",Golgi vesicle transport,0.04157314127006437,32
+COPII vesicle coating,Golgi vesicle transport,0.04157314127006437,32
+response to mitochondrial depolarisation,response to mitochondrial depolarisation,0.04157314127006437,1
+vesicle localization,Golgi vesicle transport,0.04399440853540341,32
+membrane organization,ribonucleoprotein complex biogenesis,0.0448071458776169,22
+endosome organization,ribonucleoprotein complex biogenesis,0.04901316681867018,22

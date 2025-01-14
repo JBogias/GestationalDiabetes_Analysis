@@ -1,0 +1,230 @@
+module,GO_ID,term.x,pValue,FDR,ontology,sort(module),cluster,parent,score,size,term.y,parentTerm,termUniqueness,termUniquenessWithinCluster,termDispensability
+pink,GO:1903047,mitotic cell cycle process,1.4167911092880894e-28,5.327370702774764e-24,BP,pink,1,GO:1903047,23.273487081970938,761,mitotic cell cycle process,"mitotic cell
+cycle process",0.5081914893617021,0.2786142857142857,0
+pink,GO:0000278,mitotic cell cycle,1.2498209393086244e-26,3.5246512764677343e-22,BP,pink,1,GO:1903047,21.45288384496977,911,mitotic cell cycle,"mitotic cell
+cycle process",0.530709219858156,0.31089999999999995,0.969
+pink,GO:0022402,cell cycle process,1.525183860344611e-25,3.8232970081371966e-21,BP,pink,1,GO:1903047,20.417561963036487,1294,cell cycle process,"mitotic cell
+cycle process",0.5115744680851064,0.2858857142857143,0.898
+pink,GO:0010564,regulation of cell cycle process,2.7585587195272474e-22,3.6298664842744034e-18,BP,pink,1,GO:1903047,17.440109349126224,746,regulation of cell cycle process,"mitotic cell
+cycle process",0.4876879432624114,0.24280000000000002,0.82
+pink,GO:0051276,chromosome organization,2.8960416965976355e-22,3.6298664842744034e-18,BP,pink,2,GO:0051276,17.440109349126224,635,chromosome organization,chromosome organization,0.7281702127659575,0.40491999999999995,0
+pink,GO:0007049,cell cycle,9.691277568010579e-22,1.150762701115193e-17,BP,pink,1,GO:1903047,16.939014223043763,1816,cell cycle,"mitotic cell
+cycle process",0.5358794326241134,0.3206428571428571,0.85
+pink,GO:0000280,nuclear division,1.4030940996954705e-21,1.5827602991614754e-17,BP,pink,2,GO:0051276,16.80058485180463,446,nuclear division,chromosome organization,0.7429574468085106,0.44136,0.554
+pink,GO:0098813,nuclear chromosome segregation,7.535534540657567e-21,7.391704120511972e-17,BP,pink,1,GO:1903047,16.13125542563545,317,nuclear chromosome segregation,"mitotic cell
+cycle process",0.5148226950354611,0.2764714285714286,0.762
+pink,GO:0051726,regulation of cell cycle,2.2999714514256404e-20,2.0755862366245549e-16,BP,pink,1,GO:1903047,15.682859217808401,1116,regulation of cell cycle,"mitotic cell
+cycle process",0.5100070921985815,0.2757428571428572,0.78
+pink,GO:0007059,chromosome segregation,2.4546246718328196e-20,2.1299533546623167e-16,BP,pink,1,GO:1903047,15.67162990737562,423,chromosome segregation,"mitotic cell
+cycle process",0.5112553191489362,0.27221428571428574,0.785
+pink,GO:0000819,sister chromatid segregation,3.517945773229267e-20,2.8345848067794815e-16,BP,pink,1,GO:1903047,15.54751054500027,229,sister chromatid segregation,"mitotic cell
+cycle process",0.4291134751773049,0.2835,0.733
+pink,GO:0000070,mitotic sister chromatid segregation,3.67018084653345e-20,2.855274140642799e-16,BP,pink,1,GO:1903047,15.544352187925046,188,mitotic sister chromatid segregation,"mitotic cell
+cycle process",0.3966170212765957,0.2606428571428572,0.864
+pink,GO:0051301,cell division,4.2347883359858254e-20,3.1847019882725403e-16,BP,pink,3,GO:0051301,15.496931200975137,643,cell division,cell division,0.933,0.277,0
+pink,GO:0048285,organelle fission,5.784226289159073e-20,4.2096106228941244e-16,BP,pink,2,GO:0051276,15.375758073320878,493,organelle fission,chromosome organization,0.7432836879432624,0.43996,0.56
+pink,GO:0140014,mitotic nuclear division,1.45367905152916e-19,9.938319115621024e-16,BP,pink,2,GO:0051276,15.002687062337092,277,mitotic nuclear division,chromosome organization,0.4437517730496454,0.45984,0.525
+pink,GO:0044770,cell cycle phase transition,1.7438748899092323e-17,9.595990583229802e-14,BP,pink,1,GO:1903047,13.01791018688734,555,cell cycle phase transition,"mitotic cell
+cycle process",0.514950354609929,0.26680000000000004,0.792
+pink,GO:0044772,mitotic cell cycle phase transition,2.649473396347919e-16,1.2718036020213915e-12,BP,pink,1,GO:1903047,11.895579949335266,451,mitotic cell cycle phase transition,"mitotic cell
+cycle process",0.5008085106382979,0.24901428571428574,0.924
+pink,GO:0051983,regulation of chromosome segregation,2.3301177602789693e-15,8.910133354178615e-12,BP,pink,1,GO:1903047,11.050115796013573,131,regulation of chromosome segregation,"mitotic cell
+cycle process",0.5010496453900709,0.24597142857142862,0.688
+pink,GO:1901987,regulation of cell cycle phase transition,6.021432442251226e-15,2.1563418623750782e-11,BP,pink,1,GO:1903047,10.66628238579817,455,regulation of cell cycle phase transition,"mitotic cell
+cycle process",0.4863120567375887,0.22684285714285712,0.772
+pink,GO:0007346,regulation of mitotic cell cycle,1.1280654775968008e-14,3.742689005891386e-11,BP,pink,1,GO:1903047,10.426816258548566,522,regulation of mitotic cell cycle,"mitotic cell
+cycle process",0.5124113475177305,0.28001428571428577,0.893
+pink,GO:0007088,regulation of mitotic nuclear division,3.094726119035971e-14,9.697238329384797e-11,BP,pink,2,GO:0051276,10.013351930587149,118,regulation of mitotic nuclear division,chromosome organization,0.4385815602836879,0.43116,0.474
+pink,GO:0090068,positive regulation of cell cycle process,5.6205146889153794e-14,1.62569784482846e-10,BP,pink,1,GO:1903047,9.78896017000746,263,positive regulation of cell cycle process,"mitotic cell
+cycle process",0.5276028368794325,0.29938571428571426,0.724
+pink,GO:0051783,regulation of nuclear division,6.363683804901456e-14,1.7724823496590339e-10,BP,pink,2,GO:0051276,9.751418080818437,147,regulation of nuclear division,chromosome organization,0.7186666666666667,0.42600000000000005,0.483
+pink,GO:0000075,cell cycle checkpoint signaling,7.644785447837439e-14,2.0780000540802467e-10,BP,pink,1,GO:1903047,9.682354445476266,191,cell cycle checkpoint signaling,"mitotic cell
+cycle process",0.48770212765957444,0.23650000000000004,0.715
+pink,GO:1901990,regulation of mitotic cell cycle phase transition,1.506270637515617e-13,3.818311444156162e-10,BP,pink,1,GO:1903047,9.418128650860622,356,regulation of mitotic cell cycle phase transition,"mitotic cell
+cycle process",0.4787163120567376,0.21944285714285716,0.897
+pink,GO:0033045,regulation of sister chromatid segregation,6.688736310133033e-13,1.410323176569265e-9,BP,pink,1,GO:1903047,8.850681357047884,104,regulation of sister chromatid segregation,"mitotic cell
+cycle process",0.40878723404255324,0.2449,0.672
+pink,GO:0010948,negative regulation of cell cycle process,7.487417511821445e-13,1.5641076526315148e-9,BP,pink,1,GO:1903047,8.80573335911833,316,negative regulation of cell cycle process,"mitotic cell
+cycle process",0.4976241134751773,0.25388571428571427,0.744
+pink,GO:1905818,regulation of chromosome separation,8.030057541674071e-13,1.575357636501815e-9,BP,pink,1,GO:1903047,8.802620837475862,74,regulation of chromosome separation,"mitotic cell
+cycle process",0.5149787234042553,0.26349999999999996,0.653
+pink,GO:0033044,regulation of chromosome organization,1.4715158610687746e-12,2.65590954732581e-9,BP,pink,2,GO:0051276,8.575786719878645,247,regulation of chromosome organization,chromosome organization,0.6971843971631206,0.37692000000000003,0.886
+pink,GO:0051304,chromosome separation,1.7581080374421942e-12,3.0616468858843253e-9,BP,pink,1,GO:1903047,8.514044899971914,81,chromosome separation,"mitotic cell
+cycle process",0.5621489361702128,0.34068571428571426,0.66
+pink,GO:0010965,regulation of mitotic sister chromatid separation,2.540764962860759e-12,4.123784292676566e-9,BP,pink,1,GO:1903047,8.384704059913826,59,regulation of mitotic sister chromatid separation,"mitotic cell
+cycle process",0.4119007092198581,0.2527857142857143,0.77
+pink,GO:0030071,regulation of mitotic metaphase/anaphase transition,2.6319287211082523e-12,4.152373697686942e-9,BP,pink,1,GO:1903047,8.381703568565147,90,regulation of mitotic metaphase/anaphase transition,"mitotic cell
+cycle process",0.38553900709219857,0.20044285714285714,0.789
+pink,GO:1902099,regulation of metaphase/anaphase transition of cell cycle,2.6319287211082523e-12,4.152373697686942e-9,BP,pink,1,GO:1903047,8.381703568565147,93,regulation of metaphase/anaphase transition of cell cycle,"mitotic cell
+cycle process",0.3953971631205674,0.21222857142857143,0.662
+pink,GO:1901988,negative regulation of cell cycle phase transition,4.582312020207072e-12,6.756963495940638e-9,BP,pink,1,GO:1903047,8.170248427316608,273,negative regulation of cell cycle phase transition,"mitotic cell
+cycle process",0.4846879432624114,0.2248714285714286,0.734
+pink,GO:0007091,metaphase/anaphase transition of mitotic cell cycle,4.838388071796477e-12,7.042507954051633e-9,BP,pink,1,GO:1903047,8.15227265383473,94,metaphase/anaphase transition of mitotic cell cycle,"mitotic cell
+cycle process",0.39174468085106384,0.2129428571428571,0.793
+pink,GO:0044784,metaphase/anaphase transition of cell cycle,4.838388071796477e-12,7.042507954051633e-9,BP,pink,1,GO:1903047,8.15227265383473,97,metaphase/anaphase transition of cell cycle,"mitotic cell
+cycle process",0.3972836879432624,0.21837142857142855,0.666
+pink,GO:0051306,mitotic sister chromatid separation,5.925448033260208e-12,8.407800822539845e-9,BP,pink,1,GO:1903047,8.075317585121638,62,mitotic sister chromatid separation,"mitotic cell
+cycle process",0.43890070921985813,0.3020857142857143,0.774
+pink,GO:1902850,microtubule cytoskeleton organization involved in mitosis,9.304404882511831e-12,1.295781966384873e-8,BP,pink,4,GO:1902850,7.887468068497836,164,microtubule cytoskeleton organization involved in mitosis,microtubule cytoskeleton organization involved in mitosis,0.48518439716312056,0.34950000000000003,0
+pink,GO:0045787,positive regulation of cell cycle,1.3507578237250164e-11,1.8581980037231767e-8,BP,pink,1,GO:1903047,7.730908010825319,332,positive regulation of cell cycle,"mitotic cell
+cycle process",0.5543120567375887,0.33861428571428576,0.674
+pink,GO:0045786,negative regulation of cell cycle,1.8443948462846273e-11,2.3777938358301415e-8,BP,pink,1,GO:1903047,7.623825803141543,405,negative regulation of cell cycle,"mitotic cell
+cycle process",0.5210070921985815,0.28672857142857144,0.694
+pink,GO:0033047,regulation of mitotic sister chromatid segregation,1.856658773731235e-11,2.3800044655767272e-8,BP,pink,1,GO:1903047,7.623422228080668,54,regulation of mitotic sister chromatid segregation,"mitotic cell
+cycle process",0.4083049645390071,0.2595857142857143,0.766
+pink,GO:0007093,mitotic cell cycle checkpoint signaling,3.2328655700916577e-11,3.8659747826193256e-8,BP,pink,1,GO:1903047,7.412740983159249,143,mitotic cell cycle checkpoint signaling,"mitotic cell
+cycle process",0.48444680851063826,0.23592857142857138,0.829
+pink,GO:0045839,negative regulation of mitotic nuclear division,4.3638522016220873e-11,4.9723671475149445e-8,BP,pink,2,GO:0051276,7.303436811596576,56,negative regulation of mitotic nuclear division,chromosome organization,0.4417234042553192,0.43628,0.45
+pink,GO:0051784,negative regulation of nuclear division,6.516591856798098e-11,7.068309080827975e-8,BP,pink,2,GO:0051276,7.150684468055599,63,negative regulation of nuclear division,chromosome organization,0.7030212765957446,0.43592,0.454
+pink,GO:0045930,negative regulation of mitotic cell cycle,1.4747933675449457e-10,1.4722483701407752e-7,BP,pink,1,GO:1903047,6.8320189177957005,248,negative regulation of mitotic cell cycle,"mitotic cell
+cycle process",0.5120141843971631,0.2752,0.83
+pink,GO:0006259,DNA metabolic process,1.6930829619074426e-10,1.6753352940172725e-7,BP,pink,5,GO:0006259,6.775898262197854,1041,DNA metabolic process,"DNA metabolic
+process",0.9205602836879433,0.356,0
+pink,GO:0007094,mitotic spindle assembly checkpoint signaling,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,46,mitotic spindle assembly checkpoint signaling,"mitotic cell
+cycle process",0.3563120567375887,0.17631428571428576,0.754
+pink,GO:0031577,spindle checkpoint signaling,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,47,spindle checkpoint signaling,"mitotic cell
+cycle process",0.5340212765957446,0.30355714285714286,0.632
+pink,GO:0033046,negative regulation of sister chromatid segregation,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,48,negative regulation of sister chromatid segregation,"mitotic cell
+cycle process",0.41586524822695037,0.24584285714285714,0.632
+pink,GO:0033048,negative regulation of mitotic sister chromatid segregation,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,48,negative regulation of mitotic sister chromatid segregation,"mitotic cell
+cycle process",0.39508510638297867,0.23398571428571424,0.756
+pink,GO:0045841,negative regulation of mitotic metaphase/anaphase transition,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,48,negative regulation of mitotic metaphase/anaphase transition,"mitotic cell
+cycle process",0.36627659574468086,0.18768571428571434,0.756
+pink,GO:0051985,negative regulation of chromosome segregation,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,50,negative regulation of chromosome segregation,"mitotic cell
+cycle process",0.5087517730496454,0.2557571428571429,0.636
+pink,GO:0071173,spindle assembly checkpoint signaling,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,46,spindle assembly checkpoint signaling,"mitotic cell
+cycle process",0.5344468085106383,0.30417142857142854,0.632
+pink,GO:0071174,mitotic spindle checkpoint signaling,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,46,mitotic spindle checkpoint signaling,"mitotic cell
+cycle process",0.5208368794326241,0.2879285714285714,0.754
+pink,GO:1902100,negative regulation of metaphase/anaphase transition of cell cycle,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,50,negative regulation of metaphase/anaphase transition of cell cycle,"mitotic cell
+cycle process",0.4049716312056738,0.21837142857142855,0.636
+pink,GO:1905819,negative regulation of chromosome separation,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,50,negative regulation of chromosome separation,"mitotic cell
+cycle process",0.5034113475177304,0.245,0.636
+pink,GO:2000816,negative regulation of mitotic sister chromatid separation,2.1051313558682619e-10,1.9706999385785832e-7,BP,pink,1,GO:1903047,6.70537949694837,48,negative regulation of mitotic sister chromatid separation,"mitotic cell
+cycle process",0.39019858156028364,0.2241428571428571,0.756
+pink,GO:2001251,negative regulation of chromosome organization,2.487093771221735e-10,2.2996443677267854e-7,BP,pink,2,GO:0051276,6.638339320971863,93,negative regulation of chromosome organization,chromosome organization,0.6881631205673759,0.40376,0.802
+pink,GO:0000910,cytokinesis,3.4451313777467313e-10,3.096637809296574e-7,BP,pink,3,GO:0051301,6.50910958786972,188,cytokinesis,cell division,0.5699290780141844,0.22089999999999999,0.904
+pink,GO:1901991,negative regulation of mitotic cell cycle phase transition,3.4451313777467313e-10,3.096637809296574e-7,BP,pink,1,GO:1903047,6.50910958786972,195,negative regulation of mitotic cell cycle phase transition,"mitotic cell
+cycle process",0.4813191489361702,0.22318571428571432,0.847
+pink,GO:0050000,chromosome localization,1.96203069383671e-9,1.5586399466073949e-6,BP,pink,6,GO:0050000,5.807254197358452,120,chromosome localization,chromosome localization,0.9545177304964539,0.19837499999999997,0
+pink,GO:0051310,metaphase chromosome alignment,3.9421259526223746e-9,2.986855387377469e-6,BP,pink,6,GO:0050000,5.524785803838569,100,metaphase chromosome alignment,chromosome localization,0.5348510638297872,0.19062500000000004,0.984
+pink,GO:0007052,mitotic spindle organization,9.373404986820534e-9,6.6292598717134194e-6,BP,pink,4,GO:1902850,5.178534955995443,131,mitotic spindle organization,microtubule cytoskeleton organization involved in mitosis,0.48819858156028373,0.35850000000000004,0.979
+pink,GO:0006260,DNA replication,1.1493265661462267e-8,7.953974435222399e-6,BP,pink,5,GO:0006259,5.099415809208686,278,DNA replication,"DNA metabolic
+process",0.9179148936170213,0.2703,0.797
+pink,GO:0051303,establishment of chromosome localization,1.3113010172580355e-8,8.85756354801154e-6,BP,pink,6,GO:0050000,5.052685723166194,112,establishment of chromosome localization,chromosome localization,0.9397801418439716,0.19074999999999998,0.994
+pink,GO:0007051,spindle organization,1.529811303562614e-8,1.0062411900780216e-5,BP,pink,1,GO:1903047,4.9972979089766225,197,spindle organization,"mitotic cell
+cycle process",0.4989574468085106,0.38138571428571433,0.715
+pink,GO:0000281,mitotic cytokinesis,2.5184964295383757e-8,1.6005576886426843e-5,BP,pink,3,GO:0051301,4.795728668031767,88,mitotic cytokinesis,cell division,0.5652836879432623,0.236,0.843
+pink,GO:0008608,attachment of spindle microtubules to kinetochore,2.6063246942843013e-8,1.6424941739594446e-5,BP,pink,6,GO:0050000,4.784496162238046,52,attachment of spindle microtubules to kinetochore,chromosome localization,0.5569432624113475,0.21399999999999997,0.936
+pink,GO:0032465,regulation of cytokinesis,4.396445565995131e-8,2.576317101673147e-5,BP,pink,3,GO:0051301,4.5890006836137545,93,regulation of cytokinesis,cell division,0.5472482269503547,0.23130000000000006,0.84
+pink,GO:0044839,cell cycle G2/M phase transition,4.6927731681887786e-8,2.705004169206136e-5,BP,pink,1,GO:1903047,4.567832061181506,152,cell cycle G2/M phase transition,"mitotic cell
+cycle process",0.561418439716312,0.3350428571428572,0.693
+pink,GO:0000226,microtubule cytoskeleton organization,6.555274886909595e-8,3.651692758606602e-5,BP,pink,4,GO:1902850,4.437505769706995,649,microtubule cytoskeleton organization,microtubule cytoskeleton organization involved in mitosis,0.7650567375886524,0.35150000000000003,0.836
+pink,GO:0006996,organelle organization,1.0283747831500812e-7,5.471972519492684e-5,BP,pink,2,GO:0051276,4.261856092330092,3623,organelle organization,chromosome organization,0.7565390070921986,0.42100000000000004,0.722
+pink,GO:0032392,DNA geometric change,1.1293190205676685e-7,5.980884136860838e-5,BP,pink,2,GO:0051276,4.223234610764516,85,DNA geometric change,chromosome organization,0.7687872340425532,0.47312,0.786
+pink,GO:0061640,cytoskeleton-dependent cytokinesis,1.1753448024026187e-7,6.172475549799757e-5,BP,pink,3,GO:0051301,4.209540621705155,117,cytoskeleton-dependent cytokinesis,cell division,0.5831843971631205,0.21910000000000007,0.868
+pink,GO:0006268,DNA unwinding involved in DNA replication,1.1758269947947984e-7,6.172475549799757e-5,BP,pink,2,GO:0051276,4.209540621705155,21,DNA unwinding involved in DNA replication,chromosome organization,0.7327517730496453,0.52032,0.703
+pink,GO:0051225,spindle assembly,1.6626036595642723e-7,8.299219529580007e-5,BP,pink,1,GO:1903047,4.0809627473750165,129,spindle assembly,"mitotic cell
+cycle process",0.4775035460992908,0.33754285714285714,0.679
+pink,GO:0000086,G2/M transition of mitotic cell cycle,1.6627131897390025e-7,8.299219529580007e-5,BP,pink,1,GO:1903047,4.0809627473750165,136,G2/M transition of mitotic cell cycle,"mitotic cell
+cycle process",0.5432978723404256,0.31100000000000005,0.821
+pink,GO:0071103,DNA conformation change,2.935644839648518e-7,1.379814233902296e-4,BP,pink,2,GO:0051276,3.8601793792666976,92,DNA conformation change,chromosome organization,0.7669148936170213,0.46956,0.794
+pink,GO:0051231,spindle elongation,3.3513696545505164e-7,1.5399236410654622e-4,BP,pink,1,GO:1903047,3.8125008136350274,14,spindle elongation,"mitotic cell
+cycle process",0.5388368794326241,0.4081714285714285,0.577
+pink,GO:0051321,meiotic cell cycle,3.9684473108222785e-7,1.7906427955892285e-4,BP,pink,7,GO:0051321,3.7469910402685787,291,meiotic cell cycle,"meiotic cell
+cycle",0.5888723404255319,0.2034285714285714,0
+pink,GO:0007017,microtubule-based process,5.390509152893068e-7,2.3120775094756754e-4,BP,pink,4,GO:1902850,3.635997610833975,940,microtubule-based process,microtubule cytoskeleton organization involved in mitosis,0.9308652482269504,0.376,0.787
+pink,GO:0031570,DNA integrity checkpoint signaling,5.890669977962586e-7,2.48228045071311e-4,BP,pink,1,GO:1903047,3.6051491530079396,134,DNA integrity checkpoint signaling,"mitotic cell
+cycle process",0.5038652482269503,0.2601428571428571,0.686
+pink,GO:0032508,DNA duplex unwinding,6.049773390870165e-7,2.5416934352220076e-4,BP,pink,2,GO:0051276,3.594876832782942,79,DNA duplex unwinding,chromosome organization,0.7709929078014184,0.47772000000000003,0.776
+pink,GO:1901989,positive regulation of cell cycle phase transition,6.976214125461354e-7,2.8720869869440437e-4,BP,pink,1,GO:1903047,3.541802410746694,117,positive regulation of cell cycle phase transition,"mitotic cell
+cycle process",0.5370780141843972,0.3010142857142857,0.664
+pink,GO:0033043,regulation of organelle organization,7.326728987824615e-7,2.9999697403686236e-4,BP,pink,2,GO:0051276,3.5228831258327404,1183,regulation of organelle organization,chromosome organization,0.720758865248227,0.4084,0.604
+pink,GO:0051656,establishment of organelle localization,1.1398299960732049e-6,4.449083830693352e-4,BP,pink,6,GO:0050000,3.35172941109517,472,establishment of organelle localization,chromosome localization,0.9579007092198581,0.258,0.828
+pink,GO:0006261,DNA-templated DNA replication,1.1895018621202808e-6,4.6349484475467453e-4,BP,pink,5,GO:0006259,3.3339550919554037,160,DNA-templated DNA replication,"DNA metabolic
+process",0.9183971631205674,0.267,0.757
+pink,GO:1903046,meiotic cell cycle process,1.3600402859780114e-6,5.191855988485603e-4,BP,pink,7,GO:0051321,3.284677362485314,218,meiotic cell cycle process,"meiotic cell
+cycle",0.5640567375886525,0.1954285714285714,0.979
+pink,GO:0051315,attachment of mitotic spindle microtubules to kinetochore,1.4520104087443966e-6,5.496444099275558e-4,BP,pink,6,GO:0050000,3.2599181845960907,24,attachment of mitotic spindle microtubules to kinetochore,chromosome localization,0.46701418439716313,0.244,0.881
+pink,GO:1901992,positive regulation of mitotic cell cycle phase transition,1.4669240180950957e-6,5.543596779270261e-4,BP,pink,1,GO:1903047,3.2562083662220838,99,positive regulation of mitotic cell cycle phase transition,"mitotic cell
+cycle process",0.5258936170212766,0.28772857142857144,0.781
+pink,GO:0000082,G1/S transition of mitotic cell cycle,1.6749274005582685e-6,6.245956542809107e-4,BP,pink,1,GO:1903047,3.2044010417650997,234,G1/S transition of mitotic cell cycle,"mitotic cell
+cycle process",0.5316170212765957,0.2950285714285714,0.853
+pink,GO:0044786,cell cycle DNA replication,1.9224208063959963e-6,7.035228826865242e-4,BP,pink,5,GO:0006259,3.15272177219815,45,cell cycle DNA replication,"DNA metabolic
+process",0.5902482269503546,0.30500000000000005,0.64
+pink,GO:0090307,mitotic spindle assembly,2.379744687141807e-6,8.508624387734756e-4,BP,pink,1,GO:1903047,3.0701406478010465,73,mitotic spindle assembly,"mitotic cell
+cycle process",0.42990780141843976,0.3115428571428571,0.773
+pink,GO:0006270,DNA replication initiation,3.0147652510413066e-6,0.0010480141576077492,BP,pink,5,GO:0006259,2.9796328504349336,37,DNA replication initiation,"DNA metabolic
+process",0.9274397163120567,0.3435,0.648
+pink,GO:0140013,meiotic nuclear division,3.179581073809755e-6,0.0011021801605703946,BP,pink,7,GO:0051321,2.957747410614438,197,meiotic nuclear division,"meiotic cell
+cycle",0.46618439716312055,0.19700000000000006,0.964
+pink,GO:0000022,mitotic spindle elongation,4.037804073951345e-6,0.00133966026047671,BP,pink,1,GO:1903047,2.87300532529767,12,mitotic spindle elongation,"mitotic cell
+cycle process",0.48789361702127665,0.3773714285714286,0.681
+pink,GO:0051256,mitotic spindle midzone assembly,4.037804073951345e-6,0.00133966026047671,BP,pink,1,GO:1903047,2.87300532529767,11,mitotic spindle midzone assembly,"mitotic cell
+cycle process",0.48903546099290784,0.3774428571428572,0.673
+pink,GO:0045132,meiotic chromosome segregation,4.154980851418255e-6,0.0013724820349758015,BP,pink,7,GO:0051321,2.862493331513163,93,meiotic chromosome segregation,"meiotic cell
+cycle",0.4651985815602837,0.24442857142857144,0.896
+pink,GO:1902969,mitotic DNA replication,4.3938408046717754e-6,0.0014408349185203477,BP,pink,5,GO:0006259,2.841385774968547,17,mitotic DNA replication,"DNA metabolic
+process",0.5920921985815603,0.3456,0.588
+pink,GO:0051640,organelle localization,4.924076623853215e-6,0.001598447377133128,BP,pink,6,GO:0050000,2.7963016566690455,606,organelle localization,chromosome localization,0.9587943262411347,0.27375000000000005,0.849
+pink,GO:0140694,non-membrane-bounded organelle assembly,5.211277124649329e-6,0.001677198619246983,BP,pink,NA,NA,NA,NA,NA,NA,NA,NA,NA
+pink,GO:0008283,cell population proliferation,5.630148918361382e-6,0.0017940930755247335,BP,pink,8,GO:0008283,2.7461550299997053,2090,cell population proliferation,cell population proliferation,0.9806312056737588,1,0
+pink,GO:0010639,negative regulation of organelle organization,6.285681329915391e-6,0.0019833742165625335,BP,pink,2,GO:0051276,2.7025953368006017,365,negative regulation of organelle organization,chromosome organization,0.7137375886524823,0.45043999999999995,0.526
+pink,GO:0044843,cell cycle G1/S phase transition,6.920257641968505e-6,0.002162436740449466,BP,pink,1,GO:1903047,2.665056588453007,262,cell cycle G1/S phase transition,"mitotic cell
+cycle process",0.5497730496453901,0.3190571428571428,0.721
+pink,GO:0061982,meiosis I cell cycle process,7.402253150284416e-6,0.0022814512749121134,BP,pink,7,GO:0051321,2.641788802044845,139,meiosis I cell cycle process,"meiotic cell
+cycle",0.5785602836879433,0.20985714285714285,0.941
+pink,GO:0051302,regulation of cell division,8.987689094388761e-6,0.0027292598902552063,BP,pink,3,GO:0051301,2.5639551072287228,186,regulation of cell division,cell division,0.8998510638297872,0.29669999999999996,0.887
+pink,GO:0006275,regulation of DNA replication,1.2776576617289927e-5,0.0036760835198051227,BP,pink,5,GO:0006259,2.43461463009919,128,regulation of DNA replication,"DNA metabolic
+process",0.8876666666666667,0.30720000000000003,0.708
+pink,GO:0030261,chromosome condensation,1.574084295686797e-5,0.004406068957194767,BP,pink,2,GO:0051276,2.3559487102050367,45,chromosome condensation,chromosome organization,0.7822765957446809,0.52744,0.759
+pink,GO:0033260,nuclear DNA replication,1.7523131052132763e-5,0.0048687113259503366,BP,pink,5,GO:0006259,2.3125859747380346,41,nuclear DNA replication,"DNA metabolic
+process",0.5925390070921985,0.3076,0.636
+pink,GO:0051255,spindle midzone assembly,1.8166393835994018e-5,0.004979975836377413,BP,pink,1,GO:1903047,2.302772764500004,14,spindle midzone assembly,"mitotic cell
+cycle process",0.5484255319148936,0.4248571428571428,0.571
+pink,GO:0045931,positive regulation of mitotic cell cycle,2.131152411718269e-5,0.005676615060304117,BP,pink,1,GO:1903047,2.2459105549297615,130,positive regulation of mitotic cell cycle,"mitotic cell
+cycle process",0.5598652482269504,0.3475857142857143,0.767
+pink,GO:0065004,protein-DNA complex assembly,2.131152411718269e-5,0.005676615060304117,BP,pink,2,GO:0051276,2.2459105549297615,240,protein-DNA complex assembly,chromosome organization,0.852531914893617,0.65524,0.362
+pink,GO:0007080,mitotic metaphase chromosome alignment,2.2344389044240835e-5,0.005923757476229347,BP,pink,6,GO:0050000,2.227402730179759,60,mitotic metaphase chromosome alignment,chromosome localization,0.4313404255319149,0.21150000000000002,0.941
+pink,GO:0016043,cellular component organization,2.2478478826376953e-5,0.005945333655356278,BP,pink,2,GO:0051276,2.225823767518974,6581,cellular component organization,chromosome organization,0.8012695035460993,0.5174799999999999,0.57
+pink,GO:0010389,regulation of G2/M transition of mitotic cell cycle,2.989686388255356e-5,0.0076043195722017,BP,pink,1,GO:1903047,2.1189396401591156,104,regulation of G2/M transition of mitotic cell cycle,"mitotic cell
+cycle process",0.5231985815602838,0.2840285714285714,0.797
+pink,GO:0044771,meiotic cell cycle phase transition,3.210759245919339e-5,0.00808459144499846,BP,pink,1,GO:1903047,2.0923419222839796,15,meiotic cell cycle phase transition,"mitotic cell
+cycle process",0.6167234042553191,0.44361428571428574,0.564
+pink,GO:0007127,meiosis I,4.351994850659156e-5,0.01062637556564876,BP,pink,7,GO:0051321,1.9736148389809114,131,meiosis I,"meiotic cell
+cycle",0.48178014184397167,0.2082857142857143,0.933
+pink,GO:0006310,DNA recombination,4.467313359973806e-5,0.010848983499932083,BP,pink,5,GO:0006259,1.96461095131325,339,DNA recombination,"DNA metabolic
+process",0.9306666666666666,0.42969999999999997,0.812
+pink,GO:1902749,regulation of cell cycle G2/M phase transition,4.474467153964078e-5,0.010854672415116512,BP,pink,1,GO:1903047,1.9643832786539648,116,regulation of cell cycle G2/M phase transition,"mitotic cell
+cycle process",0.537241134751773,0.30141428571428575,0.673
+pink,GO:0019953,sexual reproduction,5.18327703251098e-5,0.012206671516751588,BP,pink,7,GO:0051321,1.9134027421954347,1093,sexual reproduction,"meiotic cell
+cycle",0.9560709219858156,0.2975714285714286,0.863
+pink,GO:0051128,regulation of cellular component organization,6.274640829618053e-5,0.014328155036134908,BP,pink,2,GO:0051276,1.8438097279006769,2459,regulation of cellular component organization,chromosome organization,0.7566099290780142,0.49039999999999995,0.478
+pink,GO:0007010,cytoskeleton organization,6.716475617579475e-5,0.015122795050719614,BP,pink,2,GO:0051276,1.8203679335093612,1510,cytoskeleton organization,chromosome organization,0.7637872340425532,0.48004,0.637
+pink,GO:0032467,positive regulation of cytokinesis,7.394631774640864e-5,0.016339891035031587,BP,pink,3,GO:0051301,1.7867508439506223,47,positive regulation of cytokinesis,cell division,0.5612127659574468,0.2642,0.792
+pink,GO:0071840,cellular component organization or biogenesis,7.884633000677837e-5,0.017304008280962322,BP,pink,2,GO:0051276,1.7618532857340492,6791,cellular component organization or biogenesis,chromosome organization,0.8039574468085107,0.52416,0.562
+pink,GO:0006974,DNA damage response,8.652735912984042e-5,0.018716622716474878,BP,pink,9,GO:0006974,1.7277725139270754,893,DNA damage response,DNA damage response,0.9476950354609929,0.402,0
+pink,GO:0051052,regulation of DNA metabolic process,1.0537420144170079e-4,0.02209430630786442,BP,pink,5,GO:0006259,1.6557196293764553,525,regulation of DNA metabolic process,"DNA metabolic
+process",0.8852198581560283,0.38970000000000005,0.854
+pink,GO:0006302,double-strand break repair,1.0713962264866945e-4,0.022278129277203976,BP,pink,9,GO:0006974,1.652121280226205,312,double-strand break repair,DNA damage response,0.9044042553191489,0.41300000000000003,0.855
+pink,GO:0000912,assembly of actomyosin apparatus involved in cytokinesis,1.1827452648216362e-4,0.02436887298597346,BP,pink,3,GO:0051301,1.6131645556446061,9,assembly of actomyosin apparatus involved in cytokinesis,cell division,0.6128510638297873,0.31010000000000004,0.697
+pink,GO:0000915,actomyosin contractile ring assembly,1.1827452648216362e-4,0.02436887298597346,BP,pink,3,GO:0051301,1.6131645556446061,9,actomyosin contractile ring assembly,cell division,0.5959432624113475,0.28049999999999997,0.697
+pink,GO:0051383,kinetochore organization,1.1941940510717524e-4,0.024559901537128354,BP,pink,2,GO:0051276,1.609773378653327,21,kinetochore organization,chromosome organization,0.7975319148936171,0.56164,0.697
+pink,GO:1901976,regulation of cell cycle checkpoint,1.2095318841546997e-4,0.02480749894401289,BP,pink,1,GO:1903047,1.6054170184592131,44,regulation of cell cycle checkpoint,"mitotic cell
+cycle process",0.5506382978723404,0.33034285714285716,0.612
+pink,GO:0009987,cellular process,1.3100158965677653e-4,0.026318137704777696,BP,pink,10,GO:0009987,1.5797448450411067,17647,cellular process,cellular process,0.9704113475177305,1,0
+pink,GO:0051984,positive regulation of chromosome segregation,1.6938085953128123e-4,0.03261936274990419,BP,pink,1,GO:1903047,1.4865245275662369,27,positive regulation of chromosome segregation,"mitotic cell
+cycle process",0.5543900709219858,0.32520000000000004,0.59
+pink,GO:1905820,positive regulation of chromosome separation,1.6938085953128123e-4,0.03261936274990419,BP,pink,1,GO:1903047,1.4865245275662369,29,positive regulation of chromosome separation,"mitotic cell
+cycle process",0.548709219858156,0.3133285714285714,0.589
+pink,GO:0006281,DNA repair,1.9698590144008352e-4,0.0369119511826389,BP,pink,9,GO:0006974,1.4328329971924163,609,DNA repair,DNA damage response,0.8972836879432624,0.385,0.939
+pink,GO:0000077,DNA damage checkpoint signaling,2.0055169457367677e-4,0.037486717326236305,BP,pink,1,GO:1903047,1.426122588640089,125,DNA damage checkpoint signaling,"mitotic cell
+cycle process",0.5009007092198581,0.27001428571428576,0.675
+pink,GO:0044774,mitotic DNA integrity checkpoint signaling,2.1262337500290384e-4,0.03922318858087092,BP,pink,1,GO:1903047,1.4064571040188454,88,mitotic DNA integrity checkpoint signaling,"mitotic cell
+cycle process",0.5070141843971632,0.26890000000000003,0.785
+pink,GO:0044837,actomyosin contractile ring organization,2.3251124889037575e-4,0.04210021096481354,BP,pink,3,GO:0051301,1.375715727902459,10,actomyosin contractile ring organization,cell division,0.5970354609929078,0.30720000000000003,0.702
+pink,GO:0055062,phosphate ion homeostasis,2.3251124889037575e-4,0.04210021096481354,BP,pink,11,GO:0055062,1.375715727902459,20,phosphate ion homeostasis,phosphate ion homeostasis,1,1,0
+pink,GO:1901993,regulation of meiotic cell cycle phase transition,2.3251124889037575e-4,0.04210021096481354,BP,pink,1,GO:1903047,1.375715727902459,12,regulation of meiotic cell cycle phase transition,"mitotic cell
+cycle process",0.5938014184397162,0.4108142857142857,0.554
+pink,GO:0034508,centromere complex assembly,2.32855522561441e-4,0.042128736523726305,BP,pink,2,GO:0051276,1.3754215655349584,28,centromere complex assembly,chromosome organization,0.7872340425531915,0.52964,0.713
+pink,GO:0048592,eye morphogenesis,2.4225194153574208e-4,0.04337655597609426,BP,pink,12,GO:0048592,1.3627449331875483,162,eye morphogenesis,eye morphogenesis,1,1,0

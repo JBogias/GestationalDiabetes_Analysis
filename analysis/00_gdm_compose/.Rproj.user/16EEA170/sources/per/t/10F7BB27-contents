@@ -1,0 +1,71 @@
+services:
+  00_gdm_compose:
+    build: ./00_gdm_compose
+    image: jbogias/gdm-00_gdm_compose
+    ports:
+      - "4000:3837"
+  01_Annotations:
+    build: ./01_annotations
+    image: jbogias/gdm-01_annotations
+    ports:
+      - "4001:3838"
+  02_data_import:
+    build: ./02_data_import
+    image: jbogias/gdm-02_load_data
+    ports:
+      - "4002:3838"
+  03_process_data:
+    build: ./03_process_data
+    image: jbogias/gdm-03_process_data
+    ports:
+      - "4003:3838"
+  04_PCA:
+    build: ./04_PCA
+    image: jbogias/gdm-04_pca
+    ports:
+      - "4004:3838"
+  05_DE:
+    build: ./05_DE
+    image: jbogias/gdm-05_de
+    ports:
+      - "4005:3838"
+  06_WGCNA_prep:
+    build: ./06_WGCNA_prep
+    image: jbogias/gdm-06_wgcna_prep
+    ports:
+      - "4006:3838"
+  07_network_construction:
+    build: ./07_network_construction
+    image: jbogias/gdm-07_network_construction
+    ports:
+      - "4007:3838"
+  08_export_gephi:
+    build: ./08_export_gephi
+    image: jbogias/gdm-08_export_gephi
+    ports:
+      - "4008:3838"
+  09_GO_enrichment:
+    build: ./09_GO_enrichment
+    image: jbogias/gdm-09_go
+    ports:
+      - "4009:3838"
+  10_module_trait_correlation:
+    build: ./10_module_trait_correlations
+    image: jbogias/gdm-10_module_trait_cor
+    ports:
+      - "4010:3838"
+  11_hub_connectivity:
+    build: ./11_hub_connectivity
+    image: jbogias/gdm-11_hub_connectivity
+    ports:
+      - "4011:3838"
+  12_hub_gene_plotting:
+    build: ./12_hub_gene_plotting
+    image: jbogias/gdm-12_hub_gene_plotting
+    ports:
+      - "4012:3838"
+  13_gene_set_enrichment:
+    build: ./13_gene_set_enrichment
+    image: jbogias/gdm-13_gse
+    ports:
+      - "4013:3838"

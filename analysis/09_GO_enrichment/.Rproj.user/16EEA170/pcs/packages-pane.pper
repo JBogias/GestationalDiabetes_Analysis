@@ -1,0 +1,7 @@
+{
+    "installOptions": {
+        "installFromRepository": false,
+        "libraryPath": "/home/justin/Documents/R_Projects/GDM/analysis/09_GO_enrichment/renv/library/linux-arch-rolling/R-4.4/x86_64-pc-linux-gnu",
+        "installDependencies": true
+    }
+}

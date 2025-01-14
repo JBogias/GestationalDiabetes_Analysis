@@ -1,0 +1,174 @@
+---
+title: "module-trait correlations"
+author: "Justin Bogias"
+date: "`r format(Sys.Date(), '%d %b, %Y')`"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+# Setup
+```{r}
+library(rmdformats)
+library(rmarkdown)
+library(stringr)
+library(readr)
+library(tibble)
+library(magrittr)
+library(WGCNA)
+library(pheatmap)
+library(here)
+```
+
+# Preparation
+## Load Data
+Load in the gene expression data and metadata
+```{r}
+placenta_data <- read_csv(here("data/placenta_data_wgcna.csv")) %>%
+  column_to_rownames("sample_id")
+
+pd <- read_csv(here("data/metadata.csv"))
+```
+
+## Define traits matrix
+Define the traits matrix for use in the heatmap visualisation
+```{r}
+mmformula_traits <- formula(
+  ~0 +
+    Outcome +
+    BMI +
+    Age +
+    GestationalAge +
+    Birthweight +
+    Treatment +
+    metabolicSyndrome +
+    Ethnicity_Simplified
+)
+
+traits_colnames <- c(
+  "GDM",
+  "Uncomplicated",
+  "BMI",
+  "MaternalAge",
+  "GestationalAge",
+  "Birthweight",
+  "Medicated",
+  "Diet-Exercise",
+  "metabolicSyndrome",
+  "Ethnicity"
+  )
+
+soft_power <- 12
+
+mergedColours <- read_rds(here("data/mergedColours.rds"))
+```
+
+# Correlation of Modules with Biological Traits
+
+In order to identify which modules are of biological significance and which traits they are significant in, first calculate and then correlate the module eigengenes with the phenotypic trait of interest being studied in each experiment.
+
+Modules that are significantly associated with measured clinical traits need to be identified. In this case, the measured "trait" is **Gestational Age**. Since the merged modules are already on hand, the calculation of eigengenes from each module and correlate those eigengenes with traits to look for the most significant associations is the next logical step.
+
+Here define the traits in a model matrix and calulate the module eigen genes after merging the modules, using the same **soft-power** defined in Section 1
+
+```{r module_correlation}
+traits <- model.matrix(mmformula_traits, data = pd) %>%
+  set_colnames(traits_colnames)
+
+MEigenTraits <- placenta_data %>% 
+  moduleEigengenes(colors = mergedColours,
+                   softPower = soft_power) %>%
+  use_series("eigengenes") %>%
+  orderMEs()
+```
+
+
+With the eigengenes (`MEigenTraits`) from the previous step, correlate them with the traits in (`traits`) to quantify module-trait associations.
+
+Student correlation p-values between the sample groups and module eigengenes are calculated here to determine modules which are exhibiting differences when tested across gestational age.
+
+```{r calulate_cor_stats}
+moduleTraitCor_HybridCut <- bicorAndPvalue(x = MEigenTraits, 
+                                           y = traits, 
+                                           robustY = FALSE, 
+                                           maxPOutliers = 0.05)
+```
+
+## *pheatmap* visualisation
+Create a text matrix with same dimensions as the heatmap, which includes the correlation coefficient and p-value for correlation. Defining and using this object will allow the correlation information to be displayed within its correspond tile in the heatmap, adding extra depth to the information being displayed. Module colours are defined as the row labels. 
+
+```{r plot_module_cor, fig.height=8, fig.width=10, fig.pos="centre", message=FALSE, warning=FALSE}
+
+text_moduleTraitCor_HybridCut <- moduleTraitCor_HybridCut
+
+text_moduleTraitCor_HybridCut$p[
+  text_moduleTraitCor_HybridCut$p >= 0.05
+  ] <- NA
+
+text_moduleTraitCor_HybridCut$bicor[
+  abs(text_moduleTraitCor_HybridCut$bicor) < 0.3
+  ] <- NA
+
+textMatrix_HybridCut <- paste(signif(text_moduleTraitCor_HybridCut$bicor, 2),
+                              "\n(", 
+                              signif(text_moduleTraitCor_HybridCut$p, 1),
+                              ")",
+                              sep = "")
+dim(textMatrix_HybridCut) <- dim(text_moduleTraitCor_HybridCut$bicor)
+
+textMatrix_HybridCut[textMatrix_HybridCut == "NA\n(NA)"] <- ""
+
+colnames(textMatrix_HybridCut) <- colnames(moduleTraitCor_HybridCut$bicor)
+
+rownames(textMatrix_HybridCut) <- rownames(moduleTraitCor_HybridCut$bicor)
+
+RownamesData <-  gsub(x = rownames(moduleTraitCor_HybridCut$bicor),
+                      pattern = "ME",
+                      replacement = "")
+
+ColumnsData <- colnames(moduleTraitCor_HybridCut$bicor) %>% 
+  str_replace("MaternalAge", "Maternal Age") %>%
+  str_replace("GestationalAge", "Gestational Age") %>%
+  str_replace("metabolicSyndrome", "Metabolic Syndrome")
+
+eigenCorMatrix <- moduleTraitCor_HybridCut$bicor[
+  which(!rownames(moduleTraitCor_HybridCut$bicor) %in% "MEgrey"),
+]
+
+RownamesData <- RownamesData[!RownamesData %in% "grey"]
+
+textMatrix_HybridCut <- textMatrix_HybridCut[
+  which(!rownames(textMatrix_HybridCut) %in% "MEgrey"),
+]
+
+# double check with Claire if this is what she had in mind
+
+png(filename = "figures/Figure_5_heatmap.png",
+    width = 2400,
+    height = 2000,
+    units = "px",
+    res = 300)
+
+
+eigencorPlot <- pheatmap(eigenCorMatrix[, -2],
+                         labels_row = RownamesData,
+                         labels_col = ColumnsData[-2],
+                         border_color = "white", 
+                         treeheight_row = 50, 
+                         treeheight_col = 0,
+                         cutree_rows = 5,
+                         clustering_distance_rows = "correlation",
+                         clustering_distance_cols = "correlation", 
+                         cluster_cols = FALSE,
+                         number_color = "black",
+                         fontsize = 12,
+                         main = "Module-Trait Correlations",
+                         display_numbers = textMatrix_HybridCut[, -2],
+                         legend.cex = 1)
+eigencorPlot
+
+```

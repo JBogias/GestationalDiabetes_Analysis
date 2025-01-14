@@ -1,0 +1,24 @@
+{
+    "id": "2A1BCA2F",
+    "path": "~/Documents/R_Projects/GDM/analysis/02_data_import/app.R",
+    "project_path": "app.R",
+    "type": "r_source",
+    "hash": "2531788143",
+    "contents": "",
+    "dirty": false,
+    "created": 1723597236536.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1723597233,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1723597233,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,140 @@
+---
+title: "Differential Expression Analysis"
+author: "Justin Bogias"
+date: "`r format(Sys.Date(), '%d %b, %Y')`"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r}
+library(rmarkdown)
+library(rmdformats)
+library(dplyr)
+library(readr)
+library(stringr)
+library(tibble)
+library(tidyr)
+library(magrittr)
+library(edgeR)
+library(ggplot2)
+library(cowplot)
+library(here)
+
+source(here("R/plot_bmi.R"))
+source(here("R/plot_de.R"))
+source(here("R/make_dgelist.R"))
+source(here("R/tx_aggregate_gene.R"))
+```
+
+# Load data
+```{r}
+tx_counts <- read_csv(here("data/tx_counts.csv"))
+gene_txp_anno <- read_csv(here("data/gene_txp_anno.csv.gz"))
+pd <- read_csv(here("data/metadata.csv"))
+
+gene_counts <- tx_aggregate_gene(counts = tx_counts,
+                                 anno = gene_txp_anno) %>%
+  round(0)
+
+dgelist <- make_dgelist(counts = gene_counts,
+                        metadata = pd,
+                        annotation = gene_txp_anno)
+```
+
+# Differential Expression Analysis
+## Pregnancy outcome testing
+Here we will use the `glmFit` function to get our significant genes.
+We could also use the `voom` and `lmFit` functions if we are concerned about heteroscadicity in the data (possibly due to library size) but here we will just stick with the good old `glmFit`
+
+## Samples are BMI matched
+BMI has been accounted for in sampling. Do not need to correct for BMI otherwise we may overfit the model.
+```{r BMI_numbers}
+plot_bmi(pd)
+```
+
+## Create design matrix
+```{r designMatrix}
+designMatrix <- model.matrix(
+  ~ Outcome + Cohort,
+  data = dgelist$samples %>%
+    mutate(
+      Outcome = factor(Outcome, levels = c("Uncomplicated", "GDM"))
+    )
+)
+
+colnames(designMatrix) <- colnames(designMatrix) %>%
+  str_remove("Outcome")
+```
+
+## Estimate Dispersions
+```{r estCommonDisp}
+dgelist <- estimateCommonDisp(dgelist, design = designMatrix)
+```
+
+## DE Test
+First set threshold parameters. `lambda` is the logFC threshold while `alpha` is the FDR threshold
+```{r set_thresholds}
+lambda <- 1.4
+alpha <- 0.05
+```
+
+Test for DE using the generalised linear model fit
+```{r glmFit}
+gdmGenes <- glmFit(dgelist,
+                   design = designMatrix) %>%
+  glmTreat(coef = "GDM",
+           lfc = log2(lambda)) %>%
+  topTags(n = Inf) %>%
+  .[["table"]] %>%
+  as_tibble() %>%
+  dplyr::mutate(DE = FDR < alpha)
+
+gdmGenes <- gdmGenes %>%
+  dplyr::filter(!gene_name %in% "hsa-mir-6723")
+
+gdm_sig <- gdmGenes %>% 
+  dplyr::filter(FDR < 0.05 & abs(logFC) > 1)
+```
+
+There isn't enough evidence to suggest that hsa-mir-6723 even exists and has been removed from both ensembl grch38 and in the mirBase annotation release 22
+
+## Plot DE results
+Create plot with tiles
+```{r}
+de_plot_tile <- plot_de(de_genes = gdmGenes, dgelist = dgelist, type = "tile")
+```
+
+Now Save the plot
+```{r eval=FALSE}
+ggsave(plot = de_plot_tile,
+       filename = "de_plot_tile.png",
+       device = "png",
+       path = here("figures/differential_expression/"),
+       height = 25,
+       width = 30,
+       units = "cm",
+       dpi = 400)
+```
+
+Create plot with bar
+```{r}
+de_plot_bar <- plot_de(de_genes = gdmGenes, dgelist = dgelist, type = "bar")
+```
+
+Now save the plot
+```{r eval=FALSE}
+ggsave(plot = de_plot_bar,
+       filename = "de_plot_bar.png",
+       device = "png",
+       path = here("figures/differential_expression/"),
+       height = 25,
+       width = 30,
+       units = "cm",
+       dpi = 400)
+```

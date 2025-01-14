@@ -1,0 +1,6 @@
+childTerm,parentTerm,FDR,frequencyParent
+protein modification process,protein modification process,0.00830679957524487,4
+phosphorylation,protein modification process,0.01519400380250331,4
+fat pad development,fat pad development,0.02560784868640629,1
+macromolecule modification,protein modification process,0.02625203296230291,4
+protein phosphorylation,protein modification process,0.03703342252830399,4

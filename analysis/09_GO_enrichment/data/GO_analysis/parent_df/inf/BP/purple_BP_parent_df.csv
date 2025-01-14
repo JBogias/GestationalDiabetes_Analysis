@@ -1,0 +1,6 @@
+module,GO_ID,term.x,pValue,FDR,ontology,sort(module),cluster,parent,score,size,term.y,parentTerm,termUniqueness,termUniquenessWithinCluster,termDispensability
+purple,GO:0036211,protein modification process,3.306372066207128e-5,0.008306799575244878,BP,purple,1,GO:0036211,2.08056626797647,2958,protein modification process,protein modification process,0.5944,0.493,0
+purple,GO:0016310,phosphorylation,6.768305403801173e-5,0.01519400380250331,BP,purple,1,GO:0036211,1.8183277692436992,1550,phosphorylation,protein modification process,0.7090000000000001,0.63625,0.247
+purple,GO:0060613,fat pad development,1.265580040128674e-4,0.025607848686406292,BP,purple,2,GO:0060613,1.5916269050484342,9,fat pad development,fat pad development,1,1,0
+purple,GO:0043412,macromolecule modification,1.3055618538054107e-4,0.026252032962302916,BP,purple,1,GO:0036211,1.5808370591104794,3191,macromolecule modification,protein modification process,0.597,0.4962500000000001,0.943
+purple,GO:0006468,protein phosphorylation,1.9779829859760785e-4,0.03703342252830399,BP,purple,1,GO:0036211,1.431406149779598,1289,protein phosphorylation,protein modification process,0.476,0.345,0.838

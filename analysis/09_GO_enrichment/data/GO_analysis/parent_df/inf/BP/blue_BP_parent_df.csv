@@ -1,0 +1,4 @@
+module,GO_ID,term.x,pValue,FDR,ontology,sort(module),cluster,parent,score,size,term.y,parentTerm,termUniqueness,termUniquenessWithinCluster,termDispensability
+blue,GO:0006457,protein folding,1.1866094769591466e-4,0.024426182855543162,BP,blue,1,GO:0006457,1.6121443960760573,225,protein folding,protein folding,0.99,1,0
+blue,GO:0051932,"synaptic transmission, GABAergic",1.443518546016516e-4,0.02854270106632657,BP,blue,2,GO:0051932,1.5445049309167316,59,"synaptic transmission, GABAergic","synaptic transmission, GABAergic",0.915,0.88,0
+blue,GO:0001961,positive regulation of cytokine-mediated signaling pathway,2.5472295149849336e-4,0.045357573076223436,BP,blue,2,GO:0051932,1.3433501910596286,60,positive regulation of cytokine-mediated signaling pathway,"synaptic transmission, GABAergic",0.915,0.88,0.24

@@ -1,0 +1,160 @@
+---
+title: "Export to Gephi"
+author: "Justin Bogias"
+date: "`r format(Sys.Date(), '%d %b, %Y')`"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Setup
+```{r}
+library(rmdformats)
+library(rmarkdown)
+library(dplyr)
+library(readr)
+library(tibble)
+library(magrittr)
+library(WGCNA)
+library(here)
+
+placenta_data <- read_csv(here("data/placenta_data_wgcna.csv")) %>%
+  column_to_rownames("sample_id")
+
+gene_entrez_anno <- read_csv(here("data/gene_extrez_anno.csv.gz"))
+
+mergedColours <- read_rds(here("data/mergedColours.rds"))
+
+soft_power <- 12
+```
+
+# Export to Gephi
+Finally, we want to visualize our networks so we are exporting them as node and edge files that we can use in Cytoscape/gephi or other visualizing tools. 
+## Adjacency Matrix
+First form the adjacency matrix
+```{r export_gephi, eval=TRUE}
+# Changed adjacency threshold from 0.5
+adj_mat <- adjacency(placenta_data,
+                     power = soft_power,
+                     type = "signed")
+```
+
+Next we will export the data in a Cytoscape format, as this will also allow us to visualise the network in Gephi
+```{r eval=FALSE}
+exportNetworkToCytoscape(
+  adjMat = adj_mat,
+  edgeFile = here("data/GDM_EdgeFile_lowfilter.tsv"),
+  nodeFile = here("data/GDM_NodeFile_lowfilter.tsv"),
+  weighted = TRUE,
+  threshold = 0.2,
+  nodeNames = NULL,
+  altNodeNames = NULL,
+  nodeAttr = mergedColours,
+  includeColNames = TRUE)
+```
+
+## Nodes
+Next we want to generate the nodes of our network
+```{r}
+nodesPlusAnnot <- read_delim(
+  here("data/GDM_NodeFile_lowfilter.tsv"),
+  delim = "\t") %>%
+  dplyr::select(-altName) %>%
+  set_colnames(c("id", "colour")) %>%
+  left_join(gene_entrez_anno %>%
+              dplyr::select("id" = "gene_id",
+                            "gene" = "gene_name"),
+            by = "id") %>%
+  dplyr::filter(!colour == "grey") %>%
+  write_csv(here("data/GDM_NodeFile_lowfilter.csv"))
+```
+
+## Edges
+```{r}
+edgePlusAnnot <- read_delim(
+  here("data/GDM_EdgeFile_lowfilter.tsv"),
+  delim = "\t") %>%
+  left_join(gene_entrez_anno %>%
+              dplyr::select("fromNode" = "gene_id",
+                            "SourceAltName" = "gene_name"),
+            by = "fromNode") %>% 
+  dplyr::select("Source" = "fromNode",
+                "Target" = "toNode",
+                "weight",
+                "direction",
+                "SourceAltName") %>%
+  left_join(
+    gene_entrez_anno %>%
+      dplyr::select("Target" = "gene_id",
+                    "TargetAltName" = "gene_name")
+  ) %>%
+  dplyr::filter(
+    Source %in% nodesPlusAnnot$id & Target %in% nodesPlusAnnot$id
+  ) %>%
+  write_csv(here("data/GDM_EdgeFile_lowfilter.csv"))
+
+```
+
+## Green and Pink module retention in network
+How many green and pink were retained in the network
+```{r network_nodes_edges, eval=TRUE}
+pink_green_nodes <- nodesPlusAnnot %>%
+  set_colnames(c("nodeName", "altName", "module")) %>% 
+  dplyr::filter(module %in% c("pink", "green"))
+
+edge_from_node <- edgePlusAnnot %>%
+  dplyr::filter(Source %in% pink_green_nodes$nodeName |
+                  Target %in% pink_green_nodes$nodeName) %>%
+  dplyr::filter(weight >= 0.4) %>%
+  dplyr::count(Source) %>%
+  dplyr::filter(n > 3) %>%
+  left_join(pink_green_nodes,
+            by = c("Source" = "nodeName"))
+
+edge_to_node <- edgePlusAnnot %>%
+  dplyr::filter(Source %in% pink_green_nodes$nodeName |
+                  Target %in% pink_green_nodes$nodeName) %>%
+  dplyr::filter(weight >= 0.4) %>%
+  dplyr::count(Target) %>%
+  dplyr::filter(n > 3) %>%
+  left_join(pink_green_nodes,
+            by = c("Target" = "nodeName"))
+
+gene_node_modules <- edge_from_node %>%
+  full_join(edge_to_node,
+            by = c("Source" = "Target")) %>%
+  dplyr::select("Gene" = "Source",
+                "module.x",
+                "module.y")
+
+coalesce(gene_node_modules$module.x,
+         gene_node_modules$module.y) %>%
+  as.data.frame() %>%
+  set_colnames("modules") %>%
+  dplyr::count(modules)
+```
+
+## The Split Turquoise Group
+In the visualised module there were two clusters of turquoise genes.
+It would be interesting to know which genes were in each and if they 
+represent different biological functions.
+There wasn't any way to select them from Gephi, so I just had to write down the
+gene names directly from it.
+
+```{r}
+left_group <- c("IL2RB", "HN1", "CRABP2", "RASGRF2", "TAC3",
+                "GLIPR1", "PLA2G7", "PIPOX", "SERPINE2", "IL1R2",
+                "REPS2", "KDELR3", "XCR1", "PTK2B", "EXTL3", "EGLN3",
+                "CLDN19", "FAT2", "ASCL2", "NOG", "PRG2", "SFRP1", "NOTUM",
+                "FN1", "PCSK6", "ASAP3")
+write_rds(left_group, here("data/turquoise_left_group.rds"))
+
+right_group <- c("HEMGN", "EPB42", "EPB41", "SLC25A37", "SLC4A1", "FAM46C",
+                 "SNCA", "DMTN", "HBA1", "ALAS2")
+write_rds(right_group, here("data/turquoise_right_group.rds"))
+```

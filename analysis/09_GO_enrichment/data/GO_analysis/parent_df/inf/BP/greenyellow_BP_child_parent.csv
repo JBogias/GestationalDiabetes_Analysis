@@ -1,0 +1,48 @@
+childTerm,parentTerm,FDR,frequencyParent
+nucleic acid metabolic process,nucleic acid metabolic process,3.781227943603205e-12,39
+nucleobase-containing compound metabolic process,nucleic acid metabolic process,4.822455718615077e-10,39
+heterocycle metabolic process,nucleic acid metabolic process,3.061646885884325e-9,39
+RNA metabolic process,nucleic acid metabolic process,3.435311118272703e-9,39
+cellular aromatic compound metabolic process,nucleic acid metabolic process,4.040429371910126e-9,39
+mRNA metabolic process,nucleic acid metabolic process,2.1192198606422775e-8,39
+organic cyclic compound metabolic process,nucleic acid metabolic process,5.863067063661923e-8,39
+cellular nitrogen compound metabolic process,nucleic acid metabolic process,9.277631052206425e-8,39
+RNA processing,nucleic acid metabolic process,1.7359319841357698e-5,39
+"RNA splicing, via transesterification reactions",nucleic acid metabolic process,4.8901494846160865e-5,39
+gene expression,nucleic acid metabolic process,6.518718379037117e-5,39
+mRNA processing,nucleic acid metabolic process,9.3518292903476e-5,39
+regulation of nucleobase-containing compound metabolic process,nucleic acid metabolic process,9.3518292903476e-5,39
+RNA splicing,nucleic acid metabolic process,1.25909755610914e-4,39
+macromolecule metabolic process,nucleic acid metabolic process,1.6203882523862162e-4,39
+regulation of RNA metabolic process,nucleic acid metabolic process,2.1488580968565563e-4,39
+"RNA splicing, via transesterification reactions with bulged adenosine as nucleophile",nucleic acid metabolic process,2.478080974749115e-4,39
+"mRNA splicing, via spliceosome",nucleic acid metabolic process,2.478080974749115e-4,39
+macromolecule biosynthetic process,nucleic acid metabolic process,2.6140599584945583e-4,39
+DNA damage response,DNA damage response,4.441832867849417e-4,3
+DNA metabolic process,nucleic acid metabolic process,5.094580783832137e-4,39
+DNA repair,DNA damage response,6.883726106742496e-4,3
+protein-DNA complex organization,protein-DNA complex organization,0.00503208970603174,4
+chromatin organization,protein-DNA complex organization,0.00517434357870114,4
+regulation of mRNA metabolic process,nucleic acid metabolic process,0.00594013422983801,39
+nitrogen compound metabolic process,nucleic acid metabolic process,0.00679610702107236,39
+regulation of gene expression,nucleic acid metabolic process,0.00866041411166052,39
+regulation of macromolecule biosynthetic process,nucleic acid metabolic process,0.01066079502149686,39
+regulation of nitrogen compound metabolic process,nucleic acid metabolic process,0.01348236412675671,39
+chromatin remodeling,protein-DNA complex organization,0.01430455911262351,4
+chromosome organization,protein-DNA complex organization,0.01527969520470489,4
+RNA catabolic process,nucleic acid metabolic process,0.01571053335670955,39
+regulation of cellular biosynthetic process,nucleic acid metabolic process,0.02154226272620938,39
+DNA-templated transcription,nucleic acid metabolic process,0.02524033935955631,39
+regulation of biosynthetic process,nucleic acid metabolic process,0.02558723433704516,39
+regulation of primary metabolic process,nucleic acid metabolic process,0.02587362892935255,39
+negative regulation of nucleobase-containing compound metabolic process,nucleic acid metabolic process,0.02666223815665012,39
+regulation of DNA-templated transcription,nucleic acid metabolic process,0.0270588270046486,39
+RNA biosynthetic process,nucleic acid metabolic process,0.02900426806184225,39
+regulation of RNA biosynthetic process,nucleic acid metabolic process,0.02968719215265792,39
+regulation of macromolecule metabolic process,nucleic acid metabolic process,0.03380673566708724,39
+primary metabolic process,nucleic acid metabolic process,0.03389285833653371,39
+blastocyst growth,blastocyst growth,0.03526204471016262,1
+cellular biosynthetic process,nucleic acid metabolic process,0.04268175843228056,39
+regulation of DNA repair,DNA damage response,0.04377614117677385,3
+negative regulation of RNA metabolic process,nucleic acid metabolic process,0.04661944469671581,39
+RNA 3'-end processing,nucleic acid metabolic process,0.0479851832699935,39

@@ -1,0 +1,143 @@
+childTerm,parentTerm,FDR,frequencyParent
+mitotic cell cycle process,mitotic cell cycle process,5.327370702774764e-24,70
+mitotic cell cycle,mitotic cell cycle process,3.5246512764677343e-22,70
+cell cycle process,mitotic cell cycle process,3.8232970081371966e-21,70
+regulation of cell cycle process,mitotic cell cycle process,3.629866484274403e-18,70
+chromosome organization,chromosome organization,3.629866484274403e-18,25
+cell cycle,mitotic cell cycle process,1.1507627011151929e-17,70
+nuclear division,chromosome organization,1.582760299161475e-17,25
+nuclear chromosome segregation,mitotic cell cycle process,7.391704120511971e-17,70
+regulation of cell cycle,mitotic cell cycle process,2.0755862366245546e-16,70
+chromosome segregation,mitotic cell cycle process,2.1299533546623167e-16,70
+sister chromatid segregation,mitotic cell cycle process,2.8345848067794815e-16,70
+mitotic sister chromatid segregation,mitotic cell cycle process,2.855274140642799e-16,70
+cell division,cell division,3.1847019882725403e-16,10
+organelle fission,chromosome organization,4.2096106228941244e-16,25
+mitotic nuclear division,chromosome organization,9.938319115621024e-16,25
+cell cycle phase transition,mitotic cell cycle process,9.595990583229802e-14,70
+mitotic cell cycle phase transition,mitotic cell cycle process,1.2718036020213917e-12,70
+regulation of chromosome segregation,mitotic cell cycle process,8.910133354178615e-12,70
+regulation of cell cycle phase transition,mitotic cell cycle process,2.1563418623750782e-11,70
+regulation of mitotic cell cycle,mitotic cell cycle process,3.742689005891386e-11,70
+regulation of mitotic nuclear division,chromosome organization,9.697238329384795e-11,25
+positive regulation of cell cycle process,mitotic cell cycle process,1.62569784482846e-10,70
+regulation of nuclear division,chromosome organization,1.7724823496590339e-10,25
+cell cycle checkpoint signaling,mitotic cell cycle process,2.0780000540802467e-10,70
+regulation of mitotic cell cycle phase transition,mitotic cell cycle process,3.818311444156162e-10,70
+regulation of sister chromatid segregation,mitotic cell cycle process,1.410323176569265e-9,70
+negative regulation of cell cycle process,mitotic cell cycle process,1.5641076526315146e-9,70
+regulation of chromosome separation,mitotic cell cycle process,1.575357636501815e-9,70
+regulation of chromosome organization,chromosome organization,2.6559095473258103e-9,25
+chromosome separation,mitotic cell cycle process,3.061646885884325e-9,70
+regulation of mitotic sister chromatid separation,mitotic cell cycle process,4.123784292676566e-9,70
+regulation of mitotic metaphase/anaphase transition,mitotic cell cycle process,4.152373697686942e-9,70
+regulation of metaphase/anaphase transition of cell cycle,mitotic cell cycle process,4.152373697686942e-9,70
+negative regulation of cell cycle phase transition,mitotic cell cycle process,6.756963495940638e-9,70
+metaphase/anaphase transition of mitotic cell cycle,mitotic cell cycle process,7.042507954051633e-9,70
+metaphase/anaphase transition of cell cycle,mitotic cell cycle process,7.042507954051633e-9,70
+mitotic sister chromatid separation,mitotic cell cycle process,8.407800822539845e-9,70
+microtubule cytoskeleton organization involved in mitosis,microtubule cytoskeleton organization involved in mitosis,1.2957819663848731e-8,4
+positive regulation of cell cycle,mitotic cell cycle process,1.8581980037231767e-8,70
+negative regulation of cell cycle,mitotic cell cycle process,2.3777938358301415e-8,70
+regulation of mitotic sister chromatid segregation,mitotic cell cycle process,2.3800044655767272e-8,70
+mitotic cell cycle checkpoint signaling,mitotic cell cycle process,3.8659747826193256e-8,70
+negative regulation of mitotic nuclear division,chromosome organization,4.972367147514945e-8,25
+negative regulation of nuclear division,chromosome organization,7.068309080827975e-8,25
+negative regulation of mitotic cell cycle,mitotic cell cycle process,1.4722483701407754e-7,70
+DNA metabolic process,DNA metabolic process,1.6753352940172725e-7,10
+mitotic spindle assembly checkpoint signaling,mitotic cell cycle process,1.9706999385785832e-7,70
+spindle checkpoint signaling,mitotic cell cycle process,1.9706999385785832e-7,70
+negative regulation of sister chromatid segregation,mitotic cell cycle process,1.9706999385785832e-7,70
+negative regulation of mitotic sister chromatid segregation,mitotic cell cycle process,1.9706999385785832e-7,70
+negative regulation of mitotic metaphase/anaphase transition,mitotic cell cycle process,1.9706999385785832e-7,70
+negative regulation of chromosome segregation,mitotic cell cycle process,1.9706999385785832e-7,70
+spindle assembly checkpoint signaling,mitotic cell cycle process,1.9706999385785832e-7,70
+mitotic spindle checkpoint signaling,mitotic cell cycle process,1.9706999385785832e-7,70
+negative regulation of metaphase/anaphase transition of cell cycle,mitotic cell cycle process,1.9706999385785832e-7,70
+negative regulation of chromosome separation,mitotic cell cycle process,1.9706999385785832e-7,70
+negative regulation of mitotic sister chromatid separation,mitotic cell cycle process,1.9706999385785832e-7,70
+negative regulation of chromosome organization,chromosome organization,2.2996443677267857e-7,25
+cytokinesis,cell division,3.096637809296574e-7,10
+negative regulation of mitotic cell cycle phase transition,mitotic cell cycle process,3.096637809296574e-7,70
+chromosome localization,chromosome localization,1.5586399466073949e-6,8
+metaphase chromosome alignment,chromosome localization,2.986855387377469e-6,8
+mitotic spindle organization,microtubule cytoskeleton organization involved in mitosis,6.6292598717134194e-6,4
+DNA replication,DNA metabolic process,7.953974435222399e-6,10
+establishment of chromosome localization,chromosome localization,8.85756354801154e-6,8
+spindle organization,mitotic cell cycle process,1.0062411900780216e-5,70
+mitotic cytokinesis,cell division,1.6005576886426843e-5,10
+attachment of spindle microtubules to kinetochore,chromosome localization,1.6424941739594446e-5,8
+regulation of cytokinesis,cell division,2.576317101673147e-5,10
+cell cycle G2/M phase transition,mitotic cell cycle process,2.705004169206136e-5,70
+microtubule cytoskeleton organization,microtubule cytoskeleton organization involved in mitosis,3.651692758606602e-5,4
+organelle organization,chromosome organization,5.471972519492684e-5,25
+DNA geometric change,chromosome organization,5.980884136860838e-5,25
+cytoskeleton-dependent cytokinesis,cell division,6.172475549799757e-5,10
+DNA unwinding involved in DNA replication,chromosome organization,6.172475549799757e-5,25
+spindle assembly,mitotic cell cycle process,8.299219529580007e-5,70
+G2/M transition of mitotic cell cycle,mitotic cell cycle process,8.299219529580007e-5,70
+DNA conformation change,chromosome organization,1.379814233902296e-4,25
+spindle elongation,mitotic cell cycle process,1.5399236410654622e-4,70
+meiotic cell cycle,meiotic cell cycle,1.7906427955892285e-4,7
+microtubule-based process,microtubule cytoskeleton organization involved in mitosis,2.3120775094756751e-4,4
+DNA integrity checkpoint signaling,mitotic cell cycle process,2.48228045071311e-4,70
+DNA duplex unwinding,chromosome organization,2.5416934352220076e-4,25
+positive regulation of cell cycle phase transition,mitotic cell cycle process,2.8720869869440437e-4,70
+regulation of organelle organization,chromosome organization,2.9999697403686236e-4,25
+establishment of organelle localization,chromosome localization,4.449083830693352e-4,8
+DNA-templated DNA replication,DNA metabolic process,4.634948447546746e-4,10
+meiotic cell cycle process,meiotic cell cycle,5.191855988485603e-4,7
+attachment of mitotic spindle microtubules to kinetochore,chromosome localization,5.496444099275558e-4,8
+positive regulation of mitotic cell cycle phase transition,mitotic cell cycle process,5.543596779270261e-4,70
+G1/S transition of mitotic cell cycle,mitotic cell cycle process,6.245956542809107e-4,70
+cell cycle DNA replication,DNA metabolic process,7.035228826865242e-4,10
+mitotic spindle assembly,mitotic cell cycle process,8.508624387734756e-4,70
+DNA replication initiation,DNA metabolic process,0.00104801415760774,10
+meiotic nuclear division,meiotic cell cycle,0.00110218016057039,7
+mitotic spindle elongation,mitotic cell cycle process,0.00133966026047671,70
+mitotic spindle midzone assembly,mitotic cell cycle process,0.00133966026047671,70
+meiotic chromosome segregation,meiotic cell cycle,0.0013724820349758,7
+mitotic DNA replication,DNA metabolic process,0.00144083491852034,10
+organelle localization,chromosome localization,0.00159844737713312,8
+non-membrane-bounded organelle assembly,NA,0.00167719861924698,NA
+cell population proliferation,cell population proliferation,0.00179409307552473,1
+negative regulation of organelle organization,chromosome organization,0.00198337421656253,25
+cell cycle G1/S phase transition,mitotic cell cycle process,0.00216243674044946,70
+meiosis I cell cycle process,meiotic cell cycle,0.00228145127491211,7
+regulation of cell division,cell division,0.0027292598902552,10
+regulation of DNA replication,DNA metabolic process,0.00367608351980512,10
+chromosome condensation,chromosome organization,0.00440606895719476,25
+nuclear DNA replication,DNA metabolic process,0.00486871132595033,10
+spindle midzone assembly,mitotic cell cycle process,0.00497997583637741,70
+positive regulation of mitotic cell cycle,mitotic cell cycle process,0.00567661506030411,70
+protein-DNA complex assembly,chromosome organization,0.00567661506030411,25
+mitotic metaphase chromosome alignment,chromosome localization,0.00592375747622934,8
+cellular component organization,chromosome organization,0.00594533365535627,25
+regulation of G2/M transition of mitotic cell cycle,mitotic cell cycle process,0.0076043195722017,70
+meiotic cell cycle phase transition,mitotic cell cycle process,0.00808459144499846,70
+meiosis I,meiotic cell cycle,0.01062637556564876,7
+DNA recombination,DNA metabolic process,0.01084898349993208,10
+regulation of cell cycle G2/M phase transition,mitotic cell cycle process,0.01085467241511651,70
+sexual reproduction,meiotic cell cycle,0.01220667151675158,7
+regulation of cellular component organization,chromosome organization,0.0143281550361349,25
+cytoskeleton organization,chromosome organization,0.01512279505071961,25
+positive regulation of cytokinesis,cell division,0.01633989103503158,10
+cellular component organization or biogenesis,chromosome organization,0.01730400828096232,25
+DNA damage response,DNA damage response,0.01871662271647487,3
+regulation of DNA metabolic process,DNA metabolic process,0.02209430630786442,10
+double-strand break repair,DNA damage response,0.02227812927720397,3
+assembly of actomyosin apparatus involved in cytokinesis,cell division,0.02436887298597346,10
+actomyosin contractile ring assembly,cell division,0.02436887298597346,10
+kinetochore organization,chromosome organization,0.02455990153712835,25
+regulation of cell cycle checkpoint,mitotic cell cycle process,0.02480749894401289,70
+cellular process,cellular process,0.02631813770477769,1
+positive regulation of chromosome segregation,mitotic cell cycle process,0.03261936274990419,70
+positive regulation of chromosome separation,mitotic cell cycle process,0.03261936274990419,70
+DNA repair,DNA damage response,0.0369119511826389,3
+DNA damage checkpoint signaling,mitotic cell cycle process,0.0374867173262363,70
+mitotic DNA integrity checkpoint signaling,mitotic cell cycle process,0.03922318858087092,70
+actomyosin contractile ring organization,cell division,0.04210021096481354,10
+phosphate ion homeostasis,phosphate ion homeostasis,0.04210021096481354,1
+regulation of meiotic cell cycle phase transition,mitotic cell cycle process,0.04210021096481354,70
+centromere complex assembly,chromosome organization,0.0421287365237263,25
+eye morphogenesis,eye morphogenesis,0.04337655597609426,1

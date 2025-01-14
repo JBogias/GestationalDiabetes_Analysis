@@ -1,0 +1,19 @@
+childTerm,parentTerm,FDR,frequencyParent
+cell cycle,cell cycle,0.00295259799232293,6
+chromosome organization,chromosome organization,0.00868892346089549,2
+mitotic cell cycle,cell cycle,0.00876502726265623,6
+positive regulation of mitotic cell cycle phase transition,cell cycle,0.01302702421319594,6
+double-strand break repair via break-induced replication,double-strand break repair via break-induced replication,0.01821047409748414,10
+regulation of DNA-templated DNA replication initiation,double-strand break repair via break-induced replication,0.01821047409748414,10
+positive regulation of cell cycle phase transition,cell cycle,0.01988880941238334,6
+nucleoside biosynthetic process,double-strand break repair via break-induced replication,0.02583227220929064,10
+nucleobase-containing small molecule biosynthetic process,double-strand break repair via break-induced replication,0.02583227220929064,10
+positive regulation of mitotic cell cycle,cell cycle,0.02828381595843353,6
+DNA unwinding involved in DNA replication,double-strand break repair via break-induced replication,0.02997786002695723,10
+deoxyribonucleoside monophosphate metabolic process,double-strand break repair via break-induced replication,0.02997786002695723,10
+mitotic DNA replication,double-strand break repair via break-induced replication,0.02997786002695723,10
+positive regulation of ubiquitin-protein transferase activity,double-strand break repair via break-induced replication,0.03441246647946943,10
+DNA-templated DNA replication,double-strand break repair via break-induced replication,0.03862000816197913,10
+mitotic cell cycle process,cell cycle,0.03871461143266144,6
+mitotic sister chromatid cohesion,chromosome organization,0.03899483357239903,2
+glycosyl compound biosynthetic process,double-strand break repair via break-induced replication,0.03899483357239903,10

@@ -1,0 +1,6 @@
+module,GO_ID,term.x,pValue,FDR,ontology,sort(module),cluster,parent,score,size,term.y,parentTerm,termUniqueness,termUniquenessWithinCluster,termDispensability
+greenyellow,GO:0003676,nucleic acid binding,2.5729599559595713e-14,8.175852051606181e-11,MF,greenyellow,1,GO:0003676,10.087466976034264,4366,nucleic acid binding,nucleic acid binding,0.4114,0.4114,0
+greenyellow,GO:0003723,RNA binding,2.820962322105353e-10,2.5766692691910473e-7,MF,greenyellow,1,GO:0003676,6.588941322148786,2014,RNA binding,nucleic acid binding,0.4252,0.4252,0.746
+greenyellow,GO:0097159,organic cyclic compound binding,8.106275622123389e-10,6.875401665816758e-7,MF,greenyellow,1,GO:0003676,6.162701924966471,6393,organic cyclic compound binding,nucleic acid binding,0.46340000000000003,0.46340000000000003,0.798
+greenyellow,GO:0003677,DNA binding,6.649830048886384e-5,0.015047825048437885,MF,greenyellow,1,GO:0003676,1.8225262666960955,2535,DNA binding,nucleic acid binding,0.4546,0.4546,0.795
+greenyellow,GO:0003729,mRNA binding,8.264193115185831e-5,0.018014344045575607,MF,greenyellow,1,GO:0003676,1.7443815471730217,645,mRNA binding,nucleic acid binding,0.5034,0.5034,0.604

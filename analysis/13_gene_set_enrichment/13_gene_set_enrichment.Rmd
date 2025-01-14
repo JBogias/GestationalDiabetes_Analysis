@@ -1,0 +1,387 @@
+---
+title: "Gene Set Enrichment"
+author: "Justin Bogias"
+date: "`r format(Sys.Date(), '%d %b, %Y')`"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+# Setup
+```{r}
+library(rmarkdown)
+library(rmdformats)
+library(dplyr)
+library(readr)
+library(tidyr)
+library(stringr)
+library(tibble)
+library(magrittr)
+library(DT)
+library(AnnotationHub)
+library(biomaRt)
+library(org.Hs.eg.db)
+library(clusterProfiler)
+library(msigdbr)
+library(here)
+```
+
+Here we use the annotations from **MsigDB** to enrich for Gene Ontology categories and terms within the defined modules, using the information about module gene membership.
+
+In the next few chuncks of code enrich for Gene Ontology categories under FDR control. First define a gene *universe* containing all the gene ensembl IDs and entrez IDs. Then perform the GO enrichment for each category.
+
+Check the amounts of genes in each module
+
+
+# Data Preparation
+## BiomaRt Annotations
+```{r annotations}
+ensembl <- useEnsembl(biomart = "genes", dataset = "hsapiens_gene_ensembl")
+
+hsap_bm <- getBM(attributes = c("ensembl_gene_id",
+                                "external_gene_name",
+                                "entrezgene_id"),
+                 mart = ensembl)
+```
+
+## Load Placenta data used for WGCNA
+The universal set of genes is defined using the IDs present within the filtered counts data set used in the co-expression analysis. The genes that are now the background set for enrichment functions will be only those used in the previous analysis.
+```{r}
+placenta_data <- read_csv(here("data/placenta_data_wgcna.csv"))
+
+topHubGenesInModuleAll <- read_csv(here("data/topHubGenesInModuleAll.csv"))
+
+universe <- hsap_bm %>%
+    dplyr::filter(ensembl_gene_id %in% colnames(placenta_data)) %>%
+    dplyr::filter(!is.na(entrezgene_id))
+```
+
+# GO for each category
+Perform GO enrichment for each GO category, which account for molecular function, biological processes and cell components. Molecular functions define the activity of gene prodcuts, biological processes relate to the larger pathways which are made up of many molecular activities. Cell components relate to location related to the physical anatomy of the cell in which processes take place. This is a generalisation of the description given above during the enrichment analysis.
+```{r}
+hub_gene_entrez <- topHubGenesInModuleAll %>%
+  dplyr::select(gene_id, gene_name, module) %>%
+  inner_join(universe %>%
+               dplyr::rename("gene_id" = "ensembl_gene_id",
+                             "gene_name" = "external_gene_name"),
+             by = c("gene_id", "gene_name"))
+modules <- unique(topHubGenesInModuleAll$module)[1:9]
+
+
+allMolFunction_one <- lapply(modules, function(x) {
+    list <- dplyr::filter(
+        topHubGenesInModuleAll,
+        module == x
+    )
+    enrichGO(
+        gene = list$gene_id,
+        OrgDb = org.Hs.eg.db,
+        universe = as.character(topHubGenesInModuleAll$gene_id),
+        keyType = "ENSEMBL",
+        ont = "MF",
+        pAdjustMethod = "BH",
+        pvalueCutoff = 0.05,
+        qvalueCutoff = 0.05,
+        readable = TRUE
+    )
+})
+names(allMolFunction_one) <- unique(modules)
+
+allBiolFunction_one <- lapply(modules, function(x) {
+    list <- dplyr::filter(
+        topHubGenesInModuleAll,
+        module == x
+    )
+    enrichGO(
+        gene = list$gene_id,
+        OrgDb = org.Hs.eg.db,
+        universe = as.character(topHubGenesInModuleAll$gene_id),
+        keyType = "ENSEMBL",
+        ont = "BP",
+        pAdjustMethod = "BH",
+        pvalueCutoff = 0.05,
+        qvalueCutoff = 0.05,
+        readable = TRUE
+    )
+})
+names(allBiolFunction_one) <- unique(modules)
+
+allCelComponents_one <- lapply(modules, function(x) {
+    list <- dplyr::filter(
+        topHubGenesInModuleAll,
+        module == x
+    )
+    enrichGO(
+        gene = list$gene_id,
+        OrgDb = org.Hs.eg.db,
+        universe = as.character(topHubGenesInModuleAll$gene_id),
+        keyType = "ENSEMBL",
+        ont = "CC",
+        pAdjustMethod = "BH",
+        pvalueCutoff = 0.05,
+        qvalueCutoff = 0.05,
+        readable = TRUE
+    )
+})
+names(allCelComponents_one) <- unique(modules)
+```
+
+# Gene Set Enrichment Analysis
+
+The Molecular Signatures Database (MsigDB) is a collection of annotated gene sets that are subdivided into [8 major collections](https://www.gsea-msigdb.org/gsea/msigdb/collections.jsp). Of these, five collections are used which are the:
+
+* hallmark gene sets (H)
+:   The hallmark gene sets represent well characterised expression signatures representing well-defined biological states or processes.
+
+* curated gene sets (C2)
+:   The curated gene sets are assembled from online pathway databases and the knowledge of domain experts.
+
+* motif gene sets (C3)
+:   Gene sets representing potential targets of regulation by transcription factors or microRNAs
+
+* GO gene (C5)
+:   Gene sets that contain genes annotated by the same GO term
+
+For the curated gene sets, also create two different subsets, one which will only contain **KEGG** pathways and another with only pathways from **REACTOME**
+Our first step is to retireve dataframes for each subdivision
+```{r}
+m_df_H <- msigdbr(species = "Homo sapiens",
+                  category = "H")
+
+m_df_C2 <- msigdbr(species = "Homo sapiens",
+                   category = "C2")
+
+m_df_C3 <- msigdbr(species = "Homo sapiens",
+                   category = "C3")
+
+m_df_C5 <- msigdbr(species = "Homo sapiens",
+                   category = "C5")
+
+m_df_C7 <- msigdbr(species = "Homo sapiens",
+                   category = "C7")
+
+m_df_C8 <- msigdbr(species = "Homo sapiens",
+                   category = "C8")
+
+genesets <- list(m_df_H,
+                 m_df_C2,
+                 m_df_C3,
+                 m_df_C5,
+                 m_df_C7,
+                 m_df_C8) %>%
+    set_names(c("m_df_H",
+                "m_df_C2",
+                "m_df_C3",
+                "m_df_C5",
+                "m_df_C7",
+                "m_df_C8"))
+```
+
+## Define Genesets
+Take entire curated gene set, entire motif gene set, curated gene set, entire GO gene set, curated gene set, REACTOME and KEGGA pathways from the curated set, and all hallmark genes
+```{r}
+genesets <- lapply(genesets, function(x) {
+    dplyr::select(.data = x, gs_name, ensembl_gene) %>%
+        as.data.frame
+})
+
+genesets$m_df_C2KEGG <- m_df_C2 %>% 
+    dplyr::select(gs_name,
+                  ensembl_gene) %>% 
+    dplyr::filter(str_detect(gs_name, "KEGG_")) %>%
+    as.data.frame()
+
+genesets$m_df_C2R <- m_df_C2 %>% 
+    dplyr::select(gs_name,
+                  ensembl_gene) %>% 
+    dplyr::filter(str_detect(gs_name, "REACTOME_")) %>%
+    as.data.frame()
+```
+
+## Module Gene Enrichment
+Perform enrichment for each module with module genes using all curated gene sets, KEGG curated gene sets, REACTOME curated gene sets, and all hallmark gene sets. The pathway enrichment is basically retrieving those pathways which are the most common, or enriched, in the module gene sets. The purpose of the test to to retrieve the most enriched and statistically significant pathways. The enrichment of gene pathways using the hallmark gene set from *MsigDB* represents well defined biological functions while the curated gene set enrichment contains genes assembled from online databases and based off the knowledge of experts. Two curated sets are enriched for `KEGG` and `REACTOME` pathway sets.
+This is set to be recursive throughout all our modules for each geneset. So we get a bucketload of results from this.
+```{r}
+module_enrichment <- list()
+for(i in modules) {
+    module_enrichment[[i]] <- lapply(genesets, function(x) {
+        tryCatch({
+            enricher(gene = topHubGenesInModuleAll %>%
+                         dplyr::filter(module == i) %>%
+                         .[["gene_id"]], 
+                     TERM2GENE = x,
+                     universe = as.character(topHubGenesInModuleAll$gene_id),
+                     pvalueCutoff = 1,
+                     qvalueCutoff = 1,
+                     minGSSize = 5,
+                     maxGSSize = 5000)  %>%
+                as_tibble() %>%
+                mutate(ID = gsub("HALLMARK_", "", ID)) %>%
+                mutate(ID = gsub("KEGG_", "", ID)) %>%
+                mutate(ID = gsub("REACTOME_", "", ID)) %>%
+                as_tibble()
+        }, error = function(e) {})
+    }) 
+}
+
+module_enrichment %>%
+    write_rds(here("data/module_gene_enrichment.rds"))
+
+allC2sets <- lapply(modules, function(x) {
+    list <- dplyr::filter(
+        topHubGenesInModuleAll,
+        module == x
+    )
+    enricher(
+        gene = list$gene_id,
+        universe = as.character(topHubGenesInModuleAll$gene_id),
+        TERM2GENE = genesets$m_df_C2,
+        pAdjustMethod = "BH",
+        pvalueCutoff = 0.01,
+        qvalueCutoff = 0.05
+    )
+})
+names(allC2sets) <- modules
+
+
+allC2KEGGsets <- lapply(modules, function(x) {
+    list <- dplyr::filter(
+        topHubGenesInModuleAll,
+        module == x
+    )
+    enricher(
+        gene = list$gene_id,
+        universe = as.character(topHubGenesInModuleAll$gene_id),
+        TERM2GENE = genesets$m_df_C2KEGG,
+        pAdjustMethod = "BH",
+        pvalueCutoff = 0.01,
+        qvalueCutoff = 0.05)
+})
+names(allC2KEGGsets) <- modules
+
+
+allHallmarkSets <- lapply(modules, function(x) {
+    list <- dplyr::filter(
+        topHubGenesInModuleAll,
+        module == x
+    )
+    enricher(
+        gene = list$gene_id,
+        universe = as.character(topHubGenesInModuleAll$gene_id),
+        TERM2GENE = genesets$m_df_H,
+        pAdjustMethod = "BH",
+        pvalueCutoff = 0.01,
+        qvalueCutoff = 0.05)
+}
+)
+names(allHallmarkSets) <- modules
+
+
+allC2Rsets <- lapply(modules, function(x) {
+    list <- dplyr::filter(
+        topHubGenesInModuleAll,
+        module == x
+    )
+    enricher(
+        gene = list$gene_id,
+        universe = as.character(topHubGenesInModuleAll$gene_id),
+        TERM2GENE = genesets$m_df_C2R,
+        pAdjustMethod = "BH",
+        pvalueCutoff = 0.01,
+        qvalueCutoff = 0.05)
+}
+)
+names(allC2Rsets) <- modules
+```
+
+### Enriched Genes
+Here we just tidy the results from the recursive tests
+```{r}
+module_enrichment_test <- module_enrichment
+
+for(i in modules) {
+  for(j in names(genesets)) {
+    message(paste0("Starting module ", i, "; Geneset ", j))
+    for(k in 1:length(module_enrichment_test[[i]][[j]][["geneID"]])) {
+      module_enrichment_test[[i]][[j]][["geneID"]][k] <- module_enrichment_test[[i]][[j]][["geneID"]][k] %>%
+        str_split("/") %>%
+        as.data.frame() %>%
+        set_colnames("gene_id") %>%
+        left_join(topHubGenesInModuleAll %>%
+                    dplyr::select(gene_id, gene_name), by = "gene_id") %>%
+        dplyr::select("gene_name") %>%
+        as.character() %>% 
+        str_remove("c\\(") %>%
+        str_remove_all('\"') %>%
+        str_remove("\n") %>%
+        str_remove("\\)")
+    }
+  }
+}
+
+write_rds(module_enrichment_test,
+          here("data/module_enrichment_geneNames.rds"))
+```
+
+For instance we can view enriched Hallmark set genes from our above test 
+```{r}
+module_enrichment_test$turquoise$m_df_H
+```
+
+### KEGG Enrichment with Turquoise Genes
+```{r}
+module_enrichment$turquoise$m_df_H %>%
+  dplyr::rename("nGenes" = "Count",
+                "Gene Set" = "ID") %>%
+  dplyr::mutate(GeneRatio = paste0("'", GeneRatio),
+                BgRatio = paste0("'", BgRatio)) %>%
+  write_csv(here("data/tableS6_turquouse_hallmark.csv"))
+
+module_enrichment$turquoise$m_df_C2KEGG %>%
+  dplyr::rename("nGenes" = "Count",
+                "Gene Set" = "ID") %>%
+  dplyr::mutate(GeneRatio = paste0("'", GeneRatio),
+                BgRatio = paste0("'", BgRatio)) %>%
+  write_csv(here("data/tableS6_turquouse_KEGG.csv"))
+```
+
+```{r}
+module_enrichment$turquoise$m_df_C2KEGG %>%
+  dplyr::rename("nGenes" = "Count",
+                "Gene Set" = "ID") %>%
+  dplyr::mutate(GeneRatio = paste0("'", GeneRatio),
+                BgRatio = paste0("'", BgRatio)) %>%
+  DT::datatable()
+```
+
+### KEGG Enrichment with Purple Genes
+```{r}
+module_enrichment$purple$m_df_H %>%
+  dplyr::rename("nGenes" = "Count",
+                "Gene Set" = "ID") %>%
+  dplyr::mutate(GeneRatio = paste0("'", GeneRatio),
+                BgRatio = paste0("'", BgRatio)) %>%
+  write_csv(here("data/tableS7_purple_hallmark.csv"))
+
+module_enrichment$purple$m_df_C2KEGG %>%
+  dplyr::rename("nGenes" = "Count",
+                "Gene Set" = "ID") %>%
+  dplyr::mutate(GeneRatio = paste0("'", GeneRatio),
+                BgRatio = paste0("'", BgRatio)) %>%
+  write_csv(here("data/tableS7_purple_KEGG.csv"))
+```
+
+```{r}
+module_enrichment$purple$m_df_C2KEGG %>%
+  dplyr::rename("nGenes" = "Count",
+                "Gene Set" = "ID") %>%
+  dplyr::mutate(GeneRatio = paste0("'", GeneRatio),
+                BgRatio = paste0("'", BgRatio)) %>%
+  DT::datatable()
+```
+

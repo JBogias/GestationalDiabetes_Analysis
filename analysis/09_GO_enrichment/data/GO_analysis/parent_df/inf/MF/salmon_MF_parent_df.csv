@@ -1,0 +1,4 @@
+module,GO_ID,term.x,pValue,FDR,ontology,sort(module),cluster,parent,score,size,term.y,parentTerm,termUniqueness,termUniquenessWithinCluster,termDispensability
+salmon,GO:0043138,3'-5' DNA helicase activity,3.503798197155184e-5,0.00871545657398215,MF,salmon,1,GO:0043138,2.0597098567046337,14,3'-5' DNA helicase activity,3'-5' DNA helicase activity,0.7306666666666666,0.596,0
+salmon,GO:0003688,DNA replication origin binding,8.38645564792608e-5,0.018210474097484147,MF,salmon,2,GO:0003688,1.7396787474922288,16,DNA replication origin binding,DNA replication origin binding,1,1,0
+salmon,GO:0017116,single-stranded DNA helicase activity,1.8105402114768944e-4,0.03441246647946943,MF,salmon,1,GO:0043138,1.4632841986364207,23,single-stranded DNA helicase activity,3'-5' DNA helicase activity,0.7306666666666666,0.596,0.808

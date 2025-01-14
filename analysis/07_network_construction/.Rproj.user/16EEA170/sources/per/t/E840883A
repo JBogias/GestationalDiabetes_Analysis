@@ -1,0 +1,26 @@
+{
+    "id": "E840883A",
+    "path": "~/Documents/R_Projects/GDM/analysis/07_network_construction/app.R",
+    "project_path": "app.R",
+    "type": "r_source",
+    "hash": "3382117254",
+    "contents": "",
+    "dirty": false,
+    "created": 1723597332310.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "5,54",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1723694546,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1723694546629,
+    "read_only": false,
+    "read_only_alternatives": []
+}

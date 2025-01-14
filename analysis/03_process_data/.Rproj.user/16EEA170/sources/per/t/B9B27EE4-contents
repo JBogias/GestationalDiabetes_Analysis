@@ -1,0 +1,174 @@
+---
+title: "Process Data"
+author: "Justin Bogias"
+date: "2023-11-20"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r}
+library(rmdformats)
+library(rmarkdown)
+library(dplyr)
+library(readr)
+library(stringr)
+library(tidyr)
+library(forcats)
+library(reshape2)
+library(tibble)
+library(magrittr)
+library(edgeR)
+library(DT)
+library(here)
+
+source(here("R/tx_aggregate_gene.R"))
+source(here("R/make_dgelist.R"))
+source(here("R/plot_density.R"))
+source(here("R/plot_library_size.R"))
+source(here("R/plot_normalisation.R"))
+source(here("R/plot_highest_exp.R"))
+```
+
+# Load data
+```{r}
+tx_counts <- read_csv(here("data/tx_counts.csv"))
+gene_txp_anno <- read_csv(here("data/gene_txp_anno.csv.gz"))
+pd <- read_csv(here("data/metadata.csv"))
+```
+
+```{r}
+sample_nms <- colnames(tx_counts)[-1]
+tx_freq <- data.frame()
+
+for(i in sample_nms) {
+  freq <- tx_counts %>%
+    dplyr::select(transcript_id, i) %>%
+    set_colnames(c("transcript_id", "counts")) %>%
+    dplyr::filter(counts > 0) %>%
+    dim()
+  
+  freq_df <- data.frame(i, freq[1]) %>%
+    set_colnames(c("sample_id", "tx_frequency"))
+  
+  tx_freq <- rbind(tx_freq, freq_df)
+}
+
+```
+
+## 3. Process Data
+Aggregate transcript counts to the gene level - this is basically a gene matrix
+In this we're also removing all genes that are found in haplotypes, supercontigs and alternative builds of the genome. This is because we only want genes which have a high degree of confidence from their builds
+```{r aggregate_counts}
+gene_counts <- tx_aggregate_gene(counts = tx_counts,
+                                 anno = gene_txp_anno) %>%
+  round(0)
+```
+
+```{r}
+gene_freq <- data.frame()
+for(i in sample_nms) {
+  freq <- gene_counts %>%
+    as.data.frame() %>%
+    rownames_to_column("gene_id") %>%
+    dplyr::select(gene_id, i) %>%
+    set_colnames(c("gene_id", "counts")) %>%
+    dplyr::filter(counts > 0) %>%
+    dim()
+  
+  freq_df <- data.frame(i, freq[1]) %>%
+    set_colnames(c("sample_id", "gene_frequency"))
+  
+  gene_freq <- rbind(gene_freq, freq_df)
+}
+
+table_s2 <- gene_freq %>%
+  left_join(tx_freq,
+            by = "sample_id") %>%
+  dplyr::arrange(tx_frequency)
+
+table_s2 %>%
+  write_csv(here("data/table_s2.csv"))
+
+table_s2$gene_frequency %>% mean
+table_s2$tx_frequency %>% mean
+```
+
+For the WGCNA to work I need to use gene-level counts. I'll aggregate the transcript-level abundances to the gene level.
+
+```{r plot_density}
+plot_density(gene_counts = gene_counts)
+```
+
+Create DGElist here
+```{r DGElist}
+dgelist <- make_dgelist(counts = gene_counts,
+                        metadata = pd,
+                        annotation = gene_txp_anno)
+```
+
+```{r plotLibrarySize}
+plot_library_size(dgelist = dgelist)
+```
+
+Plot effects of normalisation
+```{r plotNormalisation}
+plot_normalisation(dgelist = dgelist)
+```
+
+# Figure - Highest expressed genes
+```{r highest_expression}
+plot_highest_exp(dgelist = dgelist,
+                 metadata = pd,
+                 annotation = gene_txp_anno)
+```
+
+# Parallel workflow - low lib sizes removed
+# Load data
+```{r eval=FALSE}
+tx_counts_alt <- read_csv(here("data/libsize_filt_counts.csv"))
+pd <- pd %>% dplyr::filter(ID %in% colnames(tx_counts_alt))
+```
+
+## 3. Process Data
+Aggregate transcript counts to the gene level - this is basically a gene matrix
+In this we're also removing all genes that are found in haplotypes, supercontigs and alternative builds of the genome. This is because we only want genes which have a high degree of confidence from their builds
+```{r aggregate_counts_parallel, eval=FALSE}
+gene_counts <- tx_aggregate_gene(counts = tx_counts,
+                                 anno = gene_txp_anno) %>%
+  round(0)
+```
+
+For the WGCNA to work I need to use gene-level counts. I'll aggregate the transcript-level abundances to the gene level.
+
+```{r plot_density_parallel, eval=FALSE}
+plot_density(gene_counts = gene_counts)
+```
+
+Create DGElist here
+```{r DGElist_parallel, eval=FALSE}
+dgelist <- make_dgelist(counts = gene_counts,
+                        metadata = pd,
+                        annotation = gene_txp_anno)
+```
+
+```{r plotLibrarySize_parallel, eval=FALSE}
+plot_library_size(dgelist = dgelist)
+```
+
+Plot effects of normalisation
+```{r plotNormalisation_parallel, eval=FALSE}
+plot_normalisation(dgelist = dgelist)
+```
+
+# Figure - Highest expressed genes
+```{r highest_expression_parallel, eval=FALSE}
+plot_highest_exp(dgelist = dgelist,
+                 metadata = pd,
+                 annotation = gene_txp_anno)
+```

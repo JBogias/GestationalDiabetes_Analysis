@@ -1,0 +1,107 @@
+---
+title: "Annotations"
+author: "Justin Bogias"
+date: "`r format(Sys.Date(), '%d %b, %Y')`"
+output: 
+  rmdformats::readthedown
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+In this small workflow, I document the formation of the annotations used for my Whole Genome Co-Expression Network Analysis on placental chorionic villus samples collected at term (post-delivery) from mothers with uncomplicated and GDM pregnancies.
+
+# Load Packages
+```{r message=FALSE, warning=FALSE}
+library(rmdformats)
+library(rmarkdown)
+library(dplyr)
+library(readr)
+library(stringr)
+library(tidyr)
+library(tibble)
+library(magrittr)
+library(ensembldb)
+library(AnnotationHub)
+library(org.Hs.eg.db)
+library(DT)
+library(here)
+```
+
+## 1. Generate Annotations
+Gene and transcript annotations are sourced from `AnnotationHub`. Specifically the `GRCh37` version 75 (latest) is used.
+```{r annotation_hub}
+ah <- AnnotationHub()
+
+query(ah, c("Homo sapiens", "grch37", "75"))
+
+gene_txp_anno <- ah[["AH10684"]] %>%
+  as_tibble() %>%
+  dplyr::filter(
+    type %in% c("gene", "transcript")
+  ) %>%
+  dplyr::select(
+    "start",
+    "end",
+    "length" = "width",
+    "strand",
+    "gene_id",
+    "gene_name",
+    "gene_biotype",
+    "source",
+    "chromosome" = "seqnames",
+    "transcript_id",
+    "transcript_name",
+    "type"
+    ) %>%
+  dplyr::filter(
+    !str_detect(
+      chromosome,
+      "^G|^H"
+    )
+  )
+
+gene_txp_anno <- gene_txp_anno %>%
+  mutate(chromosome = factor(chromosome,
+                             levels = unique(gene_txp_anno$chromosome)))
+
+write_csv(gene_txp_anno, here("data/gene_txp_anno.csv.gz"))
+```
+
+Annotation datasets specific to the gene and transcript levels are specified here. Length for both. 
+
+# Gene Annotations
+The gene level annotations are formed and shown
+```{r gene_anno}
+gene_anno <- gene_txp_anno %>%
+  dplyr::filter(type == "gene") %>%
+  dplyr::select(-transcript_id, 
+                -transcript_name,
+                -type) %>%
+  mutate(
+    region_key = paste0(
+      chromosome, ":", start, "-", end, ":", strand
+    )
+  )
+
+DT::datatable(head(gene_anno, 100))
+```
+
+# Transcript Annotations
+The transcript level annotations are formed and shown
+```{r transcript_anno}
+transcript_anno <- gene_txp_anno %>%
+  dplyr::filter(type == "transcript") %>%
+  dplyr::select(-gene_id,
+                -type) %>%
+  mutate(
+    region_key = paste0(
+      chromosome, ":", start, "-", end, ":", strand
+    )
+  )
+
+DT::datatable(head(transcript_anno, 100))
+```
